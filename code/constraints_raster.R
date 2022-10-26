@@ -2,7 +2,6 @@
 ### Rasterizing Data ###
 ########################
 
-
 # Clear environment
 rm(list = ls())
 
