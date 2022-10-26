@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin>Dr. William S. Arnold, Caribbean Branch Chief, NOAA/NMFS/SERO</origin>
+<pubdate>2011</pubdate>
+<title>GOM_Oysters_DigitalAtlas2011</title>
+<geoform>vector digital data</geoform>
+</citeinfo>
+</citation>
+<descript>
+<abstract>1985 Gulf of Mexico Atlas abstract American oyster Crassostrea virginica Osti&#243;n americano Description Range: The American oyster, a bivalve mollusc of the family Ostreidae, is found in the western Atlantic from the Gulf of St. Lawrence to the Yucatan Peninsula. In the Gulf, this species occurs throughout estuaries, shallow nearshore waters, and on reefs located near river mouths. Habitat: Large populations of this benthic invertebrate are found in the large estuarine bays and sounds of the Gulf (with most concentrations found within 10-meter depths). Sedentary in character, this invertebrate attaches in clusters to shell reefs, firm mud/shell bottoms and other hard substrates. Feeding and Behavior: The American oyster filter-feeds principally on small unicellular algae and incidentally on suspended detrital particles. It is found in association with numerous predators, commensals, and parasites. Reproduction: Spawning also occurs in estuarine habitats. In the Gulf of Mexico, April to October are the most active months, although spawning has been reported during all months except February and March. Nursery areas are found in estuarine waters. Movement: Planktonic larvae drift with the tides and currents until they settle on solid substrate. Fisheries: This species is commercially harvested throughout its range for its meat, the seasonality for harvesting being state regulated. The fishery for this species is the fourth largest in the U.S. Gulf of Mexico and there is also a commercial fishery in Mexican waters. The species is harvested recreationally.</abstract>
+<purpose>To display American oyster (Crassostrea virginica Osti&#243;n americano) habitats in the 2011 Gulf of Mexico Digital Atlas.</purpose>
+</descript>
+<timeperd>
+<timeinfo>
+<rngdates>
+<begdate>1969</begdate>
+<enddate>2009</enddate>
+</rngdates>
+</timeinfo>
+<current>ground condition</current>
+</timeperd>
+<status>
+<progress>Complete</progress>
+<update>As needed</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-97.517836</westbc>
+<eastbc>-81.506342</eastbc>
+<northbc>30.662095</northbc>
+<southbc>25.886612</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>None</themekt>
+<themekey>oyster</themekey>
+<themekey>oyster reef</themekey>
+<themekey>oyster habitat</themekey>
+<themekey>American oyster</themekey>
+<themekey>Eastern oyster</themekey>
+<themekey>Crassostrea Virginica</themekey>
+<themekey>oyster lease</themekey>
+<themekey>oyster reef survey</themekey>
+<themekey>shellfish</themekey>
+<themekey>shell-hash</themekey>
+<themekey>coastal resources</themekey>
+<themekey>coastal natural resources</themekey>
+<themekey>coastal zone management</themekey>
+<themekey>esi</themekey>
+<themekey>environmental sensitivity index</themekey>
+<themekey>sensitivity maps</themekey>
+<themekey>biological</themekey>
+<themekey>wildlife</themekey>
+<themekey>estuarine</themekey>
+<themekey>subtidal</themekey>
+<themekey>intertidal</themekey>
+<themekey>habitat</themekey>
+<themekey>habitat assessment</themekey>
+<themekey>coastal natural resources</themekey>
+<themekey>dredge survey</themekey>
+<themekey>grab samples</themekey>
+<themekey>vibracores</themekey>
+<themekey>bathymetry</themekey>
+<themekey>side-scan</themekey>
+<themekey>single beam bathymetry</themekey>
+<themekey>chirp sonar sub-bottom profile</themekey>
+<themekey>radiocarbon date</themekey>
+<themekey>seismic</themekey>
+</theme>
+<place>
+<placekt>Marine Ecoregions of the World</placekt>
+<placekey>Gulf Of Mexico</placekey>
+<placekey>Southeast Shelf</placekey>
+<placekey>Carolinian</placekey>
+<placekey>Northern Gulf Of Mexico</placekey>
+<placekey>Floridian</placekey>
+</place>
+<place>
+<placekt>None</placekt>
+<placekey>US</placekey>
+<placekey>USA</placekey>
+<placekey>United States</placekey>
+<placekey>United States of America</placekey>
+<placekey>Gulf of Mexico</placekey>
+<placekey>Gulf of Mexico Coast</placekey>
+<placekey>Gulf Intracoastal Waterway</placekey>
+<placekey>Coastal</placekey>
+<placekey>Texas</placekey>
+<placekey>TX</placekey>
+<placekey>Texas Gulf Coast</placekey>
+<placekey>Aransas Bay</placekey>
+<placekey>Ayers Bay</placekey>
+<placekey>Bastrop Bay</placekey>
+<placekey>Carancahua Bay</placekey>
+<placekey>Carlos Bay</placekey>
+<placekey>Chocolate Bay</placekey>
+<placekey>Christmas Bay</placekey>
+<placekey>Coon Island Bay</placekey>
+<placekey>Copano Bay</placekey>
+<placekey>Corpus Christi Bay</placekey>
+<placekey>Cox Bay</placekey>
+<placekey>East Bay</placekey>
+<placekey>Espiritu Santo Bay</placekey>
+<placekey>Galveston Bay</placekey>
+<placekey>Guadalupe Bay</placekey>
+<placekey>Hynes Bay</placekey>
+<placekey>Keller Bay</placekey>
+<placekey>Lavaca Bay</placekey>
+<placekey>Lower Laguna Madre</placekey>
+<placekey>Matagorda Bay</placekey>
+<placekey>Mesquite Bay</placekey>
+<placekey>Mission Bay</placekey>
+<placekey>Nueces Bay</placekey>
+<placekey>Oso Bay</placekey>
+<placekey>Oyster Lake</placekey>
+<placekey>Powderhorn Bayou</placekey>
+<placekey>Powderhorn Lake</placekey>
+<placekey>Redfish Bay</placekey>
+<placekey>Sabine Lake</placekey>
+<placekey>San Antonio Bay</placekey>
+<placekey>South Bay</placekey>
+<placekey>South Pass Lake</placekey>
+<placekey>St Charles Bay</placekey>
+<placekey>Sundown Bay</placekey>
+<placekey>Tres Palacios Bay</placekey>
+<placekey>Trinity Bay</placekey>
+<placekey>Upper Laguna Madre</placekey>
+<placekey>West Bay</placekey>
+</place>
+<temporal>
+<tempkt>None</tempkt>
+<tempkey>1996-2009</tempkey>
+</temporal>
+</keywords>
+<accconst>Privacy Policy We are committed to the privacy of our visitors. We collect no personal information about you when you visit our Web site unless you choose to provide that information to us. Here is how we handle information about your visit to our Web site. Information Collected and Stored Automatically: If you do nothing during your visit but browse through the Web site, read pages or download information, we will gather and store certain information about your visit automatically. This information does not identify you personally. We automatically collect and store information like the following concerning your visit. The Internet domain (for example, "xcompany.com" if you use a private Internet access account, or "yourschool.edu" if you connect from a university's domain); Your IP address (an IP address is a number that is automatically assigned to your computer whenever you are surfing the Web) from which you access our Web site. The type of browser and operating system used to access our site; The date and time you access our site; The pages you visit; and If you linked to our Web site from another Web site, the address of that Web site. We use this information to help us make our site more useful to visitors?to learn about the number of visitors to our site and the types of technology our visitors use. Information Protection For site security purposes and to ensure that this service remains available to all users, this government computer system employs software programs to monitor network traffic to identify unauthorized attempts to upload or change information, or otherwise cause damage. If such monitoring reveals evidence of possible abuse or criminal activity, such evidence may be provided to appropriate law enforcement officials. Unauthorized attempts to upload or change information on this server are strictly prohibited and may be punishable under the Computer Fraud and Abuse Act of 1986 and the National Information Infrastructure Protection Act or other law. Information That You Voluntarily Provide We do not collect personally-identifiable information unless you choose to provide it to us. If you provide us with personally identifiable information, for example by sending an e-mail or by filling out a form and submitting it through our Web site, we use that information only to respond to your message and to help us provide you with the information and services that you request. Submitting voluntary information constitutes your consent to the use of the information for the stated purpose. When a user clicks the "Submit" button on any of the Web forms found on our site they are indicating voluntary consent to use of the information they submit for the stated purpose. We do not collect or use information for commercial marketing. How Information is Used The information we collect is used for a variety of purposes (e.g., comments on proposed rules, license applications, to respond to requests for information about our regulations and policies and to fill orders). We make every effort to disclose clearly how information is used at the point where it is collected so that our users can determine for themselves whether they wish to provide the information. Sharing of Information We may share the information you give us with another government agency if your inquiry relates to that agency. In other limited circumstances, such as responses to requests from Congress and private individuals, we may be required by law to disclose information you submit. Before you submit personally identifiable information, such as on an online form, you will be advised as to the purpose and how the information will be used. Retention of Information We destroy the information we collect when the purpose for which it was provided has been fulfilled unless we are required to keep it longer by statute or official policy. Electronically submitted information is maintained and destroyed according to the principles of the Federal Records Act and the regulations and records schedules approved by the National Archives and Records Administration, and in some cases information submitted to us may become an agency record and therefore might be subject to a Freedom of Information Act request. Links to Other Sites This site may have links to the Web sites of other federal agencies. There may be links to private organizations, with their permission. Once you go to another site, you are subject to the privacy policy of the new site. It is always a good idea to read the Privacy Policy of any Web site that you visit. Cookies "Cookies" are small bits of text that are either used for the duration of a session ("session cookies"), or saved on a user's hard drive in order to identify that user, or information about that user, the next time the user logs on to a Web site ("persistent cookies"). This Web site does not use persistent cookies or any other persistent tracking technology. One or more of our component sites may use session cookies to provide streamlined navigation. These session cookies are deleted from the component's server after your session ends and information from them is not collected or saved. Interaction with Children This Web site may offer educational content to children under 13. No personally identifiable information is collected from them unless voluntarily submitted as a request for information or services. The information collected is used to respond to user inquiries or to provide services requested by our users. Your Rights Under the Privacy Act More information about the Privacy Act can be found at: http://www.noaa.gov/privacy.html</accconst>
+<useconst>More information about the Privacy Act can be found at: http://www.noaa.gov/privacy.html</useconst>
+<native>Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000 Program_Affiliation: Program_Name: National Coastal Data Development Center IMS Services</native>
+</idinfo>
+<dataqual>
+<logic>None</logic>
+<complete>None</complete>
+<lineage>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>BioWest,Inc. for Lower Colorado River Authority and San Antonio Water System</origin>
+<pubdate>200706</pubdate>
+<title>Oysters, Eastern Arm of Matagorda Bay (2007_NCRD_Oysters.shp).</title>
+<pubinfo>
+<pubplace>Texas, USA</pubplace>
+<publish>Lower Colorado River Authority and San Antonio Water System</publish>
+</pubinfo>
+<othercit>A complete metadata record for this dataset was not available at the time this data was published. Abstract: oyster reef in the Colorado River delta in the eastern arm of Matagorda Bay, mapped in 2007. In late February 2007, just after a northern that blew through and made the delta shallow, BIO-West had aerials flown of the delta. They digitize the aerials. Then, BIO-West went out in an airboat at high tide in the delta area and coded the oyster formations by percentage density. Melissa F. told me they coded: 0-25%, scattered shell; 25-75%, no specific label; 75-100%, solid reef. They incorporated this oyster reef data into the habitat assessment file for the Matagorda Bay Health Evaluation Project (final report 2008). Now one discrepancy- I'm looking at the table for the shapefile, and under density, I see 25, 50, 75. I'm going to assume 25 means 0-25%, scattered shell; 50 means 25-75%; and 75 means 75-100%, solid reef." Kathleen Welder HRI TAMU-CC Oyster reef distribution in and around the project area, Eastern Arm of Matagorda Bay (EAMB) and East Matagorda Bay (EMB), was previously mapped by Texas Parks and Wildlife (TPWD) and the TexasGeneral Land Office (GLO) using various sources. The MBHE project team conducted a fieldground-truthing effort in October 2005 to verify and update the distribution maps.Large areas of previously undocumented oyster reefs were identified in the immediate area ofthe new Colorado River delta (CRD) during the 2006 field activities.The extent of Eastern oyster (Crassostrea virginica) reefs in shallow waters in the vicinity of the CRD was revealed during an airboat survey of the area in the fall of 2006 and again in February 2007. The density of these reefs varied from scattered individual oyster clumps to solid oyster reef. On March 5, 2007 the Colorado River Delta (CRD) area was flown and aerial photography was taken directly after a cold front had passed (when strong North winds result in extremely low water levels, exposing much of the delta bay bottom). These aerial photographs were geo-rectified and utilized in GIS form to assess the location and density of oyster reef coverage in the region. Areas possessing oyster reef coverage were digitized with ESRI ArcMap software and categorized into one of three densities: 25% coverage of scattered reef, 25-75% coverage of reef and 75% solid reef areas. Examples of these density categories as seen in the field are provided in Figures 3.1, 3.2 and 3.3 of the 2007 MBHE Report. Mapped oyster reef locations and densities were verified on April 11, 2007 utilizing an airboat and a Trimble Pro XRS GPS unit with sub-meter accuracy. The final mapped extent of oyster reef in the CRD comprised 147.1 acres, which amounts to approximately 20% of the mapped oyster reef in East Matagorda Bay (EMB) and 13% of the mapped oyster reef in the Eastern Arm of Matagorda Bay (EAMB) (Figure 3.4). Of this total, 31.4 acres were classified as 25% coverage by oysters, 60.4acres were classified as 25-75% coverage by oysters, and 55.3 acres were classified as 75%coverage by oysters. The oyster coverage mapped in the CRD in 2007 was added to the final physical habitat map to provide a comprehensive map of existing physical habitat within the project area (Figure 3.5). This final habitat map serves as the physical habitat input to the GIS-based habitat model. This map also has the potential to be updated in the future, as potential changes to physical habitat in the project area occur. Purpose: To conduct the Matagorda Bay Health Evaluation habitat assessment, statistical models of oyster reef condition, and spatially referenced habitat models were generated using GIS. Fieldwork was conducted to verify previous oyster mapping from TPWD and GLO in EMB and EAMB. Fieldwork was also conducted to map the unmapped extent of oysters in the Colorado River delta(CRD) region . The new CRD oyster mapping was added to the physical habitat input file for the MBHE habitat model.During fieldwork conducted in spring 2007, data was collected on commercial size oysters and dermo infestation of reefs in the CRD and East Matagorda Bay (EMB), as was information on the use of shallow estuarine habitats by juvenile shellfish and finfish across the Matagorda Bay system. (Data was available for EAMB from another monitoring program).</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>200706</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Eastern Arm of Matagorda Bay Oyster Reefs</srccitea>
+<srccontr>Eastern Arm of Matagorda Bay Oyster Reefs</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>BioWest,Inc. PBS&amp;J, Texas Parks and Wildlife Department, and Lower Colorado River Authority and San Antonio Water System</origin>
+<pubdate>200706</pubdate>
+<title>Oysters, Matagorda Bay, Texas (oyster_reefs.shp)</title>
+<pubinfo>
+<pubplace>Texas, USA</pubplace>
+<publish>BioWest,Inc &amp; Lower Colorado River Authority and San Antonio Water System</publish>
+</pubinfo>
+<othercit>Oyster Areas Eastern Arm of Matagorda Bay Abstract:Oyster reefs in Matagorda Bay. PBS&amp;J conducted a 3-day effort in 2005. The created transects in the above areas and dredged for shell and reef. They used their field effort and existing TPWD data to create their reef map (which was not meant to be comprehensive of entire Matagorda Bay). They also coded the reef as 25-50% , and 75-100%." Kathleen Welder HRI TAMU-CC Oyster reef distribution in and around the project area, Eastern Arm of Matagorda Bay (EAMB) and East Matagorda Bay (EMB), was previously mapped by Texas Parks and Wildlife (TPWD) and the TexasGeneral Land Office (GLO) using various sources. The MBHE project team conducted a fieldground-truthing effort in October 2005 to verify and update the distribution maps.Large areas of previously undocumented oyster reefs were identified in the immediate area ofthe new Colorado River delta (CRD) during the 2006 field activities.The extent of Eastern oyster (Crassostrea virginica) reefs in shallow waters in the vicinity of the CRD was revealed during an airboat survey of the area in the fall of 2006 and again in February 2007. The density of these reefs varied from scattered individual oyster clumps to solid oyster reef. On March 5, 2007 the Colorado River Delta (CRD) area was flown and aerial photography was taken directly after a cold front had passed (when strong North winds result in extremely low water levels, exposing much of the delta bay bottom). These aerial photographs were geo-rectified and utilized in GIS form to assess the location and density of oyster reef coverage in the region. Areas possessing oyster reef coverage were digitized with ESRI ArcMap software and categorized into one of three densities: 25% coverage of scattered reef, 25-75% coverage of reef and 75% solid reef areas. Examples of these density categories as seen in the field are provided in Figures 3.1, 3.2 and 3.3 of the 2007 MBHE Report. Mapped oyster reef locations and densities were verified on April 11, 2007 utilizing an airboat and a Trimble Pro XRS GPS unit with sub-meter accuracy. The final mapped extent of oyster reef in the CRD comprised 147.1 acres, which amounts to approximately 20% of the mapped oyster reef in East Matagorda Bay (EMB) and 13% of the mapped oyster reef in the Eastern Arm of Matagorda Bay (EAMB) (Figure 3.4). Of this total, 31.4 acres were classified as 25% coverage by oysters, 60.4acres were classified as 25-75% coverage by oysters, and 55.3 acres were classified as 75%coverage by oysters. The oyster coverage mapped in the CRD in 2007 was added to the final physical habitat map to provide a comprehensive map of existing physical habitat within the project area (Figure 3.5). This final habitat map serves as the physical habitat input to the GIS-based habitat model. This map also has the potential to be updated in the future, as potential changes to physical habitat in the project area occur. Purpose: To conduct the Matagorda Bay Health Evaluation habitat assessment, statistical models of oyster reef condition, and spatially referenced habitat models were generated using GIS. Fieldwork was conducted to verify previous oyster mapping from TPWD and GLO in EMB and EAMB. Fieldwork was also conducted to map the unmapped extent of oysters in the Colorado River delta(CRD) region . The new CRD oyster mapping was added to the physical habitat input file for the MBHE habitat model.During fieldwork conducted in spring 2007, data was collected on commercial size oysters and dermo infestation of reefs in the CRD and East Matagorda Bay (EMB), as was information on the use of shallow estuarine habitats by juvenile shellfish and finfish across the Matagorda Bay system. (Data was available for EAMB from another monitoring program).</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>200706</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Matagorda Bay Oyster Reefs</srccitea>
+<srccontr>Matagorda Bay Oyster Reefs</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Dellapenna, Dr. Timothy M., Department of Marine Sciences Texas A&amp;M University at Galveston (TAMUG); Erin Weaver, Department of Oceanography Texas A&amp;M University at Galveston (TAMUG); The Institute for Coastal Studies at Texas A&amp;M University at Corpus Christi (TAMUCC); James Simons, Texas Parks and Wildlife Department (TPWD); and Alex Simmons and Taylor Traviani, Oregon State University (OSU)</origin>
+<pubdate>2010</pubdate>
+<title>Oyster Reef, Copano Bay, Texas, TAMUG, TAMUCC, TPWD, OSU, 2007 (OysterReef.shp)</title>
+<pubinfo>
+<pubplace>Corpus Christi, Texas, USA</pubplace>
+<publish>Texas Parks and Wildlife Department (TPWD)</publish>
+</pubinfo>
+<othercit>See Oyster reef and seabed mapping of Copano Bay - CMP Cycle 11 Final Report (Copano Bay Final Report.pdf Abstract: Oysters play an important role in maintaining water quality and providing habitat for juvenile fish, such as black drum, toadfish and sheepshead, and other marine organisms including crabs, shrimp, mud worms and mussells in estuaries (Kilgen and Dugas, 1989). It is important to understand what factors control oyster distribution to effectively maintain and manage the present oyster reefs and associated habitats. Understanding controls on distribution can also aid in oyster reef protection and restoration efforts.The American or Eastern Oyster (Crassostrea virginica) is the prevalent oyster species along the northern Gulf of Mexico coast, including Copano Bay, Texas. C. virginica has a free-swimming larval stage, lasting 14 to 30 days, after which the larva goes through a settling, or spatting process in which it must permanently attach itself to the bottom (Kennedy, 1996). During the larval stage, the oyster is susceptible to the multitude of estuarine hydrodynamic processes that distribute the larva throughout the estuary. C. virginica is a filter feeder, so it needs to settle and attach to a site which will permanently keep it out of the fine bay bottom mud to avoid suffocation by fine-grained sediment. It also needs to settle within the intertidal to subtidal portion of the bay, to allow it access to tidal flow and nutrients (Kennedy, 1996). Over the course of history in Texas bay systems, the oysters have been able to accumulate and form reefs in areas that are favorable to their success. Copano Bay is an "upper bay" system within the Mission-Aransas-Copano Bay system (Figure 1). Copano Bay has undergone very little modification, it has no dredged navigational channels and in general lacks significant infrastructural modifications found in other bays, such as Galveston, Corpus Christi or Lavaca Bays. As a result, it is an ideal setting to investigate the natural controls on oyster reef distribution. The oyster reefs in Copano Bay appear to consist of longitudinal reefs attached to the shoreline extending perpendicularly into the bay, longitudinal reefs in the middle of the bay oriented parallel to shoreline and patch reefs that are randomly oriented throughout the bay. Surficial sediments contained within Copano Bay consist primarily of unconsolidated muds, sands, and shell gravel. With the lack of obvious controls on the distribution of oyster reefs, such as rock outcrops, the big question is, what does control their distribution? It is our contention that the natural distribution of oyster reefs in Copano Bay are controlled mainly by the antecedent geology found beneath the bay sediment. Oysters will form in areas where there exists shallow, hard substrate ideal for oyster attachment. Studying the underlying geology of oyster reefs could have major implications on understanding their distribution. This study will have significant implications for the future research and resource management in Copano Bay, such as oyster reef protection and restoration. Restored reefs can be placed in areas where known stable underlying geology is present to ensure the reef is successful and the oysters not subside into the soft bay mud and become suffocated by fined grained sediment particles. If large extents of buried oyster reefs are found, this could indicate an enormous decline in oyster reef population over time and actions could be taken to prevent any further decline from happening.Copano Bay has undergone very little modification, it has no dredged navigational channels and in general lacks significant infrastructural modifications found in other bays, such as Galveston, Corpus Christi or Lavaca Bays. As a result, it is an ideal setting to investigate the natural controls on oyster reef distribution. The oyster reefs in Copano Bayappear to consist of longitudinal reefs attached to the shoreline extending perpendicularly into the bay, longitudinal reefs in the middle of the bay oriented parallel to shoreline and patch reefs that are randomly oriented throughout the bay. Surficial sediments contained within Copano Bay consist primarily ofunconsolidated muds, sands, and shell gravel. With the lack of obvious controls on the distribution of oyster reefs, such as rock outcrops, the big question is, what does control their distribution? It is our contention that the natural distribution of oyster reefs in Copano Bay are controlled mainly by the antecedent geology found beneath the bay sediment.Oysters will form in areas where there exists shallow, hard substrate ideal for oyster attachment. Studying the underlying geology of oyster reefs could have major implications on understanding their distribution. This study will have significant implications for the future research and resource management in Copano Bay, such as oyster reef protection and restoration. Restored reefs can be placed in areas where known stable underlying geology is present to ensure the reef is successful and the oysters not subside into the soft bay mud and become suffocated by fined grained sediment particles. If large extents of buried oyster reefs are found, this could indicate an enormous decline in oyster reef population over time and actions could be taken to prevent any further decline from happening. Purpose: For the purpose of this study, the substrate type will be considered the most important influencefor the initial distribution of oyster reefs. Regardless of other environmental conditions, the substratemust be suitable for initial oyster colonization or the oyster will not survive. Where there are oyster reefspresent in the geologic past, there was adequate substrate for initial settlement. Adequate substrateincludes any hard, smooth surface such as compacted mud, sand or shell shoals, lose shell or sunken logs.Loose sand or mud can shift and break the oyster free of its anchor, or bury and suffocate it (Kennedy,1996). The ideal substrate for larval oysters has been found to be existing reef or oyster shells (Kilgen andDugas 1989; Stanley and Sellers 1986; Michener and Kenny 1991; Kennedy, 1996). Some current oysterreefs are most likely built on top of reefs that initially grew thousands of years ago when the incisedpaleo-river valleys began to fill with sediment (Bouma, 1976). The oyster reefs build up vertically andout horizontally with new oysters growing atop older ones. Ideally, without significant outside physicalinfluences to move them, the present day oyster reefs would exist in the same general locations as wherethey were initially colonized, only to a larger extent. However, oyster reefs do not only build atop otherreefs. If suitable substrate is formed or becomes available elsewhere, larvae will also settle atop itforming a new reef. Therefore each reef in the current oyster reef distribution may have differentgeologic controls. Supplemental Information: This is the final report of our CMP Cycle 12 project to identify and delineate oyster reefsand other bottom features in Copano Bay. This project was conducted during twosuccessive CMP Cycles, Cycles 11 &amp; 12. During the Cycle 11 we conducted the bulk ofthe field component of the geophysical mapping. During Cycle 12 will processed thegeophysical data and generate maps and prepare the final report and conducted followupfield work, including field verification of the areas identified as reef. This project is acooperative effort between Department of Oceanography, Texas A&amp;M University(TAMU), Department of Marine Sciences Texas A&amp;M University at Galveston(TAMUG); the Institute for Coastal Studies at Texas A&amp;M University at Corpus Christi(TAMUCC), and the Texas Parks and Wildlife Department (TPWD). Use Constraints: Citation of the Oyster reef and seabed mapping of Copano Bay ? CMP Cycle 11 Final Report by Dr. Timothy M. Dellapenna, TAMUG; Erin Weaver, TAMUG; Dr. James Simons, TPWD; Dr. Alex Simms, OSU; and Taylor Traviani, OSU is appreciated. Logical Consistency Report: To test the validity of our oyster reef map we conducted a survey to verify the accuracy of ourinterpretations. To do this a geo-referenced grid was placed over the mapped area in GIS with a grid area of 4 kilometers squared, or a grid length/width of 2,000 meters. Then points were randomly selected in each grid using GIS for each mapped category, for a total of 155 survey sites. We used a stratified design selecting 50 sites in the Oyster Reef category, 31 on Mud, 20 on Sand, and 10 each on Shell on Mud and Shell on Sand.At each each station physico-chemical data (depth, water temperature, dissolved oxygen, percentsaturation, pH, salinity), secchi depth, wind speed and direction, and sea state data were collected. For theoyster dredge collections we employed the data collection procedures employed by the TPWD CoastalFisheries Division for their oyster population surveys (TPWD, 2002). This includes, in addition to countsof live oysters and dead shell, a count of live spat on five live oysters and five dead shells, plus the lengthsof up to 19 live oysters are measured.An initial analysis of the data (UNIVARIATE; SAS, 1990) determined that the count data for liveoysters and dead shell was not normally distributed as there was an abundance of zero values. Ananalysis of variance (ANOVA) was performed on the ranked count data for both live oysters and deadshell. Then a Tukey type multiple comparison was performed on the map classification categories forboth the live oyster and dead shell (Zar, 1999). These analyses were performed on both the originalvalidation data and the supplemented validation data with the adjusted map classification categories. Completeness Report: Over 200 survey lines each with a spacing interval of 150 m provided nearly completecoverage of the baybottom. Survey cover was limited to areas with a minimum of 1.2 m water depth toprotect the equipment from damage. Attribute Accuracy Report: Validation of oyster reef mapsTo test the validity of our oyster reef map we conducted a survey to verify the accuracy of ourinterpretations. To do this a geo-referenced grid was placed over the mapped area in GIS with a grid areaof 4 kilometers squared, or a grid length/width of 2,000 meters. Then points were randomly selected ineach grid using GIS for each mapped category, for a total of 155 survey sites. We used a stratified designselecting 50 sites in the Oyster Reef category, 31 on Mud, 20 on Sand, and 10 each on Shell on Mud andShell on Sand.At each each station physico-chemical data (depth, water temperature, dissolved oxygen, percentsaturation, pH, salinity), secchi depth, wind speed and direction, and sea state data were collected. For theoyster dredge collections we employed the data collection procedures employed by the TPWD CoastalFisheries Division for their oyster population surveys (TPWD, 2002). This includes, in addition to countsof live oysters and dead shell, a count of live spat on five live oysters and five dead shells, plus the lengthsof up to 19 live oysters are measured.An initial analysis of the data (UNIVARIATE; SAS, 1990) determined that the count data for liveoysters and dead shell was not normally distributed as there was an abundance of zero values. Ananalysis of variance (ANOVA) was performed on the ranked count data for both live oysters and deadshell. Then a Tukey type multiple comparison was performed on the map classification categories forboth the live oyster and dead shell (Zar, 1999). These analyses were performed on both the originalvalidation data and the supplemented validation data with the adjusted map classification categories.</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>200707</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Copano Bay Oyster Reefs</srccitea>
+<srccontr>Copano Bay Oyster Reefs</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Dellapenna, Dr. Timothy M., Department of Marine Sciences Texas A&amp;M University at Galveston (TAMUG); Erin Weaver, Department of Oceanography Texas A&amp;M University at Galveston (TAMUG); The Institute for Coastal Studies at Texas A&amp;M University at Corpus Christi (TAMUCC); James Simons, Texas Parks and Wildlife Department (TPWD); and Alex Simmons and Taylor Traviani, Oregon State University (OSU)</origin>
+<pubdate>2010</pubdate>
+<title>Oyster Reef, Copano Bay, Texas, TAMUG, TAMUCC, TPWD, OSU, 2007 (ShellonMud.shp)</title>
+<pubinfo>
+<pubplace>Corpus Christi, Texas, USA</pubplace>
+<publish>Texas Parks and Wildlife Department (TPWD)</publish>
+</pubinfo>
+<othercit>See Oyster reef and seabed mapping of Copano Bay - CMP Cycle 11 Final Report (Copano Bay Final Report.pdfAbstract: Oysters play an important role in maintaining water quality and providing habitat for juvenile fish, such as black drum, toadfish and sheepshead, and other marine organisms including crabs, shrimp, mud worms and mussells in estuaries (Kilgen and Dugas, 1989). It is important to understand what factors control oyster distribution to effectively maintain and manage the present oyster reefs and associated habitats. Understanding controls on distribution can also aid in oyster reef protection and restoration efforts.The American or Eastern Oyster (Crassostrea virginica) is the prevalent oyster species along the northern Gulf of Mexico coast, including Copano Bay, Texas. C. virginica has a free-swimming larval stage, lasting 14 to 30 days, after which the larva goes through a settling, or spatting process in which it must permanently attach itself to the bottom (Kennedy, 1996). During the larval stage, the oyster is susceptible to the multitude of estuarine hydrodynamic processes that distribute the larva throughout the estuary. C. virginica is a filter feeder, so it needs to settle and attach to a site which will permanently keep it out of the fine bay bottom mud to avoid suffocation by fine-grained sediment. It also needs to settle within the intertidal to subtidal portion of the bay, to allow it access to tidal flow and nutrients (Kennedy, 1996). Over the course of history in Texas bay systems, the oysters have been able to accumulate and form reefs in areas that are favorable to their success. Copano Bay is an "upper bay" system within the Mission-Aransas-Copano Bay system (Figure 1). Copano Bay has undergone very little modification, it has no dredged navigational channels and in general lacks significant infrastructural modifications found in other bays, such as Galveston, Corpus Christi or Lavaca Bays. As a result, it is an ideal setting to investigate the natural controls on oyster reef distribution. The oyster reefs in Copano Bay appear to consist of longitudinal reefs attached to the shoreline extending perpendicularly into the bay, longitudinal reefs in the middle of the bay oriented parallel to shoreline and patch reefs that are randomly oriented throughout the bay. Surficial sediments contained within Copano Bay consist primarily of unconsolidated muds, sands, and shell gravel. With the lack of obvious controls on the distribution of oyster reefs, such as rock outcrops, the big question is, what does control their distribution? It is our contention that the natural distribution of oyster reefs in Copano Bay are controlled mainly by the antecedent geology found beneath the bay sediment. Oysters will form in areas where there exists shallow, hard substrate ideal for oyster attachment. Studying the underlying geology of oyster reefs could have major implications on understanding their distribution. This study will have significant implications for the future research and resource management in Copano Bay, such as oyster reef protection and restoration. Restored reefs can be placed in areas where known stable underlying geology is present to ensure the reef is successful and the oysters not subside into the soft bay mud and become suffocated by fined grained sediment particles. If large extents of buried oyster reefs are found, this could indicate an enormous decline in oyster reef population over time and actions could be taken to prevent any further decline from happening.Copano Bay has undergone very little modification, it has no dredged navigational channels and in general lacks significant infrastructural modifications found in other bays, such as Galveston, Corpus Christi or Lavaca Bays. As a result, it is an ideal setting to investigate the natural controls on oyster reef distribution. The oyster reefs in Copano Bayappear to consist of longitudinal reefs attached to the shoreline extending perpendicularly into the bay, longitudinal reefs in the middle of the bay oriented parallel to shoreline and patch reefs that are randomly oriented throughout the bay. Surficial sediments contained within Copano Bay consist primarily ofunconsolidated muds, sands, and shell gravel. With the lack of obvious controls on the distribution of oyster reefs, such as rock outcrops, the big question is, what does control their distribution? It is our contention that the natural distribution of oyster reefs in Copano Bay are controlled mainly by the antecedent geology found beneath the bay sediment.Oysters will form in areas where there exists shallow, hard substrate ideal for oyster attachment. Studying the underlying geology of oyster reefs could have major implications on understanding their distribution. This study will have significant implications for the future research and resource management in Copano Bay, such as oyster reef protection and restoration. Restored reefs can be placed in areas where known stable underlying geology is present to ensure the reef is successful and the oysters not subside into the soft bay mud and become suffocated by fined grained sediment particles. If large extents of buried oyster reefs are found, this could indicate an enormous decline in oyster reef population over time and actions could be taken to prevent any further decline from happening.Purpose: For the purpose of this study, the substrate type will be considered the most important influencefor the initial distribution of oyster reefs. Regardless of other environmental conditions, the substratemust be suitable for initial oyster colonization or the oyster will not survive. Where there are oyster reefspresent in the geologic past, there was adequate substrate for initial settlement. Adequate substrateincludes any hard, smooth surface such as compacted mud, sand or shell shoals, lose shell or sunken logs.Loose sand or mud can shift and break the oyster free of its anchor, or bury and suffocate it (Kennedy,1996). The ideal substrate for larval oysters has been found to be existing reef or oyster shells (Kilgen andDugas 1989; Stanley and Sellers 1986; Michener and Kenny 1991; Kennedy, 1996). Some current oysterreefs are most likely built on top of reefs that initially grew thousands of years ago when the incisedpaleo-river valleys began to fill with sediment (Bouma, 1976). The oyster reefs build up vertically andout horizontally with new oysters growing atop older ones. Ideally, without significant outside physicalinfluences to move them, the present day oyster reefs would exist in the same general locations as wherethey were initially colonized, only to a larger extent. However, oyster reefs do not only build atop otherreefs. If suitable substrate is formed or becomes available elsewhere, larvae will also settle atop itforming a new reef. Therefore each reef in the current oyster reef distribution may have differentgeologic controls.Supplemental Information: This is the final report of our CMP Cycle 12 project to identify and delineate oyster reefsand other bottom features in Copano Bay. This project was conducted during twosuccessive CMP Cycles, Cycles 11 &amp; 12. During the Cycle 11 we conducted the bulk ofthe field component of the geophysical mapping. During Cycle 12 will processed thegeophysical data and generate maps and prepare the final report and conducted followupfield work, including field verification of the areas identified as reef. This project is acooperative effort between Department of Oceanography, Texas A&amp;M University(TAMU), Department of Marine Sciences Texas A&amp;M University at Galveston(TAMUG); the Institute for Coastal Studies at Texas A&amp;M University at Corpus Christi(TAMUCC), and the Texas Parks and Wildlife Department (TPWD).Use Constraints: Citation of the Oyster reef and seabed mapping of Copano Bay ? CMP Cycle 11 Final Report by Dr. Timothy M. Dellapenna, TAMUG; Erin Weaver, TAMUG; Dr. James Simons, TPWD; Dr. Alex Simms, OSU; and Taylor Traviani, OSU is appreciated.Logical Consistency Report: To test the validity of our oyster reef map we conducted a survey to verify the accuracy of ourinterpretations. To do this a geo-referenced grid was placed over the mapped area in GIS with a grid area of 4 kilometers squared, or a grid length/width of 2,000 meters. Then points were randomly selected in each grid using GIS for each mapped category, for a total of 155 survey sites. We used a stratified design selecting 50 sites in the Oyster Reef category, 31 on Mud, 20 on Sand, and 10 each on Shell on Mud and Shell on Sand.At each each station physico-chemical data (depth, water temperature, dissolved oxygen, percentsaturation, pH, salinity), secchi depth, wind speed and direction, and sea state data were collected. For theoyster dredge collections we employed the data collection procedures employed by the TPWD CoastalFisheries Division for their oyster population surveys (TPWD, 2002). This includes, in addition to countsof live oysters and dead shell, a count of live spat on five live oysters and five dead shells, plus the lengthsof up to 19 live oysters are measured.An initial analysis of the data (UNIVARIATE; SAS, 1990) determined that the count data for liveoysters and dead shell was not normally distributed as there was an abundance of zero values. Ananalysis of variance (ANOVA) was performed on the ranked count data for both live oysters and deadshell. Then a Tukey type multiple comparison was performed on the map classification categories forboth the live oyster and dead shell (Zar, 1999). These analyses were performed on both the originalvalidation data and the supplemented validation data with the adjusted map classification categories.Completeness Report: Over 200 survey lines each with a spacing interval of 150 m provided nearly completecoverage of the baybottom. Survey cover was limited to areas with a minimum of 1.2 m water depth toprotect the equipment from damage.Attribute Accuracy Report: Validation of oyster reef mapsTo test the validity of our oyster reef map we conducted a survey to verify the accuracy of ourinterpretations. To do this a geo-referenced grid was placed over the mapped area in GIS with a grid areaof 4 kilometers squared, or a grid length/width of 2,000 meters. Then points were randomly selected ineach grid using GIS for each mapped category, for a total of 155 survey sites. We used a stratified designselecting 50 sites in the Oyster Reef category, 31 on Mud, 20 on Sand, and 10 each on Shell on Mud andShell on Sand.At each each station physico-chemical data (depth, water temperature, dissolved oxygen, percentsaturation, pH, salinity), secchi depth, wind speed and direction, and sea state data were collected. For theoyster dredge collections we employed the data collection procedures employed by the TPWD CoastalFisheries Division for their oyster population surveys (TPWD, 2002). This includes, in addition to countsof live oysters and dead shell, a count of live spat on five live oysters and five dead shells, plus the lengthsof up to 19 live oysters are measured.An initial analysis of the data (UNIVARIATE; SAS, 1990) determined that the count data for liveoysters and dead shell was not normally distributed as there was an abundance of zero values. Ananalysis of variance (ANOVA) was performed on the ranked count data for both live oysters and deadshell. Then a Tukey type multiple comparison was performed on the map classification categories forboth the live oyster and dead shell (Zar, 1999). These analyses were performed on both the originalvalidation data and the supplemented validation data with the adjusted map classification categories.</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>200707</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Copano Bay Oyster Shells on Mud</srccitea>
+<srccontr>Copano Bay Oyster Shells on Mud</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Department of Commerce, National Ocean and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coastal Services Center (CSC)</origin>
+<pubdate>20070823</pubdate>
+<title>Digital Benthic Habitat Data, Oyster Reef, Aransas Bay, (tx_ab04.shp), Copano Bay,(tx_cb04.shp), Corpus Christi Bay( tx_ccb04.shp), Redfish Bay,(tx_rb04.shp), and Upper Laguna Bay, (tx_rb04.shp), NOAA, 2007</title>
+<pubinfo>
+<pubplace>Charleston, SC, USA</pubplace>
+<publish>Department of Commerce, National Ocean and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coastal Services Center (CSC)</publish>
+</pubinfo>
+<onlink>http://www.csc.noaa.gov/benthic</onlink>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>20070823</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Aransas Bay Oyster Reefs Benthic Habitat, Copano Bay Oyster Reefs Benthic Habitat, Corpus Christi Bay Oyster Reefs Benthic Habitat, Redfish Bay Oyster Reefs Benthic Habitat, &amp; Upper Laguna Madre Oyster Reefs Benthic Habitat</srccitea>
+<srccontr>Aransas Bay Oyster Reefs Benthic Habitat, Copano Bay Oyster Reefs Benthic Habitat, Corpus Christi Bay Oyster Reefs Benthic Habitat, Redfish Bay Oyster Reefs Benthic Habitat, &amp; Upper Laguna Madre Oyster Reefs Benthic Habitat</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Department of Commerce, National Ocean and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coastal Services Center (CSC)</origin>
+<pubdate>20090213</pubdate>
+<title>Digital Benthic Habitat Data, Oyster Reef, Lower Laguna Madre, (tx_llm04-south.shp, tx_llm04-middle.shp, tx_llm04-north.shp), NOAA, 2007</title>
+<pubinfo>
+<pubplace>Charleston, SC, USA</pubplace>
+<publish>Department of Commerce, National Ocean and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coastal Services Center (CSC)</publish>
+</pubinfo>
+<onlink>http://www.csc.noaa.gov/benthic</onlink>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>20090213</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Lower Laguna Madre Oyster Reefs Benthic Habitat</srccitea>
+<srccontr>Lower Laguna Madre Oyster Reefs Benthic Habitat</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Department of Commerce, National Ocean and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coastal Services Center (CSC)</origin>
+<pubdate>20090213</pubdate>
+<title>Digital Benthic Habitat Data, Oyster Reef, Espiritu Santo Bay and San Antonio Bay, (tx_esb07.shp, tx_sab07.shp), NOAA, 2007.</title>
+<pubinfo>
+<pubplace>Charleston, SC, USA</pubplace>
+<publish>Department of Commerce, National Ocean and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coastal Services Center (CSC)</publish>
+</pubinfo>
+<onlink>http://www.csc.noaa.gov/benthic</onlink>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>20090213</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Espiritu Santo Bay Oyster Reefs Benthic Habitat &amp; San Antonio Bay Oyster Reefs Benthic Habitat</srccitea>
+<srccontr>Espiritu Santo Bay Oyster Reefs Benthic Habitat &amp; San Antonio Bay Oyster Reefs Benthic Habitat</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>U.S. Geological Survey (USGS), National Wetlands Research Center (NWRC), Spatial Data and Metadata Server (SDMS)</origin>
+<origin>(Texas Coastal Coordination Council (CCC) rock outcrops and serpulid worm reefs have been removed)</origin>
+<pubdate>199608</pubdate>
+<title>Oysters, Northern Gulf of Mexico Ecoregional Plan, U.S. Geological Survey (USGS), 1996</title>
+<othercit>(Texas Coastal Coordination Council (CCC) rock outcrops and serpulid worm reefs have been removed)] Includes Oyster Reefs (shell and live reefs) Galveston Bay, Texas, GLO, 2004 Abstract: To address the issues of concern, and in response to the requirements of the Coastal Coordination Act, the Coastal Coordination Council has designated Oyster Reefs as a coastal natural resource area requiring special management under the Coastal Management Program and defined as Natural or artificial formations in intertidal or subtidal areas that are composed of oyster shell, live oysters, and other organisms and that are discrete contiguous, and clearly distinguishable from scattered oysters. Oyster reefs not only support the oyster fishery but also serve as habitat, forage ground, or hiding places for numerous estuarine species. Purpose: The oysters data set is a compilation of three data sets. The firs data set was developed by Dr. Eric Powell of Texas A&amp;M University's Department of Oceanography under the auspices of the Galveston Bay National Estuary Program. The reefs were mapped using acoustic equipment designed to return echo signal from the bay bottom. In very shallow areas where a smaller boat was used, it was not possible to hang the equipment over the side of the boat; therefore a poling technique was used to determine the location of the oyster reefs. The second and third data sets were both acquired from the Texas Parks and Wildlife Department. One was developed by a team led by Warren Pulich and used aerials circa 1989. The other was developed by Betsi Blair which also used aerial photographs and surveyed submerged aquatic vegetation including oyster reefs. Access: Free to public. Oyster Reefs (shell and live reefs) Galveston Bay, Texas, GLO, 2004 No longer available from http://www.glo.state.tx.us/gisdata/gisdata.html Abstract: To address the issues of concern, and in response to the requirements of the Coastal Coordination Act, the Coastal Coordination Council has designated Oyster Reefs as a coastal natural resource area requiring special management under the Coastal Management Program and defined as Natural or artificial formations in intertidal or subtidal areas that are composed of oyster shell, live oysters, and other organisms and that are discrete contiguous, and clearly distinguishable from scattered oysters. Oyster reefs not only support the oyster fishery but also serve as habitat, forage ground, or hiding places for numerous estuarine species. Purpose: For mapping at a scale of 1:24000 or smaller Supplemental Information: This oysters data set was developed by Dr. Eric Powell of the Texas A&amp;M University Department of Oceanography under the auspices of the Galveston Bay National Estuary Program. The reefs were mapped using acoustic equipment designed to return echo signal from the bay bottom. In very shallow areas where a smaller boat was used, it was not possible to hang the equipment over the side of the boat; therefore a poling technique was used to determine the location of the oyster reefs. Access: Free to public.</othercit>
+<onlink>http://sdms.cr.usgs.gov/pub/ngom/ngom.html</onlink>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>199608</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Northern Gulf of Mexico Oyster Reef &amp; Northern Gulf of Mexico Oyster Shell on Mud</srccitea>
+<srccontr>Northern Gulf of Mexico Oyster Reef &amp; Northern Gulf of Mexico Oyster Shell on Mud (Texas Coastal Coordination Council (CCC) rock outcrops and serpulid worm reefs have been removed)</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Texas General Land Office</origin>
+<pubdate>2004</pubdate>
+<title>Oysters, Corpus Christi-Matagorda Bay, GLO, 2004</title>
+<pubinfo>
+<pubplace>Texas</pubplace>
+<publish>Texas General Land Office</publish>
+</pubinfo>
+<othercit>Old link no longer available http://www.glo.state.tx.us/gisdata/gisdata.html Abstract: No metadata existed for this file, the following metadata is from General Land Office's galvestonoysters and sabayoysters files which are included in this dataset.To address the issues of concern, and in response to the requirements of the Coastal Coordination Act, the Coastal Coordination Council has designated Oyster Reefs as a coastal natural resource area requiring special management under the Coastal Management Program and defined as Natural or artificial formations in intertidal or subtidal areas that are composed of oyster shell, live oysters, and other organisms and that are discrete contiguous, and clearly distinguishable from scatter-ed oysters. Oyster reefs not only support the oyster fishery but also serve as habitat, forage ground, or hiding places for numerous estuarine species. Purpose: For mapping at a scale of 1:24000 or smaller Access: Free to public.</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>2004</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Corpus Christi - Matagorda Bay Oyster Reefs</srccitea>
+<srccontr>Corpus Christi - Matagorda Bay Oyster Reefs</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Texas Parks and Wildlife Department</origin>
+<pubdate>2008</pubdate>
+<title>Consolidated Reef in Sabine Lake, Texas from Side Scan Sonar Data Collected May 29, 2008 August 11, 2008 (Consolidated_Reef_TX.shp)</title>
+<pubinfo>
+<pubplace>Texas</pubplace>
+<publish>Texas Parks and Wildlife Department</publish>
+</pubinfo>
+<othercit>A complete metadata record for this dataset was not available at the time this data was published. Polygon data and metadata created by Jennie Rohrer Texas Parks and Wildlife Office: 281-534-0103Fax: 281-534-0120Email: Jennie.Rohrer@tpwd.state.tx.us Abstract: These are for consolidated reef in Sabine Lake, Texas. Texas used side scan sonar to delineate the areas. The side scan sonar data were collected from May 29,2008 to August 11, 2008. Purpose: The purpose of this data was to delineate the areas of consolidated and unconsolidated reef in Sabine Lake. Credit: Texas Parks and Wildlife Department &amp; Louisiana Department of Wildlife and Fisheries</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<rngdates>
+<begdate>20080529</begdate>
+<enddate>20080811</enddate>
+</rngdates>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Sabine Lake Oyster Reefs - Consolidated</srccitea>
+<srccontr>Sabine Lake Oyster Reefs - Consolidated</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Texas Parks and Wildlife Department</origin>
+<pubdate>2008</pubdate>
+<title>Unconsolidated Reef in Sabine Lake, Texas from Side Scan Sonar Data Collected May 29, 2008 August 11, 2008 (Consolidated_Reef_TX.shp)</title>
+<pubinfo>
+<pubplace>Texas</pubplace>
+<publish>Texas Parks and Wildlife Department</publish>
+</pubinfo>
+<othercit>A complete metadata record for this dataset was not available at the time this data was published. Polygon data and metadata created by Jennie Rohrer Texas Parks and Wildlife Office: 281-534-0103Fax: 281-534-0120Email: Jennie.Rohrer@tpwd.state.tx.usAbstract: These are for consolidated reef in Sabine Lake, Texas. Texas used side scan sonar to delineate the areas. The side scan sonar data were collected from May 29,2008 to August 11, 2008.Purpose: The purpose of this data was to delineate the areas of consolidated and unconsolidated reef in Sabine Lake.Credit: Texas Parks and Wildlife Department &amp; Louisiana Department of Wildlife and Fisheries</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<rngdates>
+<begdate>20080529</begdate>
+<enddate>20080811</enddate>
+</rngdates>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Sabine Lake Oyster Reefs - Unconsolidated</srccitea>
+<srccontr>Sabine Lake Oyster Reefs - Unconsolidated</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Texas Parks and Wildlife Department</origin>
+<pubdate>2004</pubdate>
+<title>Oyster Reefs Lavaca Bay, Texas, TPWD, 2004 (lavoystsurvey.shp).</title>
+<pubinfo>
+<pubplace>Austin, Texas, USA</pubplace>
+<publish>Texas Parks and Wildlife Department</publish>
+</pubinfo>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>2002</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>Lavaca Bay Oyster Reefs</srccitea>
+<srccontr>Lavaca Bay Oyster Reefs</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Texas General Land Office</origin>
+<pubdate>2004</pubdate>
+<title>Oyster Reefs (Shell and Live Reefs) San Antonio Bay, Texas, GLO, 2004</title>
+<geoform>shapefile</geoform>
+<pubinfo>
+<pubplace>Texas</pubplace>
+<publish>Texas General Land Office</publish>
+</pubinfo>
+<othercit>Old link no longer available http://www.glo.state.tx.us/gisdata/gisdata.html Abstract: To address the issues of concern, and in response to the requirements of the Coastal Coordination Act, the Coastal Coordination Council has designated Oyster Reefs as a coastal natural resource area requiring special management under the Coastal Management Program and defined as Natural or artificial formations in intertidal or subtidal areas that are composed of oyster shell, live oysters, and other organisms and that are discrete contiguous, and clearly distinguishable from scattered oysters. Oyster reefs not only support the oyster fishery but also serve as habitat, forage ground, or hiding places for numerous estuarine species. Purpose: For mapping at a scale of 1:24000 or smaller. Access: Free to public.</othercit>
+</citeinfo>
+</srccite>
+<typesrc>shapefile</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>2004</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>ground condition</srccurr>
+</srctime>
+<srccitea>San Antonio Bay Oyster Reefs</srccitea>
+<srccontr>San Antonio Bay Oyster Reefs</srccontr>
+</srcinfo>
+<procstep>
+<procdesc>Project all files to be added to Texas file to GCS_North_American_1983 [Angular Unit: Degree (0.017453292519943299) Prime Meridian: Greenwich (0.000000000000000000) Datum: D_North_American_1983 Spheroid: GRS_1980 Semimajor Axis: 6378137.000000000000000000 Semiminor Axis: 6356752.314140356100000000 Inverse Flattening: 298.257222101000020000.]</procdesc>
+<procdate>20110426</procdate>
+<proctime>144027</proctime>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>Harte Research Institute for Gulf of Mexico Studies at Texas A&amp;M University-Corpus Christi</cntorg>
+<cntper>Ali McKenzie</cntper>
+</cntorgp>
+<cntpos>GIS Research Specialist I</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>6300 Ocean Drive, HRI Room 215</address>
+<city>Corpus Christi</city>
+<state>Texas</state>
+<postal>78412-5869</postal>
+<country>USA</country>
+</cntaddr>
+<cntvoice>(361)825-2062</cntvoice>
+<cntemail>ali.mckenzie@tamucc.edu</cntemail>
+<cntinst>Email preferred with subject Gulf of Mexico Data Atlas Oyster Metadata</cntinst>
+</cntinfo>
+</proccont>
+</procstep>
+<procstep>
+<procdesc>Merge Tool location C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\Merge Input Datasets: all (see dataqual/lineage/Source Information) Output Dataset: Texas.shp</procdesc>
+<procdate>20110509</procdate>
+<proctime>152655</proctime>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>Harte Research Institute for Gulf of Mexico Studies at Texas A&amp;M University-Corpus Christi</cntorg>
+<cntper>Ali McKenzie</cntper>
+</cntorgp>
+<cntpos>GIS Research Specialist I</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>6300 Ocean Drive, HRI Room 215</address>
+<city>Corpus Christi</city>
+<state>Texas</state>
+<postal>78412-5869</postal>
+<country>USA</country>
+</cntaddr>
+<cntvoice>(361)825-2062</cntvoice>
+<cntemail>ali.mckenzie@tamucc.edu</cntemail>
+<cntinst>Email preferred with subject Gulf of Mexico Data Atlas Oyster Metadata</cntinst>
+</cntinfo>
+</proccont>
+</procstep>
+<procstep>
+<procdesc>Edit table Deleted unneeded attributes Kept FID (required), Shape (required), AreaName. Added State (code) and Year. Filled in AreaName, State, and Year for all features. 0 for Year means unknown.</procdesc>
+<procdate>20110510</procdate>
+<proctime>115048</proctime>
+</procstep>
+<procstep>
+<procdesc>Dataset copied.</procdesc>
+<procdate>20110517</procdate>
+<proctime>14451300</proctime>
+</procstep>
+<procstep>
+<procdesc>Dataset copied.</procdesc>
+<procdate>20110623</procdate>
+<proctime>13472200</proctime>
+</procstep>
+</lineage>
+</dataqual>
+<spdoinfo>
+<direct>Vector</direct>
+<ptvctinf>
+<sdtsterm>
+<sdtstype>G-polygon</sdtstype>
+<ptvctcnt>346</ptvctcnt>
+</sdtsterm>
+</ptvctinf>
+</spdoinfo>
+<spref>
+<horizsys>
+<geograph>
+<latres>0.0000001</latres>
+<longres>0.0000001</longres>
+<geogunit>Decimal degrees</geogunit>
+</geograph>
+<geodetic>
+<horizdn>North American Datum of 1983</horizdn>
+<ellips>Geodetic Reference System 80</ellips>
+<semiaxis>6378137.000000</semiaxis>
+<denflat>298.257222</denflat>
+</geodetic>
+</horizsys>
+</spref>
+<eainfo>
+<detailed>
+<enttyp>
+<enttypl>Louisiana</enttypl>
+<enttypd>Feature Class</enttypd>
+<enttypds>HRI</enttypds>
+</enttyp>
+<attr>
+<attrlabl>FID</attrlabl>
+<attrdef>OID</attrdef>
+<attrdefs>ESRI</attrdefs>
+<attrdomv>
+<udom>Internal Feature Number</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>Shape</attrlabl>
+<attrdef>Geometry</attrdef>
+<attrdefs>ESRI</attrdefs>
+<attrdomv>
+<udom>Feature Geometry</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>Type</attrlabl>
+<attrdef>None</attrdef>
+<attrdefs>HRI</attrdefs>
+<attrdomv>
+<udom>None</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>AreaName</attrlabl>
+<attrdef>Bay, Lake, or Sound Name located on source data or on Google Map</attrdef>
+<attrdefs>HRI</attrdefs>
+<attrdomv>
+<udom>Bay, Lake, or Sound Name located on source data or on Google Map</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>State</attrlabl>
+<attrdef>State Name by Code</attrdef>
+<attrdefs>HRI</attrdefs>
+<attrdomv>
+<edom>
+<edomv>1</edomv>
+<edomvd>Texas</edomvd>
+<edomvds>FFWCC/HRI</edomvds>
+</edom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>2</edomv>
+<edomvd>Louisiana</edomvd>
+<edomvds>FFWCC/HRI</edomvds>
+</edom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>3</edomv>
+<edomvd>Mississippi</edomvd>
+<edomvds>FFWCC/HRI</edomvds>
+</edom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>4</edomv>
+<edomvd>Alabama</edomvd>
+<edomvds>FFWCC/HRI</edomvds>
+</edom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>5</edomv>
+<edomvd>Florida</edomvd>
+<edomvds>FFWCC/HRI</edomvds>
+</edom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>Year</attrlabl>
+<attrdef>Year source collected or published if collection date is not available. start date used if range. See dataqual/lineage for more information.</attrdef>
+<attrdefs>source data</attrdefs>
+<attrdomv>
+<udom>Year source collected or published if collection date is not available. start date used if range. See dataqual/lineage for more information.</udom>
+</attrdomv>
+</attr>
+</detailed>
+</eainfo>
+<metainfo>
+<metd>20110509</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>Harte Research Institute for Gulf of Mexico Studies at Texas A&amp;M University-Corpus Christi</cntorg>
+<cntper>Ali McKenzie</cntper>
+</cntorgp>
+<cntpos>GIS Research Specialist I</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>6300 Ocean Drive, HRI Room 215</address>
+<city>Corpus Christi</city>
+<state>Texas</state>
+<postal>78412-5869</postal>
+<country>USA</country>
+</cntaddr>
+<cntvoice>(361)825-2062</cntvoice>
+<cntemail>ali.mckenzie@tamucc.edu</cntemail>
+<cntinst>Email preferred with subject Gulf of Mexico Data Atlas Oyster Metadata</cntinst>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<metac>None</metac>
+<metuc>None</metuc>
+<metextns>
+<onlink>http://www.ncddc.noaa.gov/metadataresource/metadata-references/files/ncddcmdprofile_v2.pdf</onlink>
+<metprof>Content Specification for Metadata in the National Coastal Data Development Center's Data Catalog Version 2.0</metprof>
+</metextns>
+<metextns>
+<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+<metprof>ESRI Metadata Profile</metprof>
+</metextns>
+</metainfo>
+</metadata>
