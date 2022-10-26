@@ -86,15 +86,15 @@ linear_function <- function(raster){
 
 ## Create s-shape membership function
 ### Adapted from https://www.mathworks.com/help/fuzzy/smf.html
-zmf_function <- function(raster){
+smf_function <- function(raster){
   # calculate minimum value
   min <- minValue(raster)
   
   # calculate maximum value
   max <- maxValue(raster)
   
-  # calculate z-scores (more desired values get score of 0 while less desired will increase till 1)
-  z_value <- ifelse(raster[] == min, 0, # if value is equal to minimum, score as 0
+  # calculate s-scores (more desired values get score of 0 while less desired will increase till 1)
+  s_value <- ifelse(raster[] == min, 0, # if value is equal to minimum, score as 0
                     # if value is larger than minimum but lower than mid-value, calculate based on reduction equation
                     ifelse(raster[] > min & raster[] < (min + max) / 2, 2*((raster[] - min) / (max - min))**2,
                            # if value is larger than mid-value but lower than maximum, calculate based on equation
@@ -103,10 +103,10 @@ zmf_function <- function(raster){
                                   ifelse(raster[] == max, 1, NA))))
   
   # set values back to the original raster
-  slope_zvalues <- setValues(raster, z_value)
+  slope_svalues <- setValues(raster, s_value)
   
   # return the raster
-  return(slope_zvalues)
+  return(slope_svalues)
 }
 
 #####################################
@@ -133,17 +133,13 @@ freq(bathymetry_normalize) # show frequency of values (though will round to 0 an
 # freq(temp_new, by = 0.1)
 # max(temp_new, na.rm = T)
 
-# Generate new z-shape values
-
+# Generate new s-shape values
 slope_normalize <- slope %>%
-  zmf_function()
+  smf_function()
 
 ## Make sure maximum value is 1
-maxValue(slope_normalize)
+maxValue(slope_normalize) ## maximum value = 0.9961739
 list(unique(slope_normalize)) # list all unique values
-
-slope_zvalues <- slope %>%
-  zmf_function()
 
 #####################################
 
@@ -154,41 +150,40 @@ freq(slope_normalize) # show frequency of values (though will round to 0 and 1)
 
 #####################################
 
-# Check data
-slope_df <- slope %>%
-  as.data.frame(xy = T)
-slope_df_min <- min(slope_df$slope, na.rm = T)
-slope_df_max <- max(slope_df$slope, na.rm = T)
-slope_df_z <- zmf_function(slope_df$slope)
-slope_df$zscore <- slope_df_z
-hist(slope_df$zscore)
-
-slope_z_sf <- slope_df %>%
-  # convert to simple feature
-  st_as_sf(coords = c("x", "y"),
-           crs = 5070) %>% # EPSG 5070 (https://epsg.io/5070)
-  st_buffer(dist = 100)
-
-slope_z_raster <- fasterize(sf = slope_z_sf,
-                            raster = gom_raster,
-                            field = "zscore")
-
-slope_z_raster2 <- slope_df %>%
-  # convert to simple feature
-  st_as_sf(coords = c("x", "y"),
-           crs = 5070) %>% # EPSG 5070 (https://epsg.io/5070)
-  st_bufer(dist = 100) %>%
-  fasterize(raster = gom_raster,
-            field = "zscore")
+# # Check data
+# slope_df <- slope %>%
+#   as.data.frame(xy = T)
+# slope_df_min <- min(slope_df$slope, na.rm = T)
+# slope_df_max <- max(slope_df$slope, na.rm = T)
+# slope_df_z <- zmf_function(slope_df$slope)
+# slope_df$zscore <- slope_df_z
+# hist(slope_df$zscore)
+# 
+# slope_z_sf <- slope_df %>%
+#   # convert to simple feature
+#   st_as_sf(coords = c("x", "y"),
+#            crs = 5070) %>% # EPSG 5070 (https://epsg.io/5070)
+#   st_buffer(dist = 100)
+# 
+# slope_z_raster <- fasterize(sf = slope_z_sf,
+#                             raster = gom_raster,
+#                             field = "zscore")
+# 
+# slope_z_raster2 <- slope_df %>%
+#   # convert to simple feature
+#   st_as_sf(coords = c("x", "y"),
+#            crs = 5070) %>% # EPSG 5070 (https://epsg.io/5070)
+#   st_bufer(dist = 100) %>%
+#   fasterize(raster = gom_raster,
+#             field = "zscore")
 
 #####################################
 #####################################
 # Export data
 ## Raster data
-
 writeRaster(bathymetry_normalize, filename = file.path(raster_dir, "bathymetry_normalize.grd"), overwrite = T)
-writeRaster(slope_zvalues, filename = file.path(raster_dir, "slope_normalize.grd"), overwrite = T)
+writeRaster(slope_normalize, filename = file.path(raster_dir, "slope_normalize.grd"), overwrite = T)
 
 ## Intermediate data
-writeRaster(bathymetry_zvalues, filename = file.path(intermediate_dir, "bathymetry_normalize.grd"), overwrite = T)
-writeRaster(slope_zvalues, filename = file.path(intermediate_dir, "slope_normalize.grd"), overwrite = T)
+writeRaster(bathymetry_normalize, filename = file.path(intermediate_dir, "bathymetry_normalize.grd"), overwrite = T)
+writeRaster(slope_normalize, filename = file.path(intermediate_dir, "slope_normalize.grd"), overwrite = T)
