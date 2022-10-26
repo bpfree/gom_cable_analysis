@@ -1,0 +1,799 @@
+Data Source,Platform/Station,URN,Lat,Lon,Observations,Status
+ATP Oil and Gas Corporation (ATP),,,,,,
+,42381 - Innovator - Mississippi Canyon 711,urn:ioos:station:wmo:42381,28.221,-89.615,currents,Inactive
+,42391 - Titan - Mississippi Canyon 941,urn:ioos:station:wmo:42391,28.034,-89.101,currents,Inactive
+,42869 - Ocean Confidence - Mississippi Canyon 305 #2,urn:ioos:station:wmo:42869,28.695,-87.931,currents,Inactive
+Amerada Hess Corporation (Amerada Hess),,,,,,
+,42878 - Noble Paul Romano - Mississippi Canyon 725,urn:ioos:station:wmo:42878,28.246,-88.928,currents,Inactive
+,42879 - Ocean BlackRhino - GC512,urn:ioos:station:wmo:42879,27.476,-90.559,currents,Inactive
+,42892 - Ocean Baroness - Garden Banks 386,urn:ioos:station:wmo:42892,27.599,-92.298,currents,Active
+,42917 - Discoverer Inspiration - Garden Banks 200,urn:ioos:station:wmo:42917,27.7805,-92.741,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42919 - Stenna Forth - Green Canyon 469,urn:ioos:station:wmo:42919,28.26,-88.885,currents,Inactive
+,42935 - Tubular Bells Spar - Green Canyon 724,urn:ioos:station:wmo:42935,28.235,-88.995,currents,Inactive
+Anadarko Petroleum Corporation (Anadarko),,,,,,
+,42370 - Holstein - Green Canyon 645,urn:ioos:station:wmo:42370,27.322,-90.536,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,winds,Inactive
+,42373 - Boomvang - East Breaks 643,urn:ioos:station:wmo:42373,27.354,-94.625,currents,Inactive
+,42374 - Horn Mountain - Mississippi Canyon 126 and 127,urn:ioos:station:wmo:42374,28.866,-88.056,currents,Inactive
+,,,,,winds,Inactive
+,42377 - Constitution - Green Canyon 680,urn:ioos:station:wmo:42377,27.293,-90.968,currents,Inactive
+,42379 - Marco Polo - Green Canyon 608,urn:ioos:station:wmo:42379,27.362,-90.181,currents,Inactive
+,42382 - Gunnison - Garden Banks 668,urn:ioos:station:wmo:42382,27.304,-93.538,currents,Inactive
+,42398 - Lucius SPAR - Keathley Canyon 875,urn:ioos:station:wmo:42398,26.132,-92.04,currents,Inactive
+,42399 - Heidelberg - Green Canyon 860,urn:ioos:station:wmo:42399,26.132,-92.04,currents,Inactive
+,42904 - Independence Hub - Mississippi Canyon 920,urn:ioos:station:wmo:42904,28.085,-87.986,currents,Inactive
+Apache Deepwater LLC (Apache),,,,,,
+,42938 - Ocean Onyx - Mississippi Canyon 674,urn:ioos:station:wmo:42938,28.257,-89.274,currents,Inactive
+BHP Billiton (BHP),,,,,,
+,42393 - Shenzi TLP - Green Canyon 653,urn:ioos:station:wmo:42393,27.301,-90.135,currents,Inactive
+,42871 - C R Luigs - Green Canyon 653,urn:ioos:station:wmo:42871,27.331,-89.878,currents,Inactive
+,42897 - Development Driller 1 - DeSoto Canyon 726,urn:ioos:station:wmo:42897,27.355,-89.797,currents,Inactive
+,42932 - Deepwater Invictus - Green Canyon 609,urn:ioos:station:wmo:42932,27.37,-90.145,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+BP Inc (BP),,,,,,
+,42369 - Mad Dog Spar - Green Canyon 782,urn:ioos:station:wmo:42369,27.207,-90.283,airTemperature,Inactive
+,,,,,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Inactive
+,42375 - Na Kika - Mississippi Canyon 474,urn:ioos:station:wmo:42375,28.521,-88.289,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,42376 - Marlin TLP - Viosca Knoll 915,urn:ioos:station:wmo:42376,29.108,-87.944,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,winds,Inactive
+,42853 - West Capricorn - Mississippi Canyon 562,urn:ioos:station:wmo:42853,28.444,-88.277,currents,Inactive
+,42865 - Ocean Black Hornet - GC 821,urn:ioos:station:wmo:42865,27.1705,-90.503,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42868 - Discoverer Enterprise - Mississippi Canyon 777,urn:ioos:station:wmo:42868,28.214,-88.519,currents,Inactive
+,42872 - Deepwater Horizon,urn:ioos:station:wmo:42872,28.738,-88.366,currents,Inactive
+,42880 - West Auriga - Green Canyon 824,urn:ioos:station:wmo:42880,27.2189,-90.0469,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42885 - GSF Development Driller II - Mississippi Canyon 727 #2,urn:ioos:station:wmo:42885,28.249,-88.828,currents,Inactive
+,42887 - Thunder Horse PDQ - Mississippi Canyon 821,urn:ioos:station:wmo:42887,28.1477,-88.5478,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,winds,Inactive
+,42893 - ENSCO DS-3 - Green Canyon 825,urn:ioos:station:wmo:42893,27.146,-90.319,currents,Inactive
+,42907 - Ocean Black Lion - Green Canyon 512,urn:ioos:station:wmo:42907,27.1537,-90.3098,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42908 - West Sirius - Keathley Canyon 57,urn:ioos:station:wmo:42908,26.909,-93.305,currents,Inactive
+,42916 - Development Driller 3 - Green Canyon 743,urn:ioos:station:wmo:42916,28.445,-88.277,currents,Inactive
+,42920 - ENSCO DS-4 - Keathley Canyon 93,urn:ioos:station:wmo:42920,26.865,-93.661,currents,Inactive
+Center for Ocean-Atmospheric Prediction Studies (COAPS),,,,,,
+,Tower No. N7,urn:ioos:station:COAPS:N7,29.6619,-84.3731,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,airTemperature,Inactive
+,,,,,airTemperature,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,,,,,winds,Inactive
+,,,,,winds,Inactive
+Chevron (Chevron),,,,,,
+,42371 - Typhoon - Green Canyon 237,urn:ioos:station:wmo:42371,27.732,-91.111,currents,Inactive
+,42372 - Genesis SPAR - Green Canyon 205A,urn:ioos:station:wmo:42372,27.78,-90.518,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42385 - Blind Faith - Mississippi Canyon 696,urn:ioos:station:wmo:42385,28.34,-88.266,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,42386 - Tahiti - Green Canyon 641,urn:ioos:station:wmo:42386,27.326,-90.714,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42396 - Jack and St Malo FPU - Walker Ridge Block 758,urn:ioos:station:wmo:42396,26.235,-91.261,currents,Inactive
+,,urn:ioos:station:wmo:42402,26.9327,-90.5202,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42876 - Deepwater Conqueror - 678,urn:ioos:station:wmo:42876,26.1651,-91.4358,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42888 - Rowan Relentless - Mississippi Canyon 84,urn:ioos:station:wmo:42888,28.3081,-88.2016,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42905 - Belford Dolphin - Green Canyon 561,urn:ioos:station:wmo:42905,27.396,-90.305,currents,Inactive
+,42912 - Discoverer Clear Leader - Keathley Canyon 829,urn:ioos:station:wmo:42912,26.208,-91.443,currents,Inactive
+,42926 - Discoverer India - Keathley Canyon 770,urn:ioos:station:wmo:42926,26.201,-92.871,currents,Inactive
+,42929 - Pacific Santa Ana - Keathley Canyon 10,urn:ioos:station:wmo:42929,26.949,-93.442,currents,Inactive
+Coastal CUBENet (CUBENet),,,,,,
+,42067 Ð USM-R1,urn:ioos:station:wmo:42067,30.0498,-88.6833,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,,,,,winds,Inactive
+Coastal Ocean Monitoring and Prediction System (COMPS),,,,,,
+,"ANC: Anclote Gulf Park, FL",urn:ioos:station:USF.COMPS:ANC,28.193,-82.789,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,salinity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"ANM: Anna Maria, FL",urn:ioos:station:USF.COMPS:ANM,27.54,-82.74,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,,,,,winds,Inactive
+,"APK: Aripeka, FL",urn:ioos:station:USF.COMPS:ARP,28.433,-82.667,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"BCP: Big Carlos Pass, FL",urn:ioos:station:USF.COMPS:BGC,26.404,-81.881,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,winds,Inactive
+,C10: Navy-2,urn:ioos:station:USF.COMPS:C10,27.169,-82.926,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,C12: West Florida Central Buoy,urn:ioos:station:USF.COMPS:C12,27.498,-83.722,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,C13: West Florida South Buoy,urn:ioos:station:USF.COMPS:C13,26.063,-83.073,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"CPK: Campbell Park, FL",urn:ioos:station:USF.COMPS:CAM,27.765,-82.649,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,winds,Inactive
+,"EGK: Egmont Key, FL",urn:ioos:station:USF.COMPS:EGK,27.601,-82.751,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"FHP: Fred Howard Park, FL",urn:ioos:station:USF.COMPS:FHP,28.153,-82.801,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,salinity,Inactive
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"NFB: Northwest Florida Bay, FL",urn:ioos:station:USF.COMPS:NFB,25.084,-81.096,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"SHP: Shell Point, FL",urn:ioos:station:USF.COMPS:SHP,30.06,-84.291,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"TAS: Tarpon Springs, FL",urn:ioos:station:USF.COMPS:TAR,28.156,-82.758,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,winds,Inactive
+Cobalt Energy (Cobalt),,,,,,
+,42898 - Rowan Reliance - Keathley Canyon 129,urn:ioos:station:wmo:42898,27.026,-92.237,currents,Inactive
+Conoco Phillips (Conoco),,,,,,
+,42368 - Magnolia - Garden Banks 783,urn:ioos:station:wmo:42368,27.204,-92.203,currents,Inactive
+,42883 - Maersk Valiant - Alaminos Canyon 475,urn:ioos:station:wmo:42883,26.515,-94.212,currents,Inactive
+Dauphin Island Sea Laboratory (DISL),,,,,,
+,"WECP: West End, AL",urn:ioos:station:DISL:WECP,30.0902,-88.2116,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,"BSCA: Station Bon Secour, LA",urn:ioos:station:DISL:BSCA,30.3288,-87.8293,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,dissolvedOxygen,Active
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"CATA: Cedar Point, AL",urn:ioos:station:DISL:CATA,30.3085,-88.1395,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,dissolvedOxygen,Active
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Active
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"DISL: Dauphin Island, AL",urn:ioos:station:DISL:DISL,30.2513,-88.0778,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"KATA: Katrina Cut, AL",urn:ioos:station:DISL:KATA,30.2583,-88.2131,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"MBLA: Middle Bay Light, AL",urn:ioos:station:DISL:MBLA,30.4367,-88.0117,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"MHPA: Meaher Park, AL",urn:ioos:station:DISL:MHPA,30.6671,-87.9365,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"PPTA: Perdido Pass, AL",urn:ioos:station:DISL:PPTA,30.2791,-87.5561,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,dissolvedOxygen,Active
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Active
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+Deep Gulf Energy (Deep Gulf),,,,,,
+,42924 - ENSCO 8503 - Mississippi Gulf 214,urn:ioos:station:wmo:42924,28.785,-88.089,currents,Inactive
+ENI Petroleum (ENI),,,,,,
+,42855 - ENSCO 8506 - Mississippi Canyon 772,urn:ioos:station:wmo:42855,28.201,-88.766,currents,Inactive
+,42866 - Transocean Amirante - Mississippi Canyon 460,urn:ioos:station:wmo:42866,28.491,-88.997,currents,Inactive
+,42881 - Transocean Marianas - Atwater Valley 428,urn:ioos:station:wmo:42881,27.554,-88.361,currents,Inactive
+,42896 - Sevan Louisiana - Green Canyon 243,urn:ioos:station:wmo:42896,27.59,-90.31,currents,Inactive
+,42909 - ENSCO 8500 - Walker Ridge 793,urn:ioos:station:wmo:42909,28.201,-88.752,currents,Inactive
+,42921 - Deepwater Pathfinder - Mississippi Canyon 771,urn:ioos:station:wmo:42921,28.354,-87.82,currents,Inactive
+Enven Energy Corporation (Enven),,,,,,
+,42362 - Brutus - Green Canyon 158,urn:ioos:station:wmo:42362,27.795,-90.648,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Active
+,,,,,dewTemperature,Inactive
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Inactive
+,42383 - Neptune - Green Canyon 613,urn:ioos:station:wmo:42383,27.37,-89.924,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42384 - Prince TLP - Ewing Bank 1003,urn:ioos:station:wmo:42384,27.993,-90.326,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+Equinor (Equinor),,,,,,
+,42891 - West Vela - Mississippi Canyon 775,urn:ioos:station:wmo:42891,26.6573,-91.5793,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+ExxonMobil (Exxon),,,,,,
+,42899 - Ocean Endeavor - Keathley Canyon 919,urn:ioos:station:wmo:42899,27.066,-92.06,currents,Inactive
+,42930 - Deepwater Champion - Alaminos Canyon 65,urn:ioos:station:wmo:42930,26.906,-94.906,currents,Inactive
+,42931 - Noble Bob Douglas - Green Canyon 364,urn:ioos:station:wmo:42931,27.601,-91.354,currents,Inactive
+,42937 - Maersk Viking - Mississippi Canyon 211,urn:ioos:station:wmo:42937,28.784,-88.235,currents,Inactive
+Florida Fish and Wildlife Research Institute (FWRI),,,,,,
+,FWRI MTB: Middle Tampa Bay,urn:ioos:station:wmo:mtbf1,27.661,-82.594,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,FWRI NPD: New Pass Dock,urn:ioos:station:FWRI:NPD,27.3338,-82.5794,chlorophyll,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,FWRI OTB: Old Tampa Bay,urn:ioos:station:FWRI:OTB,27.932,-82.6475,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+Florida Institute of Technology (FIT),,,,,,
+,"SIPF1 - Sebastian Inlet State Park North Jetty, FL",urn:ioos:station:wmo:SIPF1,27.862,-80.445,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Inactive
+Freeport-McMoRan (Freeport),,,,,,
+,42933 - Noble Sam Croft - Green Canyon 643,urn:ioos:station:wmo:42933,27.333,-90.599,currents,Inactive
+,42939 - Noble Tom Madden - Mississippi Canyon 84,urn:ioos:station:wmo:42939,28.859,-88.044,currents,Inactive
+Helix (Helix),,,,,,
+,42388 - Helix Producer 1 - Green Canyon 237,urn:ioos:station:wmo:42388,27.73,-91.109,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42859 - Discoverer 534 - Green Canyon 516,urn:ioos:station:wmo:42859,27.514,-90.376,currents,Inactive
+,42901 - Q5000 - Mississippi Canyon 940,urn:ioos:station:wmo:42901,28.0164,-89.375,currents,Inactive
+Kerr-McGee Oil and Gas Corporation (Kerr-McGee),,,,,,
+,42366 - Red Hawk - Garden Banks 877,urn:ioos:station:wmo:42366,27.122,-91.959,currents,Inactive
+LLOG (LLOG),,,,,,
+,42852 - Who Dat FPS - Mississippi Canyon 547,urn:ioos:station:wmo:42852,28.501,-89.769,currents,Inactive
+,42875 - Amos Runner - Mississippi Canyon 751,urn:ioos:station:wmo:42875,28.154,-89.836,currents,Inactive
+,42894 - Lorris Bouzigard - Mississippi Canyon 199,urn:ioos:station:wmo:42894,28.77,-88.834,currents,Inactive
+,42940 - West Neptune - Keathley Canyon 829,urn:ioos:station:wmo:42940,27.6913,-91.1141,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+Louisiana Offshore Oil Port (LOOP),,,,,,
+,LOPL1: Louisiana Offshore Oil Port,urn:ioos:station:wmo:lopl1,28.885,-90.025,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waves,Inactive
+,,,,,winds,Active
+Louisiana Universities Marine Consortium (LUMCON),,,,,,
+,"103: Western Lake Ponchartrain, LA",urn:ioos:station:LUMCON:103,30.1889,-90.1683,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"101: LUMCON Marine Center, LA",urn:ioos:station:LUMCON:101,29.2533,-90.6633,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,chlorophyll,Active
+,,,,,dissolvedOxygen,Active
+,,,,,relativeHumidity,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,104: MissRiver-Audobon,urn:ioos:station:LUMCON:104,29.5526,-90.807,salinity,Inactive
+,"105: Tambour Bay, LA",urn:ioos:station:LUMCON:105,29.1874,-90.6654,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,winds,Inactive
+,"102: Terrebonne Bay, LA",urn:ioos:station:LUMCON:102,29.187,-90.6093,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"Wisner Station at Port Fourchon, LA",urn:ioos:station:LUMCON:wisl1,29.1144,-90.184,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+Maersk Developer (Maersk),,,,,,
+,42915 - Maersk Developer - Green Canyon 726,urn:ioos:station:wmo:42915,28.01,-89.043,currents,Inactive
+Marathon Oil (Marathon),,,,,,
+,42911 - Ocean Monarch - Garden Banks 515,urn:ioos:station:wmo:42911,27.464,-92.433,currents,Inactive
+Mariner Energy Inc (Mariner),,,,,,
+,42870 - Ocean America - Green Canyon 505,urn:ioos:station:wmo:42870,27.458,-90.884,currents,Inactive
+Marubeni Oil and Gas Inc (Marubeni),,,,,,
+,42910 - Frontier Driller - Green Canyon 248,urn:ioos:station:wmo:42910,27.847,-90.719,currents,Inactive
+,42928 - ENSCO 8505 - Mississippi Canyon 496,urn:ioos:station:wmo:42928,28.933,-88.575,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+Murphy Exploration and Production Company (Murphy),,,,,,
+,BW Pioneer buoy - C16471 - Walker Ridge 249,urn:ioos:station:wmo:42360,26.689,-90.459,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Active
+,,,,,waterTemperature,Active
+,,,,,waves,Active
+,,,,,winds,Active
+,,,,,winds,Active
+,42387 - Thunderhawk - Mississippi Canyon 734,urn:ioos:station:wmo:42387,28.267,-88.399,currents,Inactive
+,42397 - Delta House FPU - Mississippi Canyon 254,urn:ioos:station:wmo:42397,28.7545,-88.2673,currents,Inactive
+,42867 - DeepSeas - Keathley Canyon 785,urn:ioos:station:wmo:42867,28.183,-88.629,currents,Inactive
+,42877 - Q4000 - EB602,urn:ioos:station:wmo:42877,27.3783,-94.46,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42889 - Medusa - Mississippi Canyon 582,urn:ioos:station:wmo:42889,28.394,-89.465,currents,Inactive
+,42890 - Front Runner - Green Canyon 338,urn:ioos:station:wmo:42890,27.625,-90.441,currents,Inactive
+,42925 - ENSCO DS-5 - Mississippi Canyon 697,urn:ioos:station:wmo:42925,28.301,-88.127,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42934 - Pacific Sharav - Mississippi Canyon 607,urn:ioos:station:wmo:42934,27.5375,-90.1653,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+Noble Energy Inc (Noble Energy),,,,,,
+,42854 - Atwood Condor - Green Canyon 199,urn:ioos:station:wmo:42854,27.768,-90.798,currents,Inactive
+,42860 - Atwood Advantage - Mississippi Canyon 40,urn:ioos:station:wmo:42860,27.937,-90.01,currents,Inactive
+,42913 - ENSCO 8501 - Green Canyon 038,urn:ioos:station:wmo:42913,28.509,-88.031,currents,Inactive
+Oxy (Oxy),,,,,,
+,42884 - Ocean Blackhawk - KC 919,urn:ioos:station:wmo:42884,28.893,-87.9843,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,42936 - Rowan Resolute - MC387,urn:ioos:station:wmo:42936,26.0777,-92.0596,currents,Inactive
+Petrobras - USA (Petrobras),,,,,,
+,42856 - Titanium Explorer - Walker Ridge 425,urn:ioos:station:wmo:42856,26.52,-90.531,currents,Inactive
+QuarterNorth Energy (QuarterNorth),,,,,,
+,,urn:ioos:station:wmo:42866,28.0161,-88.7519,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+Repsol (Repsol),,,,,,
+,42903 - Rowan Renaissance - Keathley Canyon 686,urn:ioos:station:wmo:42903,26.312,-92.646,currents,Inactive
+Sanibel-Captiva Conservation Foundation (SCCF RECON),,,,,,
+,SCCF RECON Beautiful Island,urn:ioos:station:SCCF:18,26.6955,-81.8138,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,SCCF RECON Blind Pass,urn:ioos:station:SCCF:12,26.4966,-82.1479,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,SCCF RECON Fort Myers,urn:ioos:station:SCCF:53,26.6493,-81.881,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,SCCF RECON McIntyre Creek,urn:ioos:station:SCCF:56,26.4645,-82.1044,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Active
+,SCCF RECON Redfish Pass,urn:ioos:station:SCCF:51,26.5545,-82.1715,airPressure,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,SCCF RECON Gulf of Mexico,urn:ioos:station:SCCF:16,26.4345,-81.9647,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,chlorophyll,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,SCCF RECON Shell Point,urn:ioos:station:SCCF:13,26.5255,-82.0032,chlorophyll,Active
+,,,,,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,SCCF RECON Tarpon Bay,urn:ioos:station:SCCF:11,26.4679,-82.0631,chlorophyll,Inactive
+,,,,,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+Scripps Institution of Oceanography (Scripps),,,,,,
+,"42084 - Southwest Pass Entrance W, LA",urn:ioos:station:wmo:42084,28.988,-89.649,waves,Inactive
+,"42091 - Trinity Shoal, LA",urn:ioos:station:wmo:42091,29.087,-92.506,waves,Inactive
+,"Grand Isle Outer, LA",urn:ioos:station:wmo:42093,29.0167,-89.8324,waterTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,"Satan Shoal, FL",urn:ioos:station:wmo:42095,24.4072,-81.9668,waterTemperature,Active
+,,,,,waves,Inactive
+,"Pulley Ridge, FL",urn:ioos:station:wmo:42097,25.7,-83.65,waterTemperature,Active
+,,,,,waves,Inactive
+,"Egmont Channel Entrance, FL",urn:ioos:station:wmo:42098,27.5903,-82.9313,waterTemperature,Active
+,,,,,waves,Inactive
+,"42099 - Offshore St. Petersburg, FL (144)",urn:ioos:station:wmo:42099,27.34,-84.275,waterTemperature,Active
+,,,,,waves,Inactive
+Shell International E and P (Shell),,,,,,
+,42361 - Auger - Garden Banks 426,urn:ioos:station:wmo:42361,27.55,-92.49,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Active
+,,,,,dewTemperature,Inactive
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Inactive
+,42363 - Mars - Mississippi Canyon 807,urn:ioos:station:wmo:42363,28.16,-89.22,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,42364 - Ram-Powell - Viosca Knoll 936,urn:ioos:station:wmo:42364,29.06,-88.09,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,winds,Inactive
+,42365 - Ursa - Mississippi Canyon 809,urn:ioos:station:wmo:42365,28.2,-89.12,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,dewTemperature,Inactive
+,42390 - Perdido Host - Alaminos Canyon 857,urn:ioos:station:wmo:42390,26.129,-94.898,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Active
+,,,,,dewTemperature,Inactive
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Inactive
+,42394 - Olympus TLP - Mississippi Canyon 807,urn:ioos:station:wmo:42394,28.157,-89.24,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,42395 - Shell Alcyone Buoy - Walker Ridge 552,urn:ioos:station:wmo:42395,26.404,-90.792,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Active
+,,,,,waterTemperature,Active
+,,,,,waves,Active
+,,,,,winds,Active
+,,,,,winds,Active
+,Shell Appomattox - MC 437,urn:ioos:station:wmo:42400,28.574,-87.934,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42403 - Vito - MC939,urn:ioos:station:wmo:42403,28.0256,-89.2092,currents,Active
+,,,,,waterTemperature,Active
+,42851 - Noble Globetrotter I - Walker Ridge 376,urn:ioos:station:wmo:42851,28.3638,-87.9228,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,42858 - Stena IceMAX - Atwater Valley 18,urn:ioos:station:wmo:42858,27.962,-89.048,currents,Inactive
+,42861 - Deepwater Nautilus - Mississippi Canyon 348,urn:ioos:station:wmo:42861,27.731,-87.924,currents,Inactive
+,42862 - Jim Thompson - Mississippi Canyon 984,urn:ioos:station:wmo:42862,27.57,-92.396,currents,Inactive
+,42864 - Thalassa - MC 943,urn:ioos:station:wmo:42864,28.0109,-89.012,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42873 - Pontus - GB341,urn:ioos:station:wmo:42873,28.1939,-89.1769,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42877 - Cajun Express - Mississippi Canyon 762,urn:ioos:station:wmo:42877,28.18,-89.29,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,42882 - Noble Globetrotter II - AC772,urn:ioos:station:wmo:42882,26.188,-94.7609,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42886 - Discoverer Spirit - Mississippi Canyon 762,urn:ioos:station:wmo:42886,28.17,-89.24,currents,Inactive
+,42895 - Island Performer - Mississippi Canyon 730,urn:ioos:station:wmo:42895,28.273,-88.662,currents,Inactive
+,42902 - Deepwater Proteus - MC 392,urn:ioos:station:wmo:42902,28.6098,-87.9796,airTemperature,Inactive
+,,,,,currents,Active
+,,,,,dewTemperature,Inactive
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Inactive
+,42906 - Poseidon - Mississippi Canyon 978,urn:ioos:station:wmo:42906,27.9778,-89.5007,currents,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,42922 - Noble Jim Day - Walker Ridge 508,urn:ioos:station:wmo:42922,26.449,-90.784,currents,Inactive
+,42927 - Noble Bully I - Mississippi Canyon 567,urn:ioos:station:wmo:42927,28.418,-88.032,currents,Inactive
+,WDEL1 - WDEL1 - Shell West Delta 143,urn:ioos:station:NOAA.NDBC:WDEL1,28.662,-89.551,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,dewTemperature,Inactive
+,,,,,winds,Inactive
+Statoil Hydro (Statoil),,,,,,
+,42914 - Discoverer Americas - Walker Ridge 543,urn:ioos:station:wmo:42914,26.806,-90.567,currents,Inactive
+Stone Energy (Stone),,,,,,
+,42863 - Ocean Victory - Green Canyon 300 #2,urn:ioos:station:wmo:42863,28.962,-88.696,currents,Inactive
+Talos Energy LLC (Talos),,,,,,
+,42857 - Noble Don Taylor - GC 281,urn:ioos:station:wmo:42857,27.691,-91.114,currents,Inactive
+,42918 - Noble Danny Adkins - Mississippi Canyon 849,urn:ioos:station:wmo:42918,27.691,-91.114,currents,Inactive
+,42923 - Ensco 8502 - Green Canyon 504,urn:ioos:station:wmo:42923,27.747,-91.088,currents,Inactive
+"Texas Automated Buoy System, Texas General Land Office (TABS)",,,,,,
+,TABS B: GA-252,urn:ioos:station:wmo:42043,28.9818,-94.9186,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,TABS J: PS-1126,urn:ioos:station:wmo:42044,26.1914,-97.0507,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Active
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,TABS K: PI-745,urn:ioos:station:wmo:42045,26.2168,-96.4998,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,TABS N: HI-A595,urn:ioos:station:wmo:42046,27.8903,-94.0367,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,TABS V: HI-A389,urn:ioos:station:wmo:42047,27.8966,-93.5973,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,TABS D: TABS D,urn:ioos:station:wmo:42048,27.9396,-96.8429,currents,Active
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Active
+,TABS W: TABS W,urn:ioos:station:wmo:42049,28.3507,-96.0058,currents,Active
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Active
+,TABS F: TABS F,urn:ioos:station:wmo:42050,28.8425,-94.2433,currents,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,TABS R: TABS R,urn:ioos:station:wmo:42051,29.635,-93.6417,currents,Active
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Active
+,TABS A:TABS A,urn:ioos:station:TABS:A,29.5325,-93.8116,currents,Inactive
+,,,,,waterTemperature,Inactive
+,TABS C:TABS C,urn:ioos:station:TABS:C,28.8116,-94.7433,currents,Inactive
+,,,,,waterTemperature,Inactive
+,TABS E:TABS E,urn:ioos:station:TABS:E,27.3383,-97.1,currents,Inactive
+,,,,,waterTemperature,Inactive
+,TABS G:TABS G,urn:ioos:station:TABS:G,29.55,-93.4666,currents,Inactive
+,,,,,waterTemperature,Inactive
+,TABS H:TABS H,urn:ioos:station:TABS:H,27.8674,-96.5433,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,TABS L:TABS L,urn:ioos:station:TABS:L,28.0416,-94.1166,currents,Inactive
+,,,,,waterTemperature,Inactive
+,TABS M:TABS M,urn:ioos:station:TABS:M,28.1921,-94.1914,currents,Inactive
+,,,,,waterTemperature,Inactive
+,TABS P:TABS P,urn:ioos:station:TABS:P,29.1662,-92.7365,waterTemperature,Inactive
+,TABS X:TABS X,urn:ioos:station:wmo:42052,27.066,-96.3383,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+Texas Coastal Ocean Observation Network (TCOON),,,,,,
+,041: Nueces Delta 1: Nueces Delta 1,urn:ioos:station:TCOON:041,27.8897,-97.5916,salinity,Inactive
+,042: Nueces Delta 2: Nueces Delta 2,urn:ioos:station:TCOON:042,27.8888,-97.5696,salinity,Active
+,,,,,waterTemperature,Active
+,043: Nueces Delta 3: Nueces Delta 3,urn:ioos:station:TCOON:043,27.8838,-97.5332,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,"072: SALT01 (Nueces Bay, Texas): SALT01 (Nueces Bay, Texas)",urn:ioos:station:TCOON:072,27.8392,-97.444,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,"074: SALT03 (Nueces Bay, Texas): SALT03 (Nueces Bay, Texas)",urn:ioos:station:TCOON:074,27.8516,-97.482,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,"076: SALT05 (Nueces River, Texas): SALT05 (Nueces River, Texas)",urn:ioos:station:TCOON:076,27.8918,-97.6105,salinity,Active
+,,,,,waterTemperature,Active
+,079: SALT08: SALT08,urn:ioos:station:TCOON:079,27.8708,-97.5177,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,127: Bahia Grande Water Quality Station 1: Bahia Grande Water Quality Station 1,urn:ioos:station:TCOON:127,28.2598,-96.7737,currents,Active
+,,,,,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,146: MANERR Station 2 (Copano East): MANERR Station 2 (Copano East),urn:ioos:station:TCOON:146,28.1324,-97.0345,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,147: MANERR Station 3 (Copano West): MANERR Station 3 (Copano West),urn:ioos:station:TCOON:147,28.0841,-97.2009,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,148: MANERR Station 4 (Aransas Bay): MANERR Station 4 (Aransas Bay),urn:ioos:station:TCOON:148,27.9799,-97.0288,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,149: MANERR Station 5 (Port Aransas): MANERR Station 5 (Port Aransas),urn:ioos:station:TCOON:149,27.8383,-97.0503,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,170: National Park Service - Baffin Bay: National Park Service - Baffin Bay,urn:ioos:station:TCOON:170,27.297,-97.4049,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,171: National Park Service - Bird Island: National Park Service - Bird Island,urn:ioos:station:TCOON:171,27.4847,-97.3181,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,waterTemperature,Active
+,"068: Baffin Bay (87766041): Baffin Bay; Point of Rocks, TX",urn:ioos:station:TCOON:068,27.297,-97.4049,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"013: S. Bird Island (87761391): South Bird Island, TX",urn:ioos:station:TCOON:013,27.4847,-97.3181,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"006: Ingleside (87752831): Port Ingleside, TX",urn:ioos:station:TCOON:006,27.8217,-97.204,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"005: Packery Channel (87757921): Packery Channel, TX",urn:ioos:station:TCOON:005,27.6346,-97.237,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"057: Port O'Connor (87737011): Matagorda Bay; Port O'Connor, TX",urn:ioos:station:TCOON:057,28.446,-96.3961,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"524: Port Arthur (87704751): Port Arthur, TX",urn:ioos:station:TCOON:524,29.8672,-93.931,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"518: Rollover Pass (87709711): Rollover Pass, TX",urn:ioos:station:TCOON:518,29.515,-94.5133,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"003: Rincon del San Jose (87778121): Rincon del San Jose; Potrero Lopeno SW, TX",urn:ioos:station:TCOON:003,26.8015,-97.4706,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"009: Port Aransas (87752371): Port Aransas, TX",urn:ioos:station:TCOON:009,27.8398,-97.0727,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"031: Seadrift (87730371): Seadrift, TX",urn:ioos:station:TCOON:031,28.4073,-96.7122,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+Total USA - Inc (Total USA),,,,,,
+,Matterhorn TLP - Mississippi Canyon 243,urn:ioos:station:wmo:42367,28.742,-88.826,currents,Inactive
+Walter Oil and Gas Corporation (Walter),,,,,,
+,42900 - Ocean Saratoga - Mississippi Canyon 583,urn:ioos:station:wmo:42900,28.36,-89.423,currents,Inactive
+Wave-Current-Surge Information System for Coastal Louisiana (WAVCIS),,,,,,
+,"CSI10A: Fieldwood Energy, LLC site SS91",urn:ioos:station:WAVCIS:CSI10A,28.9192,-90.7744,currents,Inactive
+,CSI15: Ship Shoal blocks 114A,urn:ioos:station:WAVCIS:CSI15,28.8332,-90.832,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,CSI16: Chevron MP41M platform,urn:ioos:station:WAVCIS:CSI16,29.4012,-89.0355,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,salinity,Inactive
+,,,,,salinity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,CSI09: Grand Isle Blocks,urn:ioos:station:WAVCIS:CSI09,29.1015,-89.9782,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"CSI05: Isle Dernieres, LA",urn:ioos:station:WAVCIS:CSI05,29.0533,-90.5333,airPressure,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"CSI03: Marsh Island, LA",urn:ioos:station:WAVCIS:CSI03,29.4412,-92.0613,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"CSI06: South Timbalier Block 52, LA",urn:ioos:station:WAVCIS:CSI06,28.8667,-90.4833,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+Williams (Williams),,,,,,
+,42380 - Devil's Tower - Mississippi Canyon 773\,urn:ioos:station:wmo:42380,28.209,-88.737,currents,Inactive
+Woodside Energy (Woodside),,,,,,
+,42874 - Deepwater Asgard - Atwater Valley 23,urn:ioos:station:wmo:42874,27.8811,-90.665,currents,Inactive

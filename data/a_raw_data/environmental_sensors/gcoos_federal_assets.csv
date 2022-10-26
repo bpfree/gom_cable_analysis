@@ -1,0 +1,621 @@
+Data Source,Platform/Station,URN,Lat,Lon,Observations,Status
+Everglades National Park (ENP),,,,,,
+,"BDVF1: Broad River, FL",urn:ioos.station.NOAA.NDBC:BDVF1,25.478,-80.989,salinity,Active
+,,,,,waterTemperature,Active
+,"BNKF1: Butternut Key, FL",urn:ioos.station.NOAA.NDBC:BNKF1,25.087,-80.519,salinity,Active
+,,,,,waterTemperature,Active
+,"BOBF1: Bob Allen, FL",urn:ioos.station.NOAA.NDBC:BOBF1,25.027,-80.681,salinity,Active
+,,,,,waterTemperature,Active
+,"BWSF1: Blackwater Sound, FL",urn:ioos.station.NOAA.NDBC:BWSF1,25.178,-80.438,salinity,Active
+,,,,,waterTemperature,Active
+,"CANF1: Cane Patch, FL",urn:ioos.station.NOAA.NDBC:CANF1,25.422,-80.942,salinity,Active
+,,,,,waterTemperature,Active
+,"CNBF1: Cannon Bay, FL",urn:ioos.station.NOAA.NDBC:CNBF1,25.702,-81.186,salinity,Inactive
+,,,,,waterTemperature,Active
+,"CWAF1: Clear Water Pass, FL",urn:ioos.station.NOAA.NDBC:CWAF1,25.297,-81.013,salinity,Active
+,,,,,waterTemperature,Active
+,"DKKF1: Duck Key, FL",urn:ioos.station.NOAA.NDBC:DKKF1,25.18,-80.49,salinity,Active
+,,,,,waterTemperature,Active
+,"GBIF1: Gunboat Island, FL",urn:ioos.station.NOAA.NDBC:GBIF1,25.378,-81.029,salinity,Active
+,,,,,waterTemperature,Active
+,"GBTF1: Garfield Bight, FL",urn:ioos.station.NOAA.NDBC:GBTF1,25.167,-80.801,salinity,Active
+,,,,,waterTemperature,Active
+,"GKYF1: Garden Key, FL",urn:ioos.station.NOAA.NDBC:GKYF1,24.6272,-82.8722,waterLevel,Inactive
+,"HCEF1: Highway Creek, FL",urn:ioos.station.NOAA.NDBC:HCEF1,25.254,-80.444,salinity,Active
+,,,,,waterTemperature,Active
+,"JKYF1: Johnson Key, FL",urn:ioos.station.NOAA.NDBC:JKYF1,25.053,-80.904,salinity,Active
+,,,,,waterTemperature,Active
+,"LBRF1: Broad River Lower, FL",urn:ioos.station.NOAA.NDBC:LBRF1,25.484,-81.133,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,"LBSF1: Little Blackwater, FL",urn:ioos.station.NOAA.NDBC:LBSF1,25.214,-80.432,salinity,Active
+,,,,,waterTemperature,Active
+,"LMDF1: Little Madeira, FL",urn:ioos.station.NOAA.NDBC:LMDF1,25.176,-80.633,salinity,Active
+,,,,,waterTemperature,Active
+,"LMRF1: Lostmans River, FL",urn:ioos.station.NOAA.NDBC:LMRF1,25.556,-81.169,salinity,Active
+,,,,,waterTemperature,Active
+,"LRIF1: Lane River, FL",urn:ioos.station.NOAA.NDBC:LRIF1,25.284,-80.894,salinity,Active
+,,,,,waterTemperature,Active
+,"LRKF1: Little Rabbit Key, FL",urn:ioos.station.NOAA.NDBC:LRKF1,24.982,-80.826,salinity,Active
+,,,,,waterTemperature,Active
+,"LSNF1: Long Sound, FL",urn:ioos.station.NOAA.NDBC:LSNF1,25.235,-80.457,salinity,Active
+,,,,,waterTemperature,Active
+,"MUKF1: Murray Key, FL",urn:ioos.station.NOAA.NDBC:MUKF1,25.106,-80.942,salinity,Active
+,,,,,waterTemperature,Active
+,"PKYF1: Peterson Key, FL",urn:ioos.station.NOAA.NDBC:PKYF1,24.918,-80.747,salinity,Active
+,,,,,waterTemperature,Active
+,"TCVF1: Trout Cove, FL",urn:ioos.station.NOAA.NDBC:TCVF1,25.213,-80.533,salinity,Active
+,,,,,waterTemperature,Active
+,"TPEF1: Tarpon Bay East, FL",urn:ioos.station.NOAA.NDBC:TPEF1,25.41,-80.964,salinity,Active
+,,,,,waterTemperature,Active
+,"TRRF1: Taylor River, FL",urn:ioos.station.NOAA.NDBC:TRRF1,25.217,-80.65,salinity,Active
+,,,,,waterTemperature,Active
+,"WIWF1: Willy Willy, FL",urn:ioos.station.NOAA.NDBC:WIWF1,25.587,-81.044,salinity,Active
+,,,,,waterTemperature,Active
+,"WPLF1: Watson Place, FL",urn:ioos.station.NOAA.NDBC:WPLF1,25.71,-81.249,salinity,Active
+,,,,,waterTemperature,Active
+,"WRBF1: Whipray Basin, FL",urn:ioos.station.NOAA.NDBC:WRBF1,25.072,-80.735,salinity,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"WWEF1: White Water -West, FL",urn:ioos.station.NOAA.NDBC:WWEF1,25.232,-80.938,salinity,Active
+,,,,,waterTemperature,Active
+"National Data Buoy Center, NOAA (NDBC)",,,,,,
+,"42001: 42001 - MID GULF 180 nm South of Southwest Pass, LA",urn:ioos:station:wmo:42001,25.888,-89.658,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"42002: 42002 - W GULF 207 NM East of Brownsville, TX",urn:ioos:station:wmo:42002,26.091,-93.758,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"42003: 42003 - E GULF 262 nm South of Panama City, FL",urn:ioos:station:wmo:42003,26.007,-85.648,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,currents,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"42007: 42007 - BILOXI 22 nm South-Southeast of Biloxi, MS",urn:ioos:station:wmo:42007,30.09,-88.769,winds,Inactive
+,42012: 42012 - Orange Beach AL Buoy,urn:ioos:station:wmo:42012,30.065,-87.555,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"42019: 42019 - Freeport, TX 60 NM South of Freeport, TX",urn:ioos:station:wmo:42019,27.907,-95.353,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"42020: 42020 - Corpus Christi, TX 50NM Southeast of Corpus Christi, TX",urn:ioos:station:wmo:42020,26.968,-96.694,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"42035: 42035 - GALVESTON 22NM East of Galveston, TX",urn:ioos:station:wmo:42035,29.232,-94.413,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"42036: 42036 - W. TAMPA 106NM West Northwest of Tampa, FL",urn:ioos:station:wmo:42036,28.5,-84.517,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"42039: 42039 - PENSACOLA - 115NM East Southeast of Pensacola, FL",urn:ioos:station:wmo:42039,28.739,-86.006,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,42055: 42055 - Bay of Campeche,urn:ioos:station:wmo:42055,22.203,-94,airPressure,Active
+,,,,,airTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,42056: 42056 - Yucatan Basin,urn:ioos:station:wmo:42056,19.802,-84.857,airPressure,Inactive
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,42057: 42057 - Western Caribbean,urn:ioos:station:wmo:42057,17.002,-81.501,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"BURL1: BURL1 - Southwest Pass, LA",urn:ioos:station:NOAA.NDBC:BURL1,28.906,-89.429,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,winds,Active
+,"CDRF1: CDRF1 - Cedar Key, FL",urn:ioos:station:NOAA.NDBC:CDRF1,29.136,-83.029,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,winds,Active
+,"FWYF1: FWYF1 - Fowey Rocks, FL",urn:ioos:station:NOAA.NDBC:FWYF1,25.591,-80.097,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"KTNF1: KTNF1 - Keaton Beach, FL",urn:ioos:station:NOAA.NDBC:KTNF1,29.819,-83.593,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,winds,Active
+,"PLSF1: PLSF1 - Pulaski Shoal Light, FL",urn:ioos:station:NOAA.NDBC:PLSF1,24.693,-82.773,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,winds,Inactive
+,"PTAT2: PTAT2 - Port Aransas, TX",urn:ioos:station:NOAA.NDBC:PTAT2,27.826,-97.051,airPressure,Inactive
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Inactive
+,,,,,winds,Active
+,"SANF1: SANF1 - Sand Key, FL",urn:ioos:station:NOAA.NDBC:SANF1,24.456,-81.877,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,winds,Inactive
+,"SAUF1: SAUF1 - St. Augustine, FL",urn:ioos:station:NOAA.NDBC:SAUF1,29.857,-81.265,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"SGOF1: SGOF1 - Tyndall AFB Tower C (N4), FL",urn:ioos:station:NOAA.NDBC:SGOF1,29.408,-84.858,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"SMKF1: SMKF1 - Sombrero Key, FL",urn:ioos:station:NOAA.NDBC:SMKF1,24.628,-81.112,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,winds,Active
+,"SRST2: SRST2 - Sabine Pass, TX",urn:ioos:station:NOAA.NDBC:SRST2,29.683,-94.033,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,winds,Active
+,"VENF1: VENF1 - Venice, FL",urn:ioos:station:NOAA.NDBC:VENF1,27.072,-82.453,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+"National Estuarine Research Reserve System, NOAA (NERRS)",,,,,,
+,apacpwq: Cat Point,urn:ioos:station:NOAA.NERRS:apacpwq,29.7021,-84.8802,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,apadbwq: Dry Bar,urn:ioos:station:NOAA.NERRS:apadbwq,29.6747,-85.0583,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,apaebmet: East Bay,urn:ioos:station:NOAA.NERRS:apaebmet,29.7909,-84.8834,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,winds,Active
+,apaebwq: East Bay Bottom,urn:ioos:station:NOAA.NERRS:apaebwq,29.7858,-84.8752,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,apaeswq: East Bay Surface,urn:ioos:station:NOAA.NERRS:apaeswq,29.858,-84.8752,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,gndbcwq: Bayou Cumbest,urn:ioos:station:NOAA.NERRS:gndbcwq,30.3836,-88.4364,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,gndbhwq: Bayou Heron,urn:ioos:station:NOAA.NERRS:gndbhwq,30.4178,-88.4054,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,gndblwq: Bangs Lake,urn:ioos:station:NOAA.NERRS:gndblwq,30.3571,-88.4629,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,gndcrmet: Crooked Bayou,urn:ioos:station:NOAA.NERRS:gndcrmet,30.3592,-88.42,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,relativeHumidity,Inactive
+,,,,,winds,Inactive
+,gndpcwq: Point Aux Chenes Bay,urn:ioos:station:NOAA.NERRS:gndpcwq,30.3486,-88.4185,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,waterTemperature,Inactive
+,gtmfmwq: Fort Matanzas,urn:ioos:station:NOAA.NERRS:gtmfmwq,29.737,-81.2459,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,gtmpcmet: Pellicer Creek,urn:ioos:station:NOAA.NERRS:gtmpcmet,29.6577,-81.2327,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,winds,Active
+,gtmpcwq: Pellicer Creek,urn:ioos:station:NOAA.NERRS:gtmpcwq,29.6671,-81.2574,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,gtmpiwq: Pine Island,urn:ioos:station:NOAA.NERRS:gtmpiwq,30.0508,-81.3674,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,gtmsswq: San Sebastian,urn:ioos:station:NOAA.NERRS:gtmsswq,29.8688,-81.3074,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,marabwq: Aransas Bay,urn:ioos:station:NOAA.NERRS:marabwq,27.9798,-97.0287,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,marcemet: Copano East,urn:ioos:station:NOAA.NERRS:marcemet,28.1323,-97.0344,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,winds,Active
+,marcewq: Copano Bay East,urn:ioos:station:NOAA.NERRS:marcewq,28.1323,-97.0344,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,marcwwq: Copano Bay West,urn:ioos:station:NOAA.NERRS:marcwwq,28.0841,-97.2009,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,marmbwq: Mesquite Bay,urn:ioos:station:NOAA.NERRS:marmbwq,28.1384,-96.8285,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,marscwq: Ship Channel,urn:ioos:station:NOAA.NERRS:marscwq,27.8383,-97.0503,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,rkbfbwq: Fakahatchee Bay,urn:ioos:station:NOAA.NERRS:rkbfbwq,25.8922,-81.477,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,rkbfuwq: Faka Union Bay,urn:ioos:station:NOAA.NERRS:rkbfuwq,25.9005,-81.5159,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,rkblhwq: Lower Henderson Creek,urn:ioos:station:NOAA.NERRS:rkblhwq,26.0257,-81.7332,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,rkbmbwq: Middle Blackwater River,urn:ioos:station:NOAA.NERRS:rkbmbwq,25.9343,-81.5946,dissolvedOxygen,Inactive
+,,,,,salinity,Inactive
+,,,,,turbidity,Inactive
+,,,,,waterTemperature,Inactive
+,rkbuhmet: Upper Henderson Creek,urn:ioos:station:NOAA.NERRS:rkbuhmet,26.0501,-81.7017,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,winds,Active
+,wkbfrwq: Fish River,urn:ioos:station:NOAA.NERRS:wkbfrwq,30.4162,-87.8228,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,wkbmbwq: Middle Bay,urn:ioos:station:NOAA.NERRS:wkbmbwq,30.39,-87.8177,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,wkbmrwq: Magnolia River,urn:ioos:station:NOAA.NERRS:wkbmrwq,30.39,-87.8177,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+,wkbshmet: Safe Harbor Met Station,urn:ioos:station:NOAA.NERRS:wkbshmet,30.4212,-87.8285,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,relativeHumidity,Active
+,,,,,winds,Active
+,wkbwbwq: Weeks Bay,urn:ioos:station:NOAA.NERRS:wkbwbwq,30.3808,-87.832,dissolvedOxygen,Active
+,,,,,salinity,Active
+,,,,,turbidity,Active
+,,,,,waterTemperature,Active
+"National Ocean Service, NOAA (NOS)",,,,,,
+,"8720030: Fernandina Beach, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8720030,30.6717,-81.465,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8720218: Mayport (Bar Pilots Dock), FL",urn:ioos:station:NOAA.NOS.CO-OPS:8720218,30.3967,-81.43,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8720219: Dames Point, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8720219,30.3867,-81.5583,waterLevel,Active
+,"8720357: I-295 Bridge, St Johns River, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8720357,30.1917,-81.6917,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8720625: Racy Point, St Johns River, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8720625,29.8017,-81.5483,waterLevel,Inactive
+,"8721604: Trident Pier, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8721604,28.4158,-80.5931,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8722670: Lake Worth Pier, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8722670,26.6117,-80.0333,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8723214: Virginia Key, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8723214,25.7314,-80.1618,airPressure,Active
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8723970: Vaca Key, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8723970,24.7117,-81.105,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8724580: Key West, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8724580,24.5557,-81.8079,airPressure,Inactive
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,"8725110: Naples, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8725110,26.1317,-81.8075,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"8725520: Fort Myers, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8725520,26.6477,-81.8712,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8726384: Port Manatee, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726384,27.6387,-82.5621,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,"8726520: St. Petersburg, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726520,27.7606,-82.6269,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8726607: Old Port Tampa, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726607,27.8578,-82.5527,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8726667: Mckay Bay Entrance, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726667,27.9133,-82.425,waterLevel,Inactive
+,"8726669: Berth 223 Met, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726669,27.9172,-82.4438,winds,Inactive
+,"8726673: Seabulk, Tampa, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726673,27.9233,-82.445,winds,Inactive
+,"8726679: East Bay Causeway, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726679,27.9289,-82.4258,winds,Inactive
+,"8726694: TPA Cruise Terminal 2, Tampa, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726694,27.9333,-82.4333,winds,Active
+,"8726724: Clearwater Beach, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8726724,27.9783,-82.8317,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8727520: Cedar Key, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8727520,29.135,-83.0317,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8728690: Apalachicola, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8728690,29.7267,-84.9817,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8729108: Panama City, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8729108,30.1523,-85.6669,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8729210: Panama City Beach, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8729210,30.2133,-85.8783,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8729840: Pensacola, FL",urn:ioos:station:NOAA.NOS.CO-OPS:8729840,30.4044,-87.2112,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8732828: Weeks Bay, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8732828,30.4167,-87.825,waterLevel,Inactive
+,"8734673: Fort Morgan, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8734673,30.2283,-88.025,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,winds,Active
+,"8735180: Dauphin Island, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8735180,30.25,-88.075,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8735391: Dog River Bridge, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8735391,30.5652,-88.088,waterLevel,Active
+,"8735523: East Fowl River Bridge, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8735523,30.4437,-88.1139,waterLevel,Active
+,"8736897: Coast Guard Sector Mobile, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8736897,30.6483,-88.0583,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8737048: Mobile State Docks, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8737048,30.7083,-88.0433,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,salinity,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,"8737138: Chickasaw Creek, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8737138,30.7819,-88.0736,waterLevel,Active
+,"8738043: West Fowl River Bridge, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8738043,30.3766,-88.1586,waterLevel,Active
+,"8739803: Bayou La Batre Bridge, AL",urn:ioos:station:NOAA.NOS.CO-OPS:8739803,30.4057,-88.2477,waterLevel,Active
+,"8740166: Grand Bay Nerr, Mississippi Sound, MS",urn:ioos:station:NOAA.NOS.CO-OPS:8740166,30.412,-88.402,waterLevel,Inactive
+,,,,,waterLevel,Inactive
+,"8741003: Petit Bois Island, MS",urn:ioos:station:NOAA.NOS.CO-OPS:8741003,30.2133,-88.5,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,winds,Active
+,"8741041: Dock E. Port of Pascagoula, MS",urn:ioos:station:NOAA.NOS.CO-OPS:8741041,30.3477,-88.5054,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,"8741094: Range A rear, Pascagoula, MS",urn:ioos:station:NOAA.NOS.CO-OPS:8741094,30.3433,-88.5117,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,winds,Inactive
+,"8741501: Dock C, Pascagoula, MS",urn:ioos:station:NOAA.NOS.CO-OPS:8741501,30.355,-88.5667,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,winds,Inactive
+,"8741533: Pascagoula Noaa Lab, MS",urn:ioos:station:NOAA.NOS.CO-OPS:8741533,30.3679,-88.563,waterLevel,Active
+,,,,,waterLevel,Active
+,"8747437: Bay Waveland Yacht Club, MS",urn:ioos:station:NOAA.NOS.CO-OPS:8747437,30.3264,-89.3258,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8760721: Pilottown, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8760721,29.1783,-89.2583,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8760922: Pilots Station East, SW Pass, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8760922,28.9322,-89.4075,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8761305: Shell Beach, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8761305,29.8681,-89.6732,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8761724: Grand Isle, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8761724,29.2633,-89.9567,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8761927: New Canal, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8761927,30.0272,-90.1134,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8761955: Carrollton, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8761955,29.9329,-90.1355,waterLevel,Active
+,"8762075: Port Fourchon, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8762075,29.1142,-90.1992,waterLevel,Active
+,"8762482: Bayou Gauche, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8762482,29.7886,-90.4202,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8764044: Berwick, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8764044,29.6675,-91.2376,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8764227: Amerada Pass, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8764227,29.4496,-91.3381,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8764314: Eugene Istans, North of, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8764314,29.2675,-91.3839,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,salinity,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8766072: Freshwater Canal Locks, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8766072,29.555,-92.305,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8767816: Lake Charles, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8767816,30.2236,-93.2217,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,"8767961: Bulk Terminal, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8767961,30.1903,-93.3007,waterLevel,Active
+,"8768094: Calcasieu Pass, LA",urn:ioos:station:NOAA.NOS.CO-OPS:8768094,29.7682,-93.3429,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8770475: Port Arthur, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770475,29.8667,-93.93,airPressure,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8770520: Rainbow Bridge, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770520,29.98,-93.8817,waterLevel,Active
+,"8770570: Sabine Pass North, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770570,29.7284,-93.8701,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"8770613: Morgans Point, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770613,29.6817,-94.985,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,salinity,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8770733: Lynchburg Landing, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770733,29.765,-95.078,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,,,,,winds,Inactive
+,"8770777: Manchester, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770777,29.7263,-95.2658,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,"8770808: High Island, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770808,29.593,-94.39,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8770822: Texas Point, Sabine Pass, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770822,29.6893,-93.8418,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,currents,Inactive
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8770971: Rollover Pass, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8770971,29.515,-94.513,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8771013: Eagle Point, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8771013,29.48,-94.9183,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8771341: Galveston Bay Entrance, North Jetty, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8771341,29.3573,-94.7248,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8771450: Galveston Pier 21, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8771450,29.31,-94.7933,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,"8771486: Galveston Railroad Bridge, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8771486,29.302,-94.897,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8771972: San Luis Pass, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8771972,29.095,-95.1133,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8772447: USCG Freeport, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8772447,28.9433,-95.3025,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"8772985: Sargent, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8772985,28.772,-95.617,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8773037: Seadrift, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8773037,28.408,-96.712,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8773146: East Matagorda, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8773146,28.71,-95.913,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8773259: Port Lavaca, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8773259,28.64,-96.595,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8773701: Port Oconnor, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8773701,28.4517,-96.3883,waterLevel,Active
+,,,,,winds,Active
+,"8774230: Aransas Wildlife Refuge, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8774230,28.228,-96.795,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8774513: Copano Bay, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8774513,28.1183,-97.0217,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,"8774770: Rockport, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8774770,28.0217,-97.0467,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8775237: Port Aransas, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8775237,27.8383,-97.0733,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8775244: Nueces Bay, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8775244,27.8328,-97.4859,airPressure,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,"8775283: Port Ingleside, Corpus Christi Bay, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8775283,27.822,-97.203,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8775296: Uss Lexington, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8775296,27.812,-97.39,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Inactive
+,"8775792: Packery Channel, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8775792,27.6333,-97.2367,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8775870: Malaquite Beach (Corpus Christi), TX",urn:ioos:station:NOAA.NOS.CO-OPS:8775870,27.58,-97.2167,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterLevel,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"8776139: S. Bird Island, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8776139,27.48,-97.322,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,winds,Active
+,"8776604: Baffin Bay, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8776604,27.295,-97.405,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8777812: Rincon Del San Jose, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8777812,26.825,-97.4917,airPressure,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8778490: Port Mansfield, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8778490,26.5546,-97.4221,airPressure,Active
+,,,,,airTemperature,Active
+,"8779280: Realitos Peninsula, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8779280,26.2622,-97.2854,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8779748: South Padre Island Coast Guard Station, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8779748,26.077,-97.177,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,winds,Active
+,"8779770: Port Isabel, TX",urn:ioos:station:NOAA.NOS.CO-OPS:8779770,26.06,-97.215,airPressure,Active
+,,,,,airTemperature,Active
+,,,,,waterLevel,Active
+,,,,,waterTemperature,Active
+,,,,,winds,Active
+,8779749 - SPI Brazos Santiago TX,urn:ioos:station:wmo:bzst2,26.067,-97.155,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,8772471 - Freeport SPIP TX,urn:ioos:station:wmo:fpst2,28.936,-95.294,airPressure,Inactive
+,,,,,airTemperature,Inactive
+,,,,,waterTemperature,Inactive
+,,,,,winds,Inactive
+,"mc0101: Atchfalaya Bar Channel, LA",urn:ioos:station:NOAA.NOS.CO-OPS:mc0101,29.3183,-91.4297,currents,Inactive
