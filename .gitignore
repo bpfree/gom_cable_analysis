@@ -6,3 +6,23 @@
 .DS_Store
 
 # Ignore data too large to add
+## Raw data
+data/a_raw_data/AISVesselTracks2019.gdb
+data/a_raw_data/AISVesselTransitCounts2019.gdb
+data/a_raw_data/crm_vol5.nc
+data/a_raw_data/global_island_gulf_of_mexico.gdb
+data/a_raw_data/globalislandsfix.gdb
+data/a_raw_data/gom_ec_economics.gdb
+data/a_raw_data/gom_ec_fisheries.gdb
+data/a_raw_data/gom_ec_general.gdb
+data/a_raw_data/gom_ec_industry.gdb
+data/a_raw_data/gom_ec_logistics.gdb
+data/a_raw_data/gom_ec_metocean.gdb
+data/a_raw_data/gom_ec_nrc.gdb
+data/a_raw_data/Seagrasses
+data/a_raw_data/TPWD_Seagrass
+data/a_raw_data/u_fouo_sd_geocables_June_2022_distribution
+
+## Intermediate data
+data/b_intermediate_data/gom_physical_land.gpkg
+data/b_intermediate_data/gom_seagrass.gpkg
