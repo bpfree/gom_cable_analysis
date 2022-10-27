@@ -60,7 +60,7 @@ bsee_platforms <- read.csv(file = paste(bsee_platform_dir, "PlatStruc.csv", sep 
   # Filter for platforms that have been installed but not yet removed
   dplyr::filter(Install.Date != "" & # platforms that have an install date (so not blank)
                 Removal.Date == "") %>% # platforms that lack a removal date (so are blank)
-  # create buffer of 152.4 meters around each drilling platform
+  # create buffer of 152.4 meters (500 feet) around each drilling platform
   sf::st_buffer(dist = 152.4) %>%
   # create field called "layer" and fill with "drilling platform" for summary
   dplyr::mutate(layer = "drilling platform") %>%
