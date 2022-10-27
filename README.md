@@ -14,7 +14,7 @@ This is the GitHub repository that details the cable site prioritization for the
 
 The full data repository is accessible on [Google Drive](https://drive.google.com/drive/folders/1AGuMCNFLcqwIMokV9GzwFpY74GubB1lb). You may need to request access to the folder.
 
-**__Note for PC users:__** The code was written on a Mac so to run the scripts replace "/" in the pathnames for directories with "\\".
+**__Note for PC users:__** The code was written on a Mac so to run the scripts replace "/" in the pathnames for directories with two "\".
 
 Please contact Brian Free (brian.free@noaa.gov) with any questions.
 
