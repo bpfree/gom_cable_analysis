@@ -4,10 +4,10 @@ This is the GitHub repository that details the cable site prioritization for the
 
 #### **Repository Structure**
 * **data**
-  - **raw_data:** the raw data integrated in the analysis
+  - **raw_data:** the raw data integrated in the analysis (**Note:** original data name and structure were kept except when either name was not descriptive or similar data were put in same directory to simplify input directories)
   - **intermediate_data:** disaggregated processed data
   - **analysis_data:** processed data for analyzing
-  - **raster_data:** raster data 
+  - **raster_data:** raster data
   - **final_data:**
 * **code:** scripts for cleaning, processing, and analyzing data
 * **figures:** figures generated to visualize analysis
@@ -66,4 +66,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Environmental Sensors | IOOS | [2020 - 2021 Raw Assets](https://data.gcoos.org/inventory.php#tabs-3) | [Metadata](http://erddap.ioos.us/erddap/info/raw_asset_inventory/index.html) and [background information](https://github.com/ioos/ioos-asset-inventory/blob/main/README.md)
 | Pipelines | BOEM | [Pipelines](https://www.data.boem.gov/Mapping/Files/Pipelines.gdb.zip) | [Metadata](https://www.data.boem.gov/Mapping/Files/ppl_arcs_meta.html) and [field definitions](https://www.data.boem.gov/Mapping/Files/ppl_arcs_meta.html)
 
-#### Known issues
+#### Known limitations and issues
+Currently R cannot open raster files from a geodatabase. Thus, the vessel traffic count data had to be opened in Esri software and then use the study area to mask the count data within that area.
+
+Similarly, The KML data from [NDBC](ttps://www.ndbc.noaa.gov/obs.shtml), as of October 27 2022, can only be downloaded as a KML file. To open the data within R, they were first converted to a shapefile (or usable format) in Esri software.
