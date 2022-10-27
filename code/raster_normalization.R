@@ -147,36 +147,6 @@ list(unique(slope_normalize)) # list all unique values
 hist(slope_normalize) # show histogram of values (though mostly values near 1)
 freq(slope_normalize) # show frequency of values (though will round to 0 and 1)
 
-
-#####################################
-
-# # Check data
-# slope_df <- slope %>%
-#   as.data.frame(xy = T)
-# slope_df_min <- min(slope_df$slope, na.rm = T)
-# slope_df_max <- max(slope_df$slope, na.rm = T)
-# slope_df_z <- zmf_function(slope_df$slope)
-# slope_df$zscore <- slope_df_z
-# hist(slope_df$zscore)
-# 
-# slope_z_sf <- slope_df %>%
-#   # convert to simple feature
-#   st_as_sf(coords = c("x", "y"),
-#            crs = 5070) %>% # EPSG 5070 (https://epsg.io/5070)
-#   st_buffer(dist = 100)
-# 
-# slope_z_raster <- fasterize(sf = slope_z_sf,
-#                             raster = gom_raster,
-#                             field = "zscore")
-# 
-# slope_z_raster2 <- slope_df %>%
-#   # convert to simple feature
-#   st_as_sf(coords = c("x", "y"),
-#            crs = 5070) %>% # EPSG 5070 (https://epsg.io/5070)
-#   st_bufer(dist = 100) %>%
-#   fasterize(raster = gom_raster,
-#             field = "zscore")
-
 #####################################
 #####################################
 # Export data
