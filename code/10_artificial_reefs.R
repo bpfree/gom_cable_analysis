@@ -40,7 +40,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 # Read artificial reefs data (https://tpwd.texas.gov/gis/resources/tpwd-artificial-reef-data.zip)
 ## Data are from Texas Parks and Wildlife
 artificial_reefs <- read.csv(paste(data_dir, "TPWD_ArtReefSites_Jan21.csv", sep = "/")) %>%
-  # remove any observations that has NA values (only 1 occurance)
+  # remove any observations that has NA values (only 1 occurrence)
   na.omit() %>%
   # convert to simple feature
   sf::st_as_sf(coords = c("Longitude.WGS84", "Latitude.WGS84"),
@@ -54,7 +54,7 @@ artificial_reefs <- read.csv(paste(data_dir, "TPWD_ArtReefSites_Jan21.csv", sep 
   st_buffer(dist = 304.8) %>%
   # limit reefs to only those within study area
   st_intersection(study_area) %>%
-  # create field "layer" and populate with description "lightering zone"
+  # create field "layer" and populate with description "artificial reefs"
   dplyr::mutate(layer = "artificial reefs") %>%
   # group by "layer" field for summarising data
   dplyr::group_by(layer,
