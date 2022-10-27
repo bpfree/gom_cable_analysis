@@ -70,3 +70,11 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 Currently R cannot open raster files from a geodatabase. Thus, the vessel traffic count data had to be opened in Esri software and then use the study area to mask the count data within that area.
 
 Similarly, The KML data from [NDBC](ttps://www.ndbc.noaa.gov/obs.shtml), as of October 27 2022, can only be downloaded as a KML file. To open the data within R, they were first converted to a shapefile (or usable format) in Esri software.
+
+The seagrass and oyster datasets in the analysis and intermediate geopackages will not open in ESRI software. To view and work with those data, open them in QGIS and then export as separate shapefiles. 
+
+
+#### Assumptions
+Any layers that were comprised of many datasets took the perspective to minimize the likelihood of placing a cable where it should not be then all areas of those datasets were correct and held equal weight. For instance, despite the range in geographic scope and temporal and spatial resolutions, all the seagrass datasets were held to be equally acceptable.
+
+Regarding oil and gas drilling platforms, ones with an installation date and has a removal date were the only ones included, as it was assumed that a platform would not exist if there was no installation date or it had a removal date. It is more likely that a platform would exist even if it had a removal date than one existing if it lacked an installation date.
