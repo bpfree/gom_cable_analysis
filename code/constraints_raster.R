@@ -175,6 +175,12 @@ constraints_stack <- raster::stack(seagrass_raster,
 # Create constraints raster
 constraints_raster <- raster::calc(constraints_stack, fun = sum)
 
+#####################################
+#####################################
+
+# Export data
+## Raster data
+writeRaster(constraints_raster, filename = file.path(raster_dir, "constraints_raster.grd"), overwrite = T)
 
 
 
