@@ -151,39 +151,51 @@ pipeline_raster <- fasterize(sf = pipeline,
 #####################################
 #####################################
 
-# Create raster stack
-constraints_stack <- raster::stack(seagrass_raster,
-                           oyster_raster,
-                           conservation_area_raster,
-                           artificial_reef_raster,
-                           significant_sediment_raster,
-                           fish_haven_raster,
-                           unexploded_ordnance_raster,
-                           no_activity_zone_raster,
-                           lightering_zone_raster,
-                           anchorage_area_raster,
-                           navigation_aid_raster,
-                           borehole_raster,
-                           oil_gas_lease_area_raster,
-                           drilling_platform_raster,
-                           submarine_cable_raster,
-                           environmental_sensor_raster,
-                           pipeline_raster)
-
-#####################################
-
-# Create constraints raster
-constraints_raster <- raster::calc(constraints_stack, fun = sum)
+# Create constraints layer
+## cover any NA values of another raster with values from any other raster (all barrier cells)
+constraints <- raster::cover(seagrass_raster,
+                             oyster_raster,
+                             conservation_area_raster,
+                             artificial_reef_raster,
+                             significant_sediment_raster,
+                             fish_haven_raster,
+                             unexploded_ordnance_raster,
+                             no_activity_zone_raster,
+                             lightering_zone_raster,
+                             anchorage_area_raster,
+                             navigation_aid_raster,
+                             borehole_raster,
+                             oil_gas_lease_area_raster,
+                             drilling_platform_raster,
+                             submarine_cable_raster,
+                             environmental_sensor_raster,
+                             pipeline_raster)
 
 #####################################
 #####################################
 
 # Export data
 ## Raster data
-writeRaster(constraints_raster, filename = file.path(raster_dir, "constraints_raster.grd"), overwrite = T)
+writeRaster(constraints, filename = file.path(raster_dir, "constraints_raster.grd"), overwrite = T)
 
-
-
+## Intermediate data
+writeRaster(seagrass_raster, filename = file.path(intermediate_dir, "seagrass_raster.grd"), overwrite = T)
+writeRaster(oyster_raster, filename = file.path(intermediate_dir, "oyster_raster.grd"), overwrite = T)
+writeRaster(conservation_area_raster, filename = file.path(intermediate_dir, "conservation_area_raster.grd"), overwrite = T)
+writeRaster(artificial_reef_raster, filename = file.path(intermediate_dir, "artificial_reef.grd"), overwrite = T)
+writeRaster(significant_sediment_raster, filename = file.path(intermediate_dir, "significant_sediment_raster.grd"), overwrite = T)
+writeRaster(fish_haven_raster, filename = file.path(intermediate_dir, "fish_haven_raster.grd"), overwrite = T)
+writeRaster(unexploded_ordnance_raster, filename = file.path(intermediate_dir, "unexploded_ordnance_raster.grd"), overwrite = T)
+writeRaster(no_activity_zone_raster, filename = file.path(intermediate_dir, "no_activity_zone_raster.grd"), overwrite = T)
+writeRaster(lightering_zone_raster, filename = file.path(intermediate_dir, "lightering_zone_raster.grd"), overwrite = T)
+writeRaster(anchorage_area_raster, filename = file.path(intermediate_dir, "anchorage_area_raster.grd"), overwrite = T)
+writeRaster(navigation_aid_raster, filename = file.path(intermediate_dir, "navigation_aid_raster.grd"), overwrite = T)
+writeRaster(borehole_raster, filename = file.path(intermediate_dir, "borehole_raster.grd"), overwrite = T)
+writeRaster(oil_gas_lease_area_raster, filename = file.path(intermediate_dir, "oil_gas_lease_area_raster.grd"), overwrite = T)
+writeRaster(drilling_platform_raster, filename = file.path(intermediate_dir, "drilling_platform_raster.grd"), overwrite = T)
+writeRaster(submarine_cable_raster, filename = file.path(intermediate_dir, "submarine_cable_raster.grd"), overwrite = T)
+writeRaster(environmental_sensor_raster, filename = file.path(intermediate_dir, "environmental_sensor_raster.grd"), overwrite = T)
+writeRaster(pipeline_raster, filename = file.path(intermediate_dir, "pipeline_raster.grd"), overwrite = T)
 
 
 
