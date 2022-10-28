@@ -57,7 +57,9 @@ sf::st_layers(dsn = geocable_dir,
 submarine_cable_areas <- st_read(dsn = submarine_cable_area_dir, layer = "SubmarineCableArea") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # filter for only operational submarine cable areas (note: there is also an "Inactive" status, but no area resides in this study area)
+  # filter for only operational submarine cable areas
+  # Note: Other statuses include: "Inactive", "Abandoned", and "Proposed" status
+  # Study area has only "Operational" and NA
   dplyr::filter(status == "Operational") %>%
   # obtain only active oil and gas lease blocks in the study area
   sf::st_intersection(study_area) %>%
