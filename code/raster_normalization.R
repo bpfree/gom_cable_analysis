@@ -149,6 +149,7 @@ freq(slope_normalize) # show frequency of values (though will round to 0 and 1)
 
 #####################################
 #####################################
+
 # Export data
 ## Raster data
 writeRaster(bathymetry_normalize, filename = file.path(raster_dir, "bathymetry_normalize.grd"), overwrite = T)
