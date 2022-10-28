@@ -38,8 +38,8 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 #####################################
 #####################################
 
-# Dissolve seagrass habitat function
-## This function will take the imported data and reduce it down to a single feature.
+# Environmental sensor function
+## This function will take the imported data and reduce it to the study area
 clean_sensor <- function(sensor_data){
   sensor_layer <- sensor_data %>%
     # reproject the coordinate reference system to match BOEM call areas
@@ -135,6 +135,7 @@ ioos_sensor <- read.csv(paste(environmental_sensors_dir, "environmental_sensors_
   # create sensor field to help spot duplicates across datasets
   dplyr::mutate(sensor = word(Station_ID, start = -1, end = -1, sep = fixed(":"))) %>%
   # rename operational field
+  ## codes: Y = Yes, N = No, U = Unknown, O = Offline () (http://erddap.ioos.us/erddap/info/raw_asset_inventory/index.html)
   dplyr::rename("status" = "Currently_Operational") %>%
   # keep only needed fields
   dplyr::select(longitude, latitude,
