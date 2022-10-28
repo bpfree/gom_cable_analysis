@@ -22,7 +22,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
 | Landmasses | United States Geological Survey | [Global Islands](https://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/USGSEsriWCMC_GlobalIslands_v3.mpk) | [Global Island Explorer](https://rmgsc.cr.usgs.gov/gie/)
-| Seagreass | NOAA | [Seagrasses](https://marinecadastre.gov/downloads/data/mc/Seagrass.zip) | [Seagrass](https://www.fisheries.noaa.gov/inport/item/56960/)
+| Seagrass | NOAA | [Seagrasses](https://marinecadastre.gov/downloads/data/mc/Seagrass.zip) | [Seagrass](https://www.fisheries.noaa.gov/inport/item/56960/)
 | Seagrass | Texas Park and Wildlife Department | [Seagrass (2012)](https://tpwd.texas.gov/gis/resources/tpwd-seagrass.zip)
 | Seagrass | Texas Park and Wildlife Department | [Christmas Bay / West Bay (2015)](https://tpwd.texas.gov/gis/resources/tpwd-seagrass.zip)
 | Seagrass | Texas Park and Wildlife Department | [NOAA (2012)](https://tpwd.texas.gov/gis/resources/tpwd-seagrass.zip)
