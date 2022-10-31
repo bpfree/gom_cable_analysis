@@ -12,7 +12,7 @@ This is the GitHub repository that details the cable site prioritization for the
 * **code:** scripts for cleaning, processing, and analyzing data
 * **figures:** figures generated to visualize analysis
 
-The full data repository is accessible on [Google Drive](https://drive.google.com/drive/folders/1AGuMCNFLcqwIMokV9GzwFpY74GubB1lb). You may need to request access to the folder. Can read more on the methods for the data and analysis [here](./GOM Cable Prioritization R Methodology.pdf).
+The full data repository is accessible on [Google Drive](https://drive.google.com/drive/folders/1AGuMCNFLcqwIMokV9GzwFpY74GubB1lb). You may need to request access to the folder. Can read more on the methods for the data and analysis [here](/methodology.pdf).
 
 **_Note for PC users:_** The code was written on a Mac so to run the scripts replace "/" in the pathnames for directories with two "\\".
 
