@@ -33,7 +33,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Oyster | Texas Park and Wildlife Department | [Lavaca Tres Palacios](https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/lavaca-tres-palacios-habitat-shapefile.zip)
 | Oyster | Texas Park and Wildlife Department | [West Galveston Bay](https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/west-galveston-bay-habitat-classification-shapefiles.zip)
 | Oyster | Texas Park and Wildlife Department | [Oyster restoration sites](https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/tpwd-oyster-restoration-sites.zip)
-| Oyster | United States Geological Survey | [Oysters 2011 - Gulf of Mexico](https://www.sciencebase.gov/catalog/item/594830afe4b062508e344418)
+| Oyster | United States Geological Survey | [Oysters 2011 - Gulf of Mexico](https://www.sciencebase.gov/catalog/item/594830afe4b062508e344418), [Oysters 2011 - Texas only](https://www.ncei.noaa.gov/waf/data-atlas-waf/living-marine/documents/Oysters_TX_2011.zip) | [Texas metadata](https://www.ncei.noaa.gov/maps/gulf-data-atlas//Metadata/ISO/Oysters_TX_2011.html) and [Gulf of Mexico metadata](https://www.ncei.noaa.gov/maps/gulf-data-atlas//Metadata/ISO/Oysters_GOM_2011.html)
 | Oyster | Unknown | Lavaca Oysters Harper (2002)
 | Oyster | Unknown | Oyster Reefs NOAA (2007)
 | Oyster | Unknown | Powell (1995) | Appear to be data from the [Texas GLO Coastal Research Map viewer](https://cgis.glo.texas.gov/rmc/index.html)
