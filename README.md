@@ -19,6 +19,7 @@ The full data repository is accessible on [Google Drive](https://drive.google.co
 Please contact Brian Free (brian.free@noaa.gov) with any questions.
 
 #### **Data sources**
+##### Constraints Data
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
 | Landmasses | United States Geological Survey | [Global Islands](https://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/USGSEsriWCMC_GlobalIslands_v3.mpk) | [Global Island Explorer](https://rmgsc.cr.usgs.gov/gie/)
@@ -40,8 +41,6 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Oyster | Unknown | Oyster Lease Areas (2018) | Appear to be data from the [Texas HHS Shellfish ArcMap page](https://txdshsea.maps.arcgis.com/apps/webappviewer/index.html?id=801ef406eada4f88b19d960b57d5d680)
 | Oyster | Unknown | Oyster Lease (Texas)
 | Bathymetry | NOAA NCEI | [Western Gulf of Mexico Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html) | [Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html)
-| Shipping Traffic | NOAA | [Vessel Transit Count](https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/61037)
-| Shipping Traffic | NOAA | [Vessel Track](http://encdirect.noaa.gov/theme_layers/data/shipping_lanes/shippinglanes.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/59927) and [ArcGIS Pro Tool](https://marinecadastre.gov/ais/) / [ArcGIS Pro Tool Download](https://coast.noaa.gov/data/marinecadastre/ais/AIS_Utilities_2018_Pro.zip)
 | Shipping Lanes | NOAA | [Shipping Lanes](http://encdirect.noaa.gov/theme_layers/data/shipping_lanes/shippinglanes.zip)
 | Shipping Lanes | Texas Railroad Commission | [Shipping Channels](https://mft.rrc.texas.gov/link/7a5577fc-e325-4d7b-bc41-daf23f4b6e80) | [User Guide](https://www.rrc.texas.gov/media/kmld3uzj/digital-map-information-user-guide.pdf)
 | Conservation Areas | Texas Parks and Wildlife Department | [Texas Wildlife Management Areas](https://tpwd.texas.gov/gis/resources/wildlife-management-areas.zip)
@@ -67,6 +66,12 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Environmental Sensors | GCOOS | [Regional Assets](https://data.gcoos.org/inventory.php#tabs-2) | [Site page](https://data.gcoos.org/)
 | Environmental Sensors | IOOS | [2020 - 2021 Raw Assets](https://data.gcoos.org/inventory.php#tabs-3) | [Metadata](http://erddap.ioos.us/erddap/info/raw_asset_inventory/index.html) and [background information](https://github.com/ioos/ioos-asset-inventory/blob/main/README.md)
 | Pipelines | BOEM | [Pipelines](https://www.data.boem.gov/Mapping/Files/Pipelines.gdb.zip) | [Metadata](https://www.data.boem.gov/Mapping/Files/ppl_arcs_meta.html) and [field definitions](https://www.data.boem.gov/Mapping/Files/ppl_arcs_meta.html)
+
+##### Suitability Data
+| Layer | Data Source | Data Name | Metadata |
+| ------------- | ------------- | ------------- | ------------- |
+| Shipping Traffic | NOAA | [Vessel Transit Count](https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/61037)
+| Shipping Traffic | NOAA | [Vessel Track](http://encdirect.noaa.gov/theme_layers/data/shipping_lanes/shippinglanes.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/59927) and [ArcGIS Pro Tool](https://marinecadastre.gov/ais/) / [ArcGIS Pro Tool Download](https://coast.noaa.gov/data/marinecadastre/ais/AIS_Utilities_2018_Pro.zip)
 
 #### Known limitations and issues
 Currently R cannot open raster files from a geodatabase. Thus, the vessel traffic count data had to be opened in Esri software and then use the study area to mask the count data within that area.
