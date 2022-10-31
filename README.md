@@ -20,7 +20,7 @@ The full data repository is accessible on [Google Drive](https://drive.google.co
 Please contact Brian Free (brian.free@noaa.gov) with any questions.
 
 #### **Data sources**
-##### Constraints Data
+##### _Constraints Data_
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
 | Landmasses | United States Geological Survey | [Global Islands](https://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/USGSEsriWCMC_GlobalIslands_v3.mpk) | [Global Island Explorer](https://rmgsc.cr.usgs.gov/gie/)
@@ -67,7 +67,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Environmental Sensors | IOOS | [2020 - 2021 Raw Assets](https://data.gcoos.org/inventory.php#tabs-3) | [Metadata](http://erddap.ioos.us/erddap/info/raw_asset_inventory/index.html) and [background information](https://github.com/ioos/ioos-asset-inventory/blob/main/README.md)
 | Pipelines | BOEM | [Pipelines](https://www.data.boem.gov/Mapping/Files/Pipelines.gdb.zip) | [Metadata](https://www.data.boem.gov/Mapping/Files/ppl_arcs_meta.html) and [field definitions](https://www.data.boem.gov/Mapping/Files/ppl_arcs_meta.html)
 
-##### Suitability Data
+##### _Suitability Data_
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
 | Bathymetry | NOAA NCEI | [Western Gulf of Mexico Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html) | [Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html)
