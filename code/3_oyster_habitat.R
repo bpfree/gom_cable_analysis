@@ -96,6 +96,18 @@ oyster_restoration_sites <- st_read(dsn = texas_oyster_dir, layer = "TPWD_Oyster
   clean_oyster()
 
 ### Gulf of Mexico Atlas (2011) -- American oyster (source: https://www.sciencebase.gov/catalog/item/594830afe4b062508e344418)
+### Alternative Gulf of Mexico source: https://www.ncei.noaa.gov/waf/data-atlas-waf/living-marine/documents/Oysters_GOM_2011.zip
+### Gulf of Mexico Metadata: https://www.ncei.noaa.gov/maps/gulf-data-atlas//Metadata/ISO/Oysters_GOM_2011.html
+#### Texas only: https://www.ncei.noaa.gov/waf/data-atlas-waf/living-marine/documents/Oysters_TX_2011.zip
+#### Texas metadata: https://www.ncei.noaa.gov/maps/gulf-data-atlas//Metadata/ISO/Oysters_TX_2011.html
+#### ***Note: To download Texas only data:
+####    1.) Visit: https://www.ncei.noaa.gov/maps/gulf-data-atlas/atlas.htm
+####    2.) Click "Living Marine Resources" tab to display dropdown
+####    3.) Navigate to "Invertebrates"
+####    4.) Click "1. Eastern Oyster"
+####    5.) On right panel, click "More Information"
+####    6.) Click on folder icon next to "Data Download / Access Links"
+####    7.) Click blue "Download" hyperlinked text for Texas
 gom_atlas <- st_read(dsn = gom_oyster_dir, layer = "Oysters_GOM_2011") %>%
   clean_oyster()
 
