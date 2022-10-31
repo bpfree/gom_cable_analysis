@@ -11,8 +11,9 @@ This is the GitHub repository that details the cable site prioritization for the
   - **final_data:**
 * **code:** scripts for cleaning, processing, and analyzing data
 * **figures:** figures generated to visualize analysis
+* **methodology:** detailed [methods](/methodology.pdf) for the data ana analysis
 
-The full data repository is accessible on [Google Drive](https://drive.google.com/drive/folders/1AGuMCNFLcqwIMokV9GzwFpY74GubB1lb). You may need to request access to the folder. Can read more on the methods for the data and analysis [here](/methodology.pdf).
+The full data repository is accessible on [Google Drive](https://drive.google.com/drive/folders/1AGuMCNFLcqwIMokV9GzwFpY74GubB1lb).
 
 **_Note for PC users:_** The code was written on a Mac so to run the scripts replace "/" in the pathnames for directories with two "\\".
 
@@ -40,7 +41,6 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Oyster | Unknown | Powell (1995) | Appear to be data from the [Texas GLO Coastal Research Map viewer](https://cgis.glo.texas.gov/rmc/index.html)
 | Oyster | Unknown | Oyster Lease Areas (2018) | Appear to be data from the [Texas HHS Shellfish ArcMap page](https://txdshsea.maps.arcgis.com/apps/webappviewer/index.html?id=801ef406eada4f88b19d960b57d5d680)
 | Oyster | Unknown | Oyster Lease (Texas)
-| Bathymetry | NOAA NCEI | [Western Gulf of Mexico Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html) | [Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html)
 | Shipping Lanes | NOAA | [Shipping Lanes](http://encdirect.noaa.gov/theme_layers/data/shipping_lanes/shippinglanes.zip)
 | Shipping Lanes | Texas Railroad Commission | [Shipping Channels](https://mft.rrc.texas.gov/link/7a5577fc-e325-4d7b-bc41-daf23f4b6e80) | [User Guide](https://www.rrc.texas.gov/media/kmld3uzj/digital-map-information-user-guide.pdf)
 | Conservation Areas | Texas Parks and Wildlife Department | [Texas Wildlife Management Areas](https://tpwd.texas.gov/gis/resources/wildlife-management-areas.zip)
@@ -70,6 +70,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 ##### Suitability Data
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
+| Bathymetry | NOAA NCEI | [Western Gulf of Mexico Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html) | [Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html)
 | Shipping Traffic | NOAA | [Vessel Transit Count](https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/61037)
 | Shipping Traffic | NOAA | [Vessel Track](http://encdirect.noaa.gov/theme_layers/data/shipping_lanes/shippinglanes.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/59927) and [ArcGIS Pro Tool](https://marinecadastre.gov/ais/) / [ArcGIS Pro Tool Download](https://coast.noaa.gov/data/marinecadastre/ais/AIS_Utilities_2018_Pro.zip)
 
