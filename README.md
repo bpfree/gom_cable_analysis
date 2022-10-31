@@ -11,7 +11,7 @@ This is the GitHub repository that details the cable site prioritization for the
   - **final_data:**
 * **code:** scripts for cleaning, processing, and analyzing data
 * **figures:** figures generated to visualize analysis
-* **methodology:** detailed [methods](/methodology.pdf) for the data ana analysis
+* **methodology:** detailed [methods](/methodology.pdf) for the data and analysis
 
 The full data repository is accessible on [Google Drive](https://drive.google.com/drive/folders/1AGuMCNFLcqwIMokV9GzwFpY74GubB1lb).
 
