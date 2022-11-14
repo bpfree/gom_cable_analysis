@@ -43,11 +43,30 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 psbf_lrf <- st_read(dsn = psbf_lrf_dir, layer = "NAZ_PSBF_LRF_withBuffers") %>%
   # reproject the coordinate reference system to match BOEM call areas
   st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+  # filter for only potentially sensitive biological features and low relief features
+  dplyr::filter(Zone %in% c("PSBF",
+                            "LRF")) %>%
   # obtain sensor data within study area
-  st_intersection(study_area)
+  st_intersection(study_area) %>%
+  # create field called "layer" and fill with "environmental sensor" for summary
+  dplyr::mutate(layer = "biological features") %>%
+  # group by layer to later summarise data
+  dplyr::group_by(layer,
+                  value) %>%
+  # summarise data to obtain single feature
+  dplyr::summarise()
 
 boem_psbf <- st_read(dsn = boem_psbf_dir, layer = "BOEM_PSBFS_SW_DW_Merged") %>%
   # reproject the coordinate reference system to match BOEM call areas
   st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain sensor data within study area
-  st_intersection(study_area)
+  st_intersection(study_area) %>%
+  # create field called "layer" and fill with "environmental sensor" for summary
+  dplyr::mutate(layer = "biological features") %>%
+  # group by layer to later summarise data
+  dplyr::group_by(layer,
+                  value) %>%
+  # summarise data to obtain single feature
+  dplyr::summarise()
+
+list(unique(boem_psbf$FEATURE_TY))
