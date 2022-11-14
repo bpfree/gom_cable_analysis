@@ -59,7 +59,7 @@ clean_sensor <- function(sensor_data){
 # Load environmental sensor data
 ## NDBC buoy data (source: https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml)
 ### Site page: https://www.ndbc.noaa.gov/obs.shtml
-### Note: data are downloaded as a KML and then converted to a shapefile in ArcGIS
+### ***Note: data are downloaded as a KML and then converted to a shapefile in ArcGIS
 ### Beware: the KML data will not be readable directly into QGIS nor R in their current .kml format
 ndbc_sensor <- sf::st_read(dsn = environmental_sensors_dir, layer = "environmental_sensors_ndbc") %>%
   # clean up data
