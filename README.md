@@ -73,7 +73,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Bathymetry | NOAA NCEI | [Western Gulf of Mexico Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html) | [Coastal Relief Model](https://www.ngdc.noaa.gov/mgg/coastal/crm.html)
 | Shipping Traffic | NOAA | [Vessel Transit Count](https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/61037)
 | Shipping Traffic | NOAA | [Vessel Track](http://encdirect.noaa.gov/theme_layers/data/shipping_lanes/shippinglanes.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/59927) and [ArcGIS Pro Tool](https://marinecadastre.gov/ais/) / [ArcGIS Pro Tool Download](https://coast.noaa.gov/data/marinecadastre/ais/AIS_Utilities_2018_Pro.zip)
-| Special Use Airspace | Federal Aviation Adminstration | [Special Use Airspace](https://adds-faa.opendata.arcgis.com/datasets/special-use-airspace)] | [Full Details](https://adds-faa.opendata.arcgis.com/datasets/faa::special-use-airspace/about)
+| Special Use Airspace | Federal Aviation Adminstration | [Special Use Airspace](https://adds-faa.opendata.arcgis.com/datasets/special-use-airspace) | [Full Details](https://adds-faa.opendata.arcgis.com/datasets/faa::special-use-airspace/about)
 
 #### Known limitations and issues
 Currently R cannot open raster files from a geodatabase. Thus, the vessel traffic count data had to be opened in Esri software and then use the study area to mask the count data within that area.
