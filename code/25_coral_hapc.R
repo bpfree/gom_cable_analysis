@@ -27,7 +27,7 @@ coral_hapc_dir <- "data/a_raw_data/coral_hapc"
 
 ### Output directories
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
-coral_hapc_gpkg <- "data/b_intermediate_data/coral_hapcgpkg"
+coral_hapc_gpkg <- "data/b_intermediate_data/coral_hapc.gpkg"
 
 #####################################
 #####################################
