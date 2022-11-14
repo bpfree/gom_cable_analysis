@@ -43,5 +43,11 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 psbf_lrf <- st_read(dsn = psbf_lrf_dir, layer = "NAZ_PSBF_LRF_withBuffers") %>%
   # reproject the coordinate reference system to match BOEM call areas
   st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+  # obtain sensor data within study area
+  st_intersection(study_area)
 
-boem_psbf <- st_read(dsn = boem_psbf_dir, layer = "BOEM_PSBFS_SW_DW_Merged")
+boem_psbf <- st_read(dsn = boem_psbf_dir, layer = "BOEM_PSBFS_SW_DW_Merged") %>%
+  # reproject the coordinate reference system to match BOEM call areas
+  st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+  # obtain sensor data within study area
+  st_intersection(study_area)
