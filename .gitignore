@@ -5,6 +5,9 @@
 .Ruserdata
 .DS_Store
 
+# Ignore confidential / internal data
+
+
 # Ignore data too large to add
 ## Raw data
 data/a_raw_data/AISVesselTracks2019.gdb
