@@ -12,6 +12,7 @@ pacman::p_load(dplyr,
                raster,
                rgdal,
                rgeos,
+               rmapshaper,
                sf,
                sp,
                stringr,
@@ -45,22 +46,31 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 carbon_capture <- st_read(dsn = carbon_capture_dir, layer = "GOM_Potential_CCUS_Blocks") %>%
   # reproject the coordinate reference system to match BOEM call areas
   st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # obtain sensor data within study area
-  st_intersection(study_area) %>%
   # create field called "layer" and fill with "environmental sensor" for summary
-  dplyr::mutate(layer = "carbon capture") %>%
+  dplyr::mutate(layer = "carbon capture",
+                value = 0) %>%
   # group by layer to later summarise data
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature
   dplyr::summarise()
 
+not_carbon_capture <- study_area %>%
+  # obtain data outside carbon capture within study area (erase carbon capture area from study area)
+  rmapshaper::ms_erase(carbon_capture)
+
+g <- ggplot() + 
+  geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
+  geom_sf(data = carbon_capture, color = "orange") +
+  geom_sf(data = not_carbon_capture, fill = NA, color = "red", linetype = "dashed")
+g
+
 #####################################
 #####################################
 
 # Export data
 ## Analysis geopackage
-st_write(obj = carbon_capture, dsn = analysis_gpkg, "carbon_capture_lease_blocks", append = F)
+st_write(obj = not_carbon_capture, dsn = analysis_gpkg, "not_carbon_capture_lease_blocks", append = F)
 
 ## Coral HAPC geopackage
-st_write(obj = carbon_capture, dsn = carbon_capture_gpkg, "carbon_capture_lease_blocks", append = F)
+st_write(obj = carbon_capture, dsn = carbon_capture_gpkg, "not_carbon_capture_lease_blocks", append = F)
