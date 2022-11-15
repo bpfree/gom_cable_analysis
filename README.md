@@ -62,7 +62,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Submarine Cables | NOAA | [NOAA Charted Submarine Cables](https://marinecadastre.gov/downloads/data/mc/SubmarineCable.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/57238)
 | Submarine Cables | Confidential | Geocables
 | Aids to Navigation | NOAA | [Aids to Navigation](https://marinecadastre.gov/downloads/data/mc/AtoN.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/56120)
-| Environmental Sensors | NDBC | [Observation Locations](https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml) | [Site page](ttps://www.ndbc.noaa.gov/obs.shtml)
+| Environmental Sensors | NDBC | [Observation Locations](https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml) | [Site page](https://www.ndbc.noaa.gov/obs.shtml)
 | Environmental Sensors | GCOOS | [Federal Assets](https://data.gcoos.org/inventory.php#tabs-3) | [Site page](https://data.gcoos.org/)
 | Environmental Sensors | GCOOS | [Regional Assets](https://data.gcoos.org/inventory.php#tabs-2) | [Site page](https://data.gcoos.org/)
 | Environmental Sensors | IOOS | [2020 - 2021 Raw Assets](https://data.gcoos.org/inventory.php#tabs-3) | [Metadata](http://erddap.ioos.us/erddap/info/raw_asset_inventory/index.html) and [background information](https://github.com/ioos/ioos-asset-inventory/blob/main/README.md)
