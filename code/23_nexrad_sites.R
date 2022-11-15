@@ -71,7 +71,7 @@ nexrad_sites <- read.csv(paste(nexrad_dir, "nexrad_sites.csv", sep = "/")) %>%
   tidyr::separate(lon, into=c("lon_d", "lon_m", "lon_s"), sep=" ", remove=T, convert = T) %>%
   # Separate latitude
   tidyr::separate(lat, into=c("lat_d", "lat_m", "lat_s"), sep=" ", remove=T, convert = T) %>%
-  # convert to longitude and latitude into decimal degrees
+  # convert to longitude and latitude into decimal degrees (degrees + minutes / 60 + seconds / (60 * 60))
   dplyr::mutate(lon_dd = -1 * (-1 * lon_d + lon_m /60 + lon_s/60^2),
                 lat_dd = lat_d + lat_m /60 + lat_s/60^2) %>%
   # only site, longitude, latitude
