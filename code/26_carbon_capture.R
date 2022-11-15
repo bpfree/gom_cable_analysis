@@ -72,5 +72,5 @@ g
 ## Analysis geopackage
 st_write(obj = not_carbon_capture, dsn = analysis_gpkg, "not_carbon_capture_lease_blocks", append = F)
 
-## Coral HAPC geopackage
+## Carbon capture geopackage
 st_write(obj = carbon_capture, dsn = carbon_capture_gpkg, "not_carbon_capture_lease_blocks", append = F)
