@@ -51,7 +51,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 ## ***Note: Longitude and latitude data are as degree-minutes-seconds, so need to convert to decimal degrees
 
-nexrad_sites <- read.csv(paste(nexrad_dir, "nexrad_sites.csv", sep = "/")) %>%
+nexrad_sites <- read.csv(paste(input_dir, "nexrad_sites.csv", sep = "/")) %>%
   # convert to data frame
   as.data.frame() %>%
   # remove any times longitude equals "" [see: list(unique(nexrad_sites$Lon.)) -- for all fields are characters (str(nexrad_sites))]
