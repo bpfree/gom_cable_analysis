@@ -28,6 +28,7 @@ pacman::p_load(dplyr,
 wma_dir <- "data/a_raw_data/texas_wma"
 state_parks_dir <- "data/a_raw_data/tx_state_parks"
 fws_nrb_dir <- "data/a_raw_data/fws_nrb.gdb"
+fgbnms_dir <- "data/a_raw_data/fgbnms_py"
 
 ### Output directories
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
@@ -71,21 +72,27 @@ conservation_areas_function <- function(conservation_data){
 #####################################
 
 # Load conservation areas layers
-## Texas Wildlife Management Areas (https://tpwd.texas.gov/gis/resources/wildlife-management-areas.zip)
+## Texas Wildlife Management Areas (source: https://tpwd.texas.gov/gis/resources/wildlife-management-areas.zip)
 texas_wma <- st_read(dsn = wma_dir, layer = "WildlifeManagementAreas") %>%
   conservation_areas_function()
 
-## Texas State Parks (https://tpwd.texas.gov/gis/resources/tpwd-statepark-boundaries.zip)
+## Texas State Parks (source: https://tpwd.texas.gov/gis/resources/tpwd-statepark-boundaries.zip)
 texas_state_parks <- st_read(dsn = state_parks_dir, layer = "TPWDStateParksBoundary") %>%
   # clean the data to prepare
   conservation_areas_function()
 
-## FWS National Realty Boundaries (https://gis-fws.opendata.arcgis.com/datasets/fws-national-realty-boundaries/explore?location=28.651320%2C-94.276551%2C8.00)
+## FWS National Realty Boundaries (source: https://gis-fws.opendata.arcgis.com/datasets/fws-national-realty-boundaries/explore?location=28.651320%2C-94.276551%2C8.00)
 ## Metadata: 
 fws_nrb <- st_read(dsn = fws_nrb_dir, layer = "FWSBoundaries") %>%
   # clean the data to prepare
   conservation_areas_function() %>%
   dplyr::rename("geometry" = "SHAPE")
+
+## Flower Garden Banks National Marine Sanctuary (source: https://sanctuaries.noaa.gov/media/gis/fgbnms_py.zip)
+## Metadata: https://nmssanctuaries.blob.core.windows.net/sanctuaries-prod/media/gis/fgbnms_py.pdf
+fgbnms <- st_read(dsn = fgbnms_dir, layer = "FGBNMS_py") %>%
+  # clean the data to prepare
+  conservation_areas_function()
 
 #####################################
 
@@ -93,7 +100,8 @@ fws_nrb <- st_read(dsn = fws_nrb_dir, layer = "FWSBoundaries") %>%
 texas_conservation <- texas_wma %>%
   # combine wildlife management areas with other datasets
   rbind(texas_state_parks,
-        fws_nrb) %>%
+        fws_nrb,
+        fgbnms) %>%
   # group by layer
   dplyr::group_by(layer,
                   value) %>%
@@ -116,3 +124,6 @@ st_write(texas_state_parks, dsn = conservation_areas_gpkg, layer = "texas_state_
 
 ### FWS National Realty Boundaries
 st_write(fws_nrb, dsn = conservation_areas_gpkg, layer = "fws_nrb", append = F)
+
+### Flower Garden Banks National Marine Sanctuary
+st_write(fgbnms, dsn = conservation_areas_gpkg, layer = "fgbnms", append = F)
