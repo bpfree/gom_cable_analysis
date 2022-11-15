@@ -31,8 +31,6 @@ raster_dir <- "data/d_raster_data"
 #### Output
 intermediate_dir <- "data/b_intermediate_data"
 
-
-
 #####################################
 #####################################
 
@@ -47,6 +45,7 @@ hist(bathymetry)
 
 NAvalue(slope)
 freq(slope)
+hist(slope)
 
 #####################################
 
@@ -114,9 +113,13 @@ smf_function <- function(raster){
 
 # Create bathymetry normalization
 bathymetry_normalize <- bathymetry %>%
-  linear_function()
+  linear_function() %>%
+  # have data get limited to study area dimensions
+  raster::crop(gom_raster)
 
 # Inspect 
+maxValue(bathymetry_normalize) # maximum value = 1
+res(bathymetry_normalize) # 100 x 100
 hist(bathymetry_normalize) # show histogram of values (though mostly values near 1)
 freq(bathymetry_normalize) # show frequency of values (though will round to 0 and 1)
 
@@ -135,11 +138,14 @@ freq(bathymetry_normalize) # show frequency of values (though will round to 0 an
 
 # Generate new s-shape values
 slope_normalize <- slope %>%
-  smf_function()
+  smf_function() %>%
+  # have data get limited to study area dimensions
+  raster::crop(gom_raster)
 
 ## Make sure maximum value is 1
-maxValue(slope_normalize) ## maximum value = 0.9961739
+maxValue(slope_normalize) # maximum value = 0.9961739
 list(unique(slope_normalize)) # list all unique values
+res(slope_normalize) # 100 x 100
 
 #####################################
 
