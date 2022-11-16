@@ -95,3 +95,5 @@ Regarding oil and gas drilling platforms, ones with an installation date and has
 Only submarine cable areas with an operational status were included for analysis. No area in the study did receive any of the other main status designations: "Inactive", "Abandoned", "Proposed". All areas with NA values for the status designation were excluded due to lack of information to help verify their importance. One feature detailed a prohibition of dragging; this area too was excluded since no other context was provided and the offshore wind cable would not meet that prohibition criteria.
 
 GCOOS listed assets were limited to only active sensors even though it is unclear if assets with an inactive status could be active in the future.
+
+For any entries that did not have a feature type designated as potentially sensitive biological features or similar were excluded from analysis; this could have resulted in an under count, for features that are potentially sensitive biological feature could have been misclassified or unclassified.
