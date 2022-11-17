@@ -30,6 +30,7 @@ raster_dir <- "data/d_raster_data"
 
 ### Output directories
 intermediate_dir <- "data/b_intermediate_data"
+tentative_dir <- "code/tentative_analysis"
 
 #####################################
 
@@ -149,12 +150,11 @@ constraints <- raster::cover(seagrass_raster,
                              borehole_raster,
                              oil_gas_lease_area_raster,
                              drilling_platform_raster,
-                             environmental_sensor_raster,
-                             pipeline_raster)
+                             environmental_sensor_raster)
 
 #####################################
 #####################################
 
 # Export data
 ## Raster data
-writeRaster(constraints, filename = file.path(raster_dir, "constraints_raster.grd"), overwrite = T)
+writeRaster(constraints, filename = file.path(tentative_dir, "constraints_raster.grd"), overwrite = T)
