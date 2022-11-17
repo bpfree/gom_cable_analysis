@@ -6,7 +6,7 @@
 .DS_Store
 
 # Ignore confidential / internal data
-
+data/a_raw_data/GOM_Fisheries_Data_CUI
 
 # Ignore data too large to add
 ## Raw data
