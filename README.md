@@ -77,7 +77,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Special Use Airspace | Federal Aviation Administration | [Special Use Airspace](https://adds-faa.opendata.arcgis.com/datasets/special-use-airspace) | [Full details](https://adds-faa.opendata.arcgis.com/datasets/faa::special-use-airspace/about)
 | Coral Habitats Area of Particular Concern | NOAA | [Coral Habitat Areas of Particular Concern](http://portal.gulfcouncil.org/Regulations/HAPCshapefiles.zip) | [Gulf of Mexico Fishery Management Council Viewer](https://portal.gulfcouncil.org/coralhapc.html)
 | Coral Habitats Area of Particular Concern | NOAA | [Coral Amendment 9 Habitat Areas of Particular Concern](http://portal.gulfcouncil.org/Regulations/HAPCshapefiles.zip) | [Gulf of Mexico Fishery Management Council Viewer](https://portal.gulfcouncil.org/coralhapc.html) and [Amendment 9](https://www.govinfo.gov/content/pkg/FR-2020-10-16/pdf/2020-21298.pdf)
-| Offshore Wind Energy Net Value | NREL | [Economic Potential of Offshore Wind](https://data.nrel.gov/system/files/67/170514_OSW%20cost%20analysis_output%20file%20%281%29.xlsx) | [Data page](https://data.nrel.gov/submissions/67)
+| Offshore Wind Energy Net Value | NREL | [Economic Potential of Offshore Wind](https://data.nrel.gov/system/files/67/170514_OSW%20cost%20analysis_output%20file%20%281%29.xlsx) | [Data page](https://data.nrel.gov/submissions/67), [report](https://www.nrel.gov/docs/fy17osti/67675.pdf)
 | Lease Blocks | BOEM | [Lease Blocks](https://www.data.boem.gov/Mapping/Files/Blocks.gdb.zip) | [Metadata](https://www.data.boem.gov/Mapping/Files/blocks_meta.html)
 
 #### Known limitations and issues
