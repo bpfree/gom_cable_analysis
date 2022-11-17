@@ -196,7 +196,3 @@ writeRaster(drilling_platform_raster, filename = file.path(intermediate_dir, "dr
 writeRaster(submarine_cable_raster, filename = file.path(intermediate_dir, "submarine_cable_raster.grd"), overwrite = T)
 writeRaster(environmental_sensor_raster, filename = file.path(intermediate_dir, "environmental_sensor_raster.grd"), overwrite = T)
 writeRaster(pipeline_raster, filename = file.path(intermediate_dir, "pipeline_raster.grd"), overwrite = T)
-
-
-
-
