@@ -7,6 +7,7 @@
 
 # Ignore confidential / internal data
 data/a_raw_data/GOM_Fisheries_Data_CUI
+data/a_raw_data/menhaden_fishing
 
 # Ignore data too large to add
 ## Raw data
