@@ -95,10 +95,6 @@ significant_sediment_raster <- fasterize(sf = significant_sediment,
                                          field = "value")
 
 ## Navigational
-fish_haven_raster <- fasterize(sf = fish_haven,
-                               raster = gom_raster,
-                               field = "value")
-
 unexploded_ordnance_raster <- fasterize(sf = unexploded_ordnance,
                                         raster = gom_raster,
                                         field = "value")
@@ -106,10 +102,6 @@ unexploded_ordnance_raster <- fasterize(sf = unexploded_ordnance,
 no_activity_zone_raster <- fasterize(sf = no_activity_zone,
                                      raster = gom_raster,
                                      field = "value")
-
-lightering_zone_raster <- fasterize(sf = lightering_zone,
-                                    raster = gom_raster,
-                                    field = "value")
 
 anchorage_area_raster <- fasterize(sf = anchorage_area,
                                    raster = gom_raster,
@@ -132,10 +124,6 @@ drilling_platform_raster <- fasterize(sf = drilling_platform,
                                       raster = gom_raster,
                                       field = "value")
 
-submarine_cable_raster <- fasterize(sf = submarine_cable,
-                                    raster = gom_raster,
-                                    field = "value")
-
 environmental_sensor_raster <- fasterize(sf = environmental_sensor,
                                          raster = gom_raster,
                                          field = "value")
@@ -154,16 +142,13 @@ constraints <- raster::cover(seagrass_raster,
                              conservation_area_raster,
                              artificial_reef_raster,
                              significant_sediment_raster,
-                             fish_haven_raster,
                              unexploded_ordnance_raster,
                              no_activity_zone_raster,
-                             lightering_zone_raster,
                              anchorage_area_raster,
                              navigation_aid_raster,
                              borehole_raster,
                              oil_gas_lease_area_raster,
                              drilling_platform_raster,
-                             submarine_cable_raster,
                              environmental_sensor_raster,
                              pipeline_raster)
 
