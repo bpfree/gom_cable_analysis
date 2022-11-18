@@ -1,13 +1,13 @@
 [general]
 creator=R package 'raster'
-created=2022-11-18 15:39:43
+created=2022-11-18 15:54:33
 [georeference]
 nrows=2057
 ncols=1501
-xmin=47829.4193342556
-ymin=547577.587736528
-xmax=197929.419334256
-ymax=753277.587736528
+xmin=47829.4193342581
+ymin=547577.587736525
+xmax=197929.419334258
+ymax=753277.587736525
 projection=+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs
 [data]
 datatype=FLT4S
@@ -15,7 +15,7 @@ byteorder=little
 nbands=1
 bandorder=BIL
 categorical=FALSE
-minvalue=-192.878123355728
+minvalue=-192.878123352277
 maxvalue=8
 nodatavalue=-3.4e+38
 [legend]
