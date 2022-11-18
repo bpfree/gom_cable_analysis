@@ -104,6 +104,10 @@ nexrad70km <- st_read(dsn = data_dir, layer = "nexrad70km") %>%
   fasterize(raster = gom_raster,
             field = "value")
 
+## Fisheries
+### Menhaden
+menhaden <- raster::raster(paste(raster_dir, "menhaden_2000_2019_normalize.grd", sep = "/"))
+
 ## Economics
 ### NREL - Net Value 2015
 
