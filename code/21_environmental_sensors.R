@@ -41,7 +41,7 @@ sf::st_layers(dsn = ndbc_kml,
 ### 2.) IOOS Partners
 ### 3.) Marine METAR
 ### 4.) NDBC Meteorological / Ocean
-### 5. NERRS
+### 5.) NERRS
 ### 6.) NOS/CO-OPS
 ### 7.) Ships
 ### 8.) TAO
