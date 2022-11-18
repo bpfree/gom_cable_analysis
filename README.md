@@ -62,7 +62,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Submarine Cables | NOAA | [NOAA Charted Submarine Cables](https://marinecadastre.gov/downloads/data/mc/SubmarineCable.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/57238)
 | Submarine Cables | Confidential | Geocables
 | Aids to Navigation | NOAA | [Aids to Navigation](https://marinecadastre.gov/downloads/data/mc/AtoN.zip) | [Metadata](https://www.fisheries.noaa.gov/inport/item/56120)
-| Environmental Sensors | NDBC | [Observation Locations](https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml) | [Site page](https://www.ndbc.noaa.gov/obs.shtml)
+| Environmental Sensors | NDBC | [Observations by Program](https://www.ndbc.noaa.gov/kml/marineobs_as_kml.php?sort=pgm) | [Site page](https://www.ndbc.noaa.gov/), [Observation Locations](https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml)
 | Environmental Sensors | GCOOS | [Federal Assets](https://data.gcoos.org/inventory.php#tabs-3) | [Site page](https://data.gcoos.org/)
 | Environmental Sensors | GCOOS | [Regional Assets](https://data.gcoos.org/inventory.php#tabs-2) | [Site page](https://data.gcoos.org/)
 | Environmental Sensors | IOOS | [2020 - 2021 Raw Assets](https://data.gcoos.org/inventory.php#tabs-3) | [Metadata](http://erddap.ioos.us/erddap/info/raw_asset_inventory/index.html) and [background information](https://github.com/ioos/ioos-asset-inventory/blob/main/README.md)
@@ -83,7 +83,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 #### Known limitations and issues
 Currently R cannot open raster files from a geodatabase. Thus, the vessel traffic count data had to be opened in Esri software and then use the study area to mask the count data within that area.
 
-Similarly, The KML data from [NDBC](ttps://www.ndbc.noaa.gov/obs.shtml), as of October 27 2022, can only be downloaded as a KML file. To open the data within R, they were first converted to a shapefile (or usable format) in Esri software.
+Similarly, the KML data from [NDBC](https://www.ndbc.noaa.gov/), as of October 27 2022, can only be downloaded as a KML file. To open the data, available through the public link on the website, within R, convert them to a shapefile (or usable format) in Esri software. Alternatively, use [this link](https://www.ndbc.noaa.gov/kml/marineobs_as_kml.php?sort=pgm) to download the KML data with the spatial data--it contains 9 separate layers.
 
 A [specialized tool](https://marinecadastre.gov/ais/) designed for ArcGIS Pro is required to convert the AIS track data into comparable transit count data. As denoted on the tool page, a user will require ArcGIS Pro 1.2.x+ with the spatial analyst license. Make sure the vessel data are as a point type and have fields for date-time and an unique identifier.
 
