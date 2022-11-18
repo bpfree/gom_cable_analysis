@@ -24,10 +24,28 @@ pacman::p_load(dplyr,
 ## Define data directory (as this is an R Project, pathnames are simplified)
 ### Input directories
 environmental_sensors_dir <- "data/a_raw_data/environmental_sensors"
+ndbc_kml <- "data/a_raw_data/environmental_sensors/stations_by_program.kml"
 
 ### Output directories
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 environmental_sensors_gpkg <- "data/b_intermediate_data/environmental_sensors.gpkg"
+
+#####################################
+
+# View layer names within geodatabase
+sf::st_layers(dsn = ndbc_kml,
+              do_count = TRUE)
+
+## Layers contained include:
+### 1.) International Partners
+### 2.) IOOS Partners
+### 3.) Marine METAR
+### 4.) NDBC Meteorological / Ocean
+### 5. NERRS
+### 6.) NOS/CO-OPS
+### 7.) Ships
+### 8.) TAO
+### 9.) Tsunami
 
 #####################################
 #####################################
@@ -40,6 +58,15 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Environmental sensor function
 ## This function will take the imported data and reduce it to the study area
+ndbc_preparation <- function(sensor_data){
+  sensor_layer <- sensor_data %>%
+    # clean up data
+    dplyr::rename("sensor" = "Name") %>%
+    # create "status" field
+    dplyr::mutate(status = "data collecting")
+  return(sensor_layer)
+}
+
 clean_sensor <- function(sensor_data){
   sensor_layer <- sensor_data %>%
     # reproject the coordinate reference system to match BOEM call areas
@@ -57,16 +84,70 @@ clean_sensor <- function(sensor_data){
 #####################################
 
 # Load environmental sensor data
-## NDBC buoy data (source: https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml)
+## NDBC buoy data (source: https://www.ndbc.noaa.gov/kml/marineobs_as_kml.php?sort=pgm)
 ### Site page: https://www.ndbc.noaa.gov/obs.shtml
-### ***Note: data are downloaded as a KML and then converted to a shapefile in ArcGIS
-### Beware: the KML data will not be readable directly into QGIS nor R in their current .kml format
-ndbc_sensor <- sf::st_read(dsn = environmental_sensors_dir, layer = "environmental_sensors_ndbc") %>%
-  # clean up data
-  dplyr::rename("sensor" = "Name") %>%
-  # create "status" field
-  dplyr::mutate(status = "data collecting") %>%
+### Beware: the download link on the NDBC website for the KML data (https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml) will not download a usable dataset (as they lack corresponding spatial data)
+### ***Note: if really want to use those data, downloaded as a KML and then convert to a shapefile in ArcGIS
+
+#### International Partners
+#### ***Note: No data located in study area
+ndbc_international_partners <- sf::st_read(dsn = ndbc_kml, layer = "International Partners") %>%
+  ndbc_preparation() %>%
   clean_sensor()
+
+#### IOOS Partners
+ndbc_ioos_partners <- sf::st_read(dsn = ndbc_kml, layer = "IOOS Partners") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+#### Marine METAR
+ndbc_marine_metar <- sf::st_read(dsn = ndbc_kml, layer = "Marine METAR") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+#### NDBC Meteorological / Ocean
+ndbc_metero_ocean <- sf::st_read(dsn = ndbc_kml, layer = "NDBC Meteorological/Ocean") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+#### NERRS
+#### ***Note: No data located in study area
+ndbc_nerrs <- sf::st_read(dsn = ndbc_kml, layer = "NERRS") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+#### NOS / CO-OPS
+ndbc_nos_coops <- sf::st_read(dsn = ndbc_kml, layer = "NOS/CO-OPS") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+#### Ships
+ndbc_ships <- sf::st_read(dsn = ndbc_kml, layer = "Ships") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+#### TAO
+#### ***Note: No data located in study area
+ndbc_tao <- sf::st_read(dsn = ndbc_kml, layer = "TAO") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+#### Tsunami
+#### ***Note: No data located in study area
+ndbc_tsunami <- sf::st_read(dsn = ndbc_kml, layer = "Tsunami") %>%
+  ndbc_preparation() %>%
+  clean_sensor()
+
+ndbc_sensor <- ndbc_international_partners %>%
+  rbind(ndbc_ioos_partners,
+        ndbc_marine_metar,
+        ndbc_metero_ocean,
+        ndbc_nerrs,
+        ndbc_nos_coops,
+        ndbc_ships,
+        ndbc_tao,
+        ndbc_tsunami)
+
 
 #####################################
 
@@ -188,6 +269,15 @@ st_write(obj = environmental_sensor, dsn = environmental_sensors_gpkg, "environm
 
 ### NDBC sensor
 st_write(obj = ndbc_sensor, dsn = environmental_sensors_gpkg, "ndbc_sensor", append = F)
+st_write(obj = ndbc_international_partners, dsn = environmental_sensors_gpkg, "ndbc_international_partners", append = F)
+st_write(obj = ndbc_ioos_partners, dsn = environmental_sensors_gpkg, "ndbc_ioos_partners", append = F)
+st_write(obj = ndbc_marine_metar, dsn = environmental_sensors_gpkg, "ndbc_marine_metar", append = F)
+st_write(obj = ndbc_metero_ocean, dsn = environmental_sensors_gpkg, "ndbc_metero_ocean", append = F)
+st_write(obj = ndbc_nerrs, dsn = environmental_sensors_gpkg, "ndbc_nerrs", append = F)
+st_write(obj = ndbc_nos_coops, dsn = environmental_sensors_gpkg, "ndbc_nos_coops", append = F)
+st_write(obj = ndbc_ships, dsn = environmental_sensors_gpkg, "ndbc_ships", append = F)
+st_write(obj = ndbc_tao, dsn = environmental_sensors_gpkg, "ndbc_tao", append = F)
+st_write(obj = ndbc_tsunami, dsn = environmental_sensors_gpkg, "ndbc_tsunami", append = F)
 
 ### GCOOS Federal sensor
 st_write(obj = gcoos_fed_sensor, dsn = environmental_sensors_gpkg, "gcoos_federal_sensor", append = F)
