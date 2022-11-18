@@ -131,6 +131,7 @@ cost_raster <- raster::brick(special_use_airspace,
                              lightering_zones,
                              not_carbon_capture,
                              nexrad70km,
+                             menhaden,
                              bathymetry,
                              slope) %>%
   raster::calc(sum, na.rm = T)

@@ -27,11 +27,17 @@ pacman::p_load(dplyr,
 ### Directories
 #### Input
 raster_dir <- "data/d_raster_data"
+analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 
 #### Output
 intermediate_dir <- "data/b_intermediate_data"
 
 #####################################
+#####################################
+
+# Load study area (to clip habitats to only that area)
+study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+
 #####################################
 
 # Load data
@@ -115,7 +121,9 @@ smf_function <- function(raster){
 bathymetry_normalize <- bathymetry %>%
   linear_function() %>%
   # have data get limited to study area dimensions
-  raster::crop(gom_raster)
+  raster::crop(gom_raster) %>%
+  # mask to the study area (show data within the extent)
+  raster::mask(study_area)
 
 # Inspect 
 maxValue(bathymetry_normalize) # maximum value = 1
@@ -140,7 +148,9 @@ freq(bathymetry_normalize) # show frequency of values (though will round to 0 an
 slope_normalize <- slope %>%
   smf_function() %>%
   # have data get limited to study area dimensions
-  raster::crop(gom_raster)
+  raster::crop(gom_raster) %>%
+  # mask to the study area (show data within the extent)
+  raster::mask(study_area)
 
 ## Make sure maximum value is 1
 maxValue(slope_normalize) # maximum value = 0.9961739
