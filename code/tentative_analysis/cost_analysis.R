@@ -115,8 +115,14 @@ menhaden <- raster::raster(paste(raster_dir, "menhaden_2000_2019_normalize.grd",
 ### Depth / Bathymetry
 bathymetry <- raster::raster(paste(raster_dir, "bathymetry_normalize.grd", sep = "/"))
 
+##### resample? alignExtent?
+extent(bathymetry) <- extent(gom_raster)
+
 ### Slope
 slope <- raster::raster(paste(raster_dir, "slope_normalize.grd", sep = "/"))
+extent(slope) <- extent(gom_raster)
+
+##### resample? alignExtent?
 
 #####################################
 #####################################
