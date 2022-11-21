@@ -48,6 +48,7 @@ sf::st_layers(dsn = oilgas_lease_dir,
 ## Shapefile download link: https://www.data.boem.gov/Mapping/Files/actlease.zip
 
 ## Metadata: https://www.data.boem.gov/Mapping/Files/actlease_meta.html
+## Updates: on monthly basis
 ### Status codes:
 #### 1.) PROD = A lease held by production of a mineral
 #### 2.) UNIT = Lease (or portion thereof) included in an approved unit agreement
@@ -55,6 +56,11 @@ sf::st_layers(dsn = oilgas_lease_dir,
 #### 4.) OPERNS = Initial term extended because of activity on the leased area
 #### 5.) DSO = Operations/activities on all or part of lease suspended/temp prohibited on Reg Sup initiative. Lease term extended
 #### 6.) PRIMRY = A lease within the initial term of the contract (5, 8, or 10 years)
+
+## On note per Shane Stradley (shane.stradley@boem.gov)
+### LEASE_EXPIR_DATE should be null (not expired yet)
+### LEASE_STAT_EFT_Date should not be null (since status should be effective at time of interest)
+### DSO, UNIT, PRIMRY, OPERNS, PROD, SOO, SOP are considered active
 
 ### Note: data are updated each month near the first of the month
 ### These data were updated as of 3 October 2022
