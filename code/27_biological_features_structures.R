@@ -65,7 +65,7 @@ boem_psbf <- st_read(dsn = boem_psbf_dir, layer = "BOEM_PSBFS_SW_DW_Merged") %>%
   st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain sensor data within study area
   st_intersection(study_area) %>%
-  # create field called "layer" and fill with "environmental sensor" for summary
+  # create field called "layer" and fill with "biological features" for summary
   dplyr::mutate(layer = "biological features") %>%
   # filter to include only potentially sensitive biological features (use list(unique(boem_psbf$FEATURE_TY)) to see options)
   dplyr::filter(FEATURE_TY %in% c("PSBF",
