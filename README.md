@@ -20,6 +20,12 @@ The full data repository is accessible on [Google Drive](https://drive.google.co
 Please contact Brian Free (brian.free@noaa.gov) with any questions.
 
 #### **Data sources**
+##### _Generic Data_
+| Layer | Data Source | Data Name | Metadata |
+| ------------- | ------------- | ------------- | ------------- |
+| Wind Areas | BOEM | [Renewable Energy Leases and Planning Areas](https://www.boem.gov/renewable-energy/boem-renewable-energy-geodatabase) | [Data page](https://www.boem.gov/renewable-energy/mapping-and-data/renewable-energy-gis-data)
+
+
 ##### _Constraints Data_
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
