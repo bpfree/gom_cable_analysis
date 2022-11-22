@@ -23,7 +23,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 ##### _Generic Data_
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
-| Wind Areas | BOEM | [Renewable Energy Leases and Planning Areas](https://www.boem.gov/renewable-energy/boem-renewable-energy-geodatabase) | [Data page](https://www.boem.gov/renewable-energy/mapping-and-data/renewable-energy-gis-data)
+| Wind Areas | BOEM | [Renewable Energy Leases and Planning Areas](https://www.boem.gov/renewable-energy/boem-renewable-energy-geodatabase) | [Metadata](https://metadata.boem.gov/geospatial/boem_renewable_lease_areas.xml), [Renewable Energy GIS Data](https://www.boem.gov/renewable-energy/mapping-and-data/renewable-energy-gis-data)
 
 
 ##### _Constraints Data_
