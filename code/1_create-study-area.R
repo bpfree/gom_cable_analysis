@@ -25,20 +25,27 @@ pacman::p_load(dplyr,
 # Set directories
 ## Define data directory (as this is an R Project, pathnames are simplified)
 ### Input directories
-gis_dir <- "data/zz_gis_data"
 land_dir <- "data/a_raw_data/globalislandsfix.gdb"
+wind_area_dir <- "data/a_raw_data/BOEMWindLayers_4Download.gdb"
 
 ### Output directories
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 raster_dir <- "data/d_raster_data"
 study_area_gpkg <- "data/b_intermediate_data/gom_study_area.gpkg"
+wind_farm_gpkg <- "data/b_intermediate_data/gom_wind_area.gpkg"
 physical_land_gpkg <- "data/b_intermediate_data/gom_physical_land.gpkg"
+
+gis_dir <- "data/zz_gis_data"
 
 #####################################
 
 # View layer names within geodatabase
-## Note: should notice 4 layers
+## ****Note: should notice 4 layers
 sf::st_layers(dsn = land_dir,
+              do_count = TRUE)
+
+## ***Note: should notice 5 layers
+sf::st_layers(dsn = wind_area_dir,
               do_count = TRUE)
 
 #####################################
@@ -59,6 +66,35 @@ land_function <- function(land_data){
 #####################################
 #####################################
 
+# Load BOEM Wind Call Areas
+## Source (geodatabase): https://www.boem.gov/renewable-energy/mapping-and-data/renewable-energy-gis-data
+## Metadata: https://metadata.boem.gov/geospatial/boem_renewable_lease_areas.xml
+### ***Note: Data are also accessible for download on MarineCadastre (under "Active Renewable Energy Leases")
+boem_wind_areas <- sf::st_read(dsn = wind_area_dir, layer = "Wind_Planning_Area_Outlines_11_17_2022") %>%
+  # filter to wind areas only for Gulf of Mexico
+  dplyr::filter(stringr::str_detect(ADDITIONAL_INFORMATION,
+                                    "Gulf of Mexico")) %>%
+  dplyr::rename("geometry" = "Shape")
+
+g <- ggplot() +
+  geom_sf(data = boem_wind_areas, color = "blue") +
+  # Label wind areas
+  geom_sf_label(data=boem_wind_areas, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
+g
+
+wind_farm_i <- boem_wind_areas %>%
+  dplyr::filter(PROTRACTION_NUMBER == "NH15-10")
+
+g <- ggplot() +
+  geom_sf(data = wind_farm_i, color = "blue") +
+  # Label wind areas
+  geom_sf_label(data=wind_farm_i, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
+g
+
+#####################################
+#####################################
+
+# Study Area
 ## Create points for study area
 ### Add points as they need to be drawn (clockwise or counterclockwise)
 aoi_points <- rbind(c("point",-94,28), # southeastern point
@@ -307,7 +343,7 @@ rast_100m <- fasterize(sf = aoi_marine,
 ## Geopackage
 st_write(aoi_poly, dsn = analysis_gpkg, layer = "gom_study_area", append = F)
 st_write(aoi_marine, dsn = analysis_gpkg, layer = "gom_study_area_marine", append = F)
-# st_write(aoi_100, dsn = analysis_gpkg, layer = "gom_study_area_100", append = T)
+st_write(wind_farm_i, dsn = analysis_gpkg, layer = "gom_wind_area_i", append = F)
 
 ## Raster
 # writeRaster(aoi_100m_raster, filename = file.path(raster_dir, "gom_study_area_marine_100m_raster.grd"), overwrite = T)
@@ -331,6 +367,9 @@ st_write(aoi_continental, dsn = physical_land_gpkg, layer = "aoi_continental", a
 st_write(aoi_big, dsn = physical_land_gpkg, layer = "aoi_big_island", append = F)
 st_write(aoi_small, dsn = physical_land_gpkg, layer = "aoi_small_islands", append = F)
 st_write(aoi_very_small, dsn = physical_land_gpkg, layer = "aoi_very_small_islands", append = F)
+
+## Wind Area geopackage
+st_write(wind_farm_i, dsn = wind_farm_gpkg, layer = "gom_wind_area_i", append = F)
 
 ## Shapefile
 st_write(aoi_poly, dsn = paste0(gis_dir, "/", layer = "gom_cable_study_boundary.shp"), append = F)
