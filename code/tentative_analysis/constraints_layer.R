@@ -31,6 +31,7 @@ raster_dir <- "data/d_raster_data"
 ### Output directories
 intermediate_dir <- "data/b_intermediate_data"
 tentative_dir <- "code/tentative_analysis"
+least_cost_dir <- "data/e_least_cost_path"
 
 #####################################
 
@@ -158,3 +159,4 @@ constraints <- raster::cover(seagrass_raster,
 # Export data
 ## Raster data
 writeRaster(constraints, filename = file.path(tentative_dir, "constraints_raster.grd"), overwrite = T)
+writeRaster(constraints, filename = file.path(least_cost_dir, "constraints_raster.grd"), overwrite = T)
