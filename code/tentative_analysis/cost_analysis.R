@@ -31,6 +31,7 @@ raster_dir <- "data/d_raster_data"
 
 ### Output directories
 tentative_analysis <- "code/tentative_analysis"
+least_cost_dir <- "data/e_least_cost_path"
 
 #####################################
 
@@ -145,8 +146,8 @@ cost_raster <- raster::brick(special_use_airspace,
 #####################################
 
 ## Inspect new raster
-minValue(cost_raster)
-maxValue(cost_raster) # maximum value = 0.9961739
+minValue(cost_raster) # 0
+maxValue(cost_raster) # maximum value = 3.39529
 list(unique(cost_raster)) # list all unique values
 res(cost_raster) # 100 x 100
 hist(cost_raster) # show histogram of values (though mostly values near 1)
@@ -158,3 +159,4 @@ freq(cost_raster) # show frequency of values (though will round to 0 and 1)
 # Export data
 ## Raster data
 writeRaster(cost_raster, filename = file.path(tentative_analysis, "cost_raster.grd"), overwrite = T)
+writeRaster(cost_raster, filename = file.path(least_cost_dir, "cost_raster.grd"), overwrite = T)
