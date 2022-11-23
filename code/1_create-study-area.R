@@ -71,6 +71,8 @@ land_function <- function(land_data){
 ## Metadata: https://metadata.boem.gov/geospatial/boem_renewable_lease_areas.xml
 ### ***Note: Data are also accessible for download on MarineCadastre (under "Active Renewable Energy Leases")
 boem_wind_areas <- sf::st_read(dsn = wind_area_dir, layer = "Wind_Planning_Area_Outlines_11_17_2022") %>%
+  # reproject the coordinate reference system to match BOEM call areas
+  st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # filter to wind areas only for Gulf of Mexico
   dplyr::filter(stringr::str_detect(ADDITIONAL_INFORMATION,
                                     "Gulf of Mexico")) %>%
