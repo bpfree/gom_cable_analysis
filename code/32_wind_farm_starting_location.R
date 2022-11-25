@@ -93,6 +93,7 @@ g
 #####################################
 #####################################
 
+# Export data
 ## Least cost geopackage
 st_write(obj = wind_starting_point, dsn = least_cost_gpkg, "starting_site", append = F)
 
