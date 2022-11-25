@@ -32,6 +32,7 @@ raster_dir <- "data/d_raster_data"
 intermediate_dir <- "data/b_intermediate_data"
 tentative_dir <- "code/tentative_analysis"
 least_cost_dir <- "data/e_least_cost_path"
+least_cost_gpkg <- "data/e_least_cost_path/least_cost_path_analysis.gpkg"
 
 #####################################
 
@@ -72,6 +73,22 @@ pipeline <- sf::st_read(dsn = data_dir, layer = "pipelines")
 
 #####################################
 #####################################
+
+# Create constraints layers
+all_constraints <- seagrass %>%
+  rbind(oyster,
+        conservation_area,
+        artificial_reef,
+        significant_sediment,
+        unexploded_ordnance,
+        no_activity_zone,
+        anchorage_area,
+        navigation_aid,
+        borehole,
+        oil_gas_lease_area,
+        drilling_platform,
+        environmental_sensor)
+                                 
 
 # Convert to rasters
 ## Environmental
@@ -154,9 +171,22 @@ constraints <- raster::cover(seagrass_raster,
                              environmental_sensor_raster)
 
 #####################################
+
+## Create a constraints layer for ArcGIS
+constraints_arc <- constraints
+
+## Set values of 0 to be 99 for later cost analysis
+constraints_arc[constraints_arc == 0] <- 99
+
+#####################################
 #####################################
 
 # Export data
+## Least cost geopackage
+st_write(obj = all_constraints, dsn = least_cost_gpkg, "all_constraints", append = F)
+
 ## Raster data
 writeRaster(constraints, filename = file.path(tentative_dir, "constraints_raster.grd"), overwrite = T)
 writeRaster(constraints, filename = file.path(least_cost_dir, "constraints_raster.grd"), overwrite = T)
+
+writeRaster(constraints_arc, filename = file.path(least_cost_dir, "arc_constraints_raster.grd"), overwrite = T)
