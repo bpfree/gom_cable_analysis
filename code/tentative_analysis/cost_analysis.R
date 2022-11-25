@@ -27,6 +27,7 @@ pacman::p_load(dplyr,
 ## Define data directory (as this is an R Project, pathnames are simplified)
 ### Input directories
 data_dir <- "data/c_analysis_data/gom_cable_study.gpkg"
+least_cost_gpkg <- "data/e_least_cost_path/least_cost_path_analysis.gpkg"
 raster_dir <- "data/d_raster_data"
 
 ### Output directories
@@ -45,6 +46,12 @@ sf::st_layers(dsn = data_dir,
 # Load data
 ## Raster grid
 gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
+
+## Constraints grid
+constraints <- raster::raster(paste(least_cost_dir, "constraints_raster.grd", sep = "/"))
+arcgis_constraints <- raster::raster(paste(least_cost_dir, "arc_constraints_raster.grd", sep = "/"))
+all_constraints <- sf::st_read(dsn = least_cost_gpkg, layer = "all_constraints") %>%
+  as("Spatial")
 
 ## National Security
 ### Special use Airspace
@@ -115,8 +122,6 @@ menhaden <- raster::raster(paste(raster_dir, "menhaden_2000_2019_normalize.grd",
 ## Logistics
 ### Depth / Bathymetry
 bathymetry <- raster::raster(paste(raster_dir, "bathymetry_normalize.grd", sep = "/"))
-
-##### resample? alignExtent?
 extent(bathymetry) <- extent(gom_raster)
 
 ### Slope
@@ -143,6 +148,21 @@ cost_raster <- raster::brick(special_use_airspace,
                              slope) %>%
   raster::calc(sum, na.rm = T)
 
+## Prepare for ArcGIS analysis
+arc_gis_cost_raster <- raster::brick(cost_raster,
+                                     arcgis_constraints) %>% # create a brick of the cost and constraints layer
+  # sum the two layers while removing any NA values
+  raster::calc(sum, na.rm = T) %>%
+  # add 0.01 so there are no 0 values
+  sum(., 0.01)
+plot(arc_gis_cost_raster)
+
+# Make any values above 99 (where a constraint would be) to be set as NA to remove from analysis
+arc_gis_cost_raster[arc_gis_cost_raster >= 99] <- NA
+arc_gis_cost_raster[arc_gis_cost_raster == 0.01] <- NA
+plot(arc_gis_cost_raster)
+
+
 #####################################
 
 ## Inspect new raster
@@ -160,3 +180,5 @@ freq(cost_raster) # show frequency of values (though will round to 0 and 1)
 ## Raster data
 writeRaster(cost_raster, filename = file.path(tentative_analysis, "cost_raster.grd"), overwrite = T)
 writeRaster(cost_raster, filename = file.path(least_cost_dir, "cost_raster.grd"), overwrite = T)
+
+writeRaster(arc_gis_cost_raster, filename = file.path(least_cost_dir, "arcgis_cost_raster.grd"), overwrite = T)
