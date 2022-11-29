@@ -25,16 +25,26 @@ pacman::p_load(dplyr,
 ## Define data directory (as this is an R Project, pathnames are simplified)
 ### Input directory
 ais_tracks_dir <- "data/a_raw_data/ais_counts_2019"
+analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+raster_dir <- "data/d_raster_data"
 
 ### Output directory
-raster_dir <- "data/d_raster_data"
 intermediate_dir <- "data/b_intermediate_data"
 
 #####################################
 #####################################
 
-# Load AIS data
-## Transit counts: https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip)
+# Load data
+## Study area (to clip habitats to only that area)
+study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+
+## Raster grid
+gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
+
+#####################################
+
+## Load AIS data
+### Transit counts: https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip)
 ### Metadata: https://www.fisheries.noaa.gov/inport/item/61037
 
 #### Cargo vessels
@@ -96,25 +106,53 @@ linear_function <- function(raster){
 
 # Normalize vessel traffic
 cargo_normalized <- cargo_ais2019 %>%
-  linear_function()
+  linear_function() %>%
+  # crop to the study area (will be for the extent)
+  raster::crop(gom_raster) %>%
+  # mask to study area
+  raster::mask(study_area)
 
 fishing_normalized <- fishing_ais2019 %>%
-  linear_function()
+  linear_function() %>%
+  # crop to the study area (will be for the extent)
+  raster::crop(gom_raster) %>%
+  # mask to study area
+  raster::mask(study_area)
 
 passenger_normalized <- passenger_ais2019 %>%
-  linear_function()
+  linear_function() %>%
+  # crop to the study area (will be for the extent)
+  raster::crop(gom_raster) %>%
+  # mask to study area
+  raster::mask(study_area)
 
 pleasure_normalized <- pleasure_ais2019 %>%
-  linear_function()
+  linear_function() %>%
+  # crop to the study area (will be for the extent)
+  raster::crop(gom_raster) %>%
+  # mask to study area
+  raster::mask(study_area)
 
 tanker_normalized <- tanker_ais2019 %>%
-  linear_function()
+  linear_function() %>%
+  # crop to the study area (will be for the extent)
+  raster::crop(gom_raster) %>%
+  # mask to study area
+  raster::mask(study_area)
 
 tugtow_normalized <- tugtow_ais2019 %>%
-  linear_function()
+  linear_function() %>%
+  # crop to the study area (will be for the extent)
+  raster::crop(gom_raster) %>%
+  # mask to study area
+  raster::mask(study_area)
 
 other_normalized <- other_ais2019 %>%
-  linear_function()
+  linear_function() %>%
+  # crop to the study area (will be for the extent)
+  raster::crop(gom_raster) %>%
+  # mask to study area
+  raster::mask(study_area)
 
 #####################################
 #####################################
