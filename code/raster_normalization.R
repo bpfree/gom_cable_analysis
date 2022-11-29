@@ -48,10 +48,16 @@ slope <- raster::raster(paste(raster_dir, "slope.grd", sep = "/"))
 NAvalue(bathymetry)
 frequency(bathymetry)
 hist(bathymetry)
+ncol(bathymetry)
+nrow(bathymetry)
+ncell(bathymetry)
 
 NAvalue(slope)
 freq(slope)
 hist(slope)
+ncol(slope)
+nrow(slope)
+ncell(slope)
 
 #####################################
 
@@ -130,6 +136,9 @@ maxValue(bathymetry_normalize) # maximum value = 1
 res(bathymetry_normalize) # 100 x 100
 hist(bathymetry_normalize) # show histogram of values (though mostly values near 1)
 freq(bathymetry_normalize) # show frequency of values (though will round to 0 and 1)
+ncol(bathymetry_normalize)
+nrow(bathymetry_normalize)
+ncell(bathymetry_normalize)
 
 #####################################
 
@@ -156,6 +165,9 @@ slope_normalize <- slope %>%
 maxValue(slope_normalize) # maximum value = 0.9961739
 list(unique(slope_normalize)) # list all unique values
 res(slope_normalize) # 100 x 100
+ncol(slope_normalize)
+nrow(slope_normalize)
+ncell(slope_normalize)
 
 #####################################
 
