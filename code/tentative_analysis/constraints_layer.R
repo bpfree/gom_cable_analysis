@@ -62,14 +62,12 @@ significant_sediment <- sf::st_read(dsn = data_dir, layer = "boem_significant_se
 unexploded_ordnance <- sf::st_read(dsn = data_dir, layer = "unexploded_ordnance")
 no_activity_zone <- sf::st_read(dsn = data_dir, layer = "boem_no_activity_zones")
 anchorage_area <- sf::st_read(dsn = data_dir, layer = "anchorage_areas")
-navigation_aid <- sf::st_read(dsn = data_dir, layer = "aids_to_navigation")
 
 ## Industry
 borehole <- sf::st_read(dsn = data_dir, layer = "borehole")
 oil_gas_lease_area <- sf::st_read(dsn = data_dir, layer = "oil_gas_lease_areas")
 drilling_platform <- sf::st_read(dsn = data_dir, layer = "drilling_platforms")
 environmental_sensor <- sf::st_read(dsn = data_dir, layer = "environmental_sensor")
-pipeline <- sf::st_read(dsn = data_dir, layer = "pipelines")
 
 #####################################
 #####################################
@@ -83,7 +81,6 @@ all_constraints <- seagrass %>%
         unexploded_ordnance,
         no_activity_zone,
         anchorage_area,
-        navigation_aid,
         borehole,
         oil_gas_lease_area,
         drilling_platform,
@@ -126,10 +123,6 @@ anchorage_area_raster <- fasterize(sf = anchorage_area,
                                    raster = gom_raster,
                                    field = "value")
 
-navigation_aid_raster <- fasterize(sf = navigation_aid,
-                                   raster = gom_raster,
-                                   field = "value")
-
 ## Industry
 borehole_raster <- fasterize(sf = borehole,
                              raster = gom_raster,
@@ -147,10 +140,6 @@ environmental_sensor_raster <- fasterize(sf = environmental_sensor,
                                          raster = gom_raster,
                                          field = "value")
 
-pipeline_raster <- fasterize(sf = pipeline,
-                             raster = gom_raster,
-                             field = "value")
-
 #####################################
 #####################################
 
@@ -164,7 +153,6 @@ constraints <- raster::cover(seagrass_raster,
                              unexploded_ordnance_raster,
                              no_activity_zone_raster,
                              anchorage_area_raster,
-                             navigation_aid_raster,
                              borehole_raster,
                              oil_gas_lease_area_raster,
                              drilling_platform_raster,
