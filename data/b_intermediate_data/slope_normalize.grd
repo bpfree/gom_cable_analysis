@@ -1,14 +1,6 @@
 [general]
 creator=R package 'raster'
-created=2022-11-18 15:42:57
-[georeference]
-nrows=2034
-ncols=1485
-xmin=48829.4193342556
-ymin=548077.587736528
-xmax=197329.419334256
-ymax=751477.587736528
-projection=+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs
+created=2022-11-29 15:45:20
 [data]
 datatype=FLT4S
 byteorder=little
@@ -16,7 +8,7 @@ nbands=1
 bandorder=BIL
 categorical=FALSE
 minvalue=0
-maxvalue=0.996173850576198
+maxvalue=0.996173850577543
 nodatavalue=-3.4e+38
 [legend]
 legendtype=
@@ -24,3 +16,12 @@ values=
 color=
 [description]
 layername=slope
+[georeference]
+nrows=2034
+ncols=1485
+xmin=48829.4193342581
+ymin=548077.587736525
+xmax=197329.419334258
+ymax=751477.587736525
+projection=+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs
+wkt=PROJCRS["unknown",    BASEGEOGCRS["unknown",        DATUM["North American Datum 1983",            ELLIPSOID["GRS 1980",6378137,298.257222101,                LENGTHUNIT["metre",1]],            ID["EPSG",6269]],        PRIMEM["Greenwich",0,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8901]]],    CONVERSION["unknown",        METHOD["Albers Equal Area",            ID["EPSG",9822]],        PARAMETER["Latitude of false origin",23,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8821]],        PARAMETER["Longitude of false origin",-96,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8822]],        PARAMETER["Latitude of 1st standard parallel",29.5,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8823]],        PARAMETER["Latitude of 2nd standard parallel",45.5,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8824]],        PARAMETER["Easting at false origin",0,            LENGTHUNIT["metre",1],            ID["EPSG",8826]],        PARAMETER["Northing at false origin",0,            LENGTHUNIT["metre",1],            ID["EPSG",8827]]],    CS[Cartesian,2],        AXIS["(E)",east,            ORDER[1],            LENGTHUNIT["metre",1,                ID["EPSG",9001]]],        AXIS["(N)",north,            ORDER[2],            LENGTHUNIT["metre",1,                ID["EPSG",9001]]]]
