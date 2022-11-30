@@ -84,7 +84,11 @@ all_constraints <- seagrass %>%
         borehole,
         oil_gas_lease_area,
         drilling_platform,
-        environmental_sensor)
+        environmental_sensor) %>%
+  dplyr::mutate(barrier = "barrier") %>%
+  dplyr::group_by(barrier,
+                  value) %>%
+  dplyr::summarise()
                                  
 
 # Convert to rasters
