@@ -215,7 +215,11 @@ cost_raster <- raster::brick(special_use_airspace,
                              menhaden,
                              bathymetry,
                              slope) %>%
-  raster::calc(sum, na.rm = T)
+  # calculate sum of all costs together, remove any cells with NA values
+  raster::calc(sum, na.rm = T) %>%
+  # remove land from cost layer
+  raster::crop(gom_raster) %>%
+  raster::mask(gom_raster)
 
 ## Prepare for ArcGIS analysis
 arc_gis_cost_raster <- raster::brick(cost_raster,
@@ -235,7 +239,7 @@ plot(arc_gis_cost_raster)
 #####################################
 
 ## Inspect new raster
-minValue(cost_raster) # 0
+minValue(cost_raster) # 0.5
 maxValue(cost_raster) # maximum value = 6.162601
 list(unique(cost_raster)) # list all unique values
 res(cost_raster) # 100 x 100
