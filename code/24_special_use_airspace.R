@@ -41,9 +41,9 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 airspace <- st_read(dsn = airspace_dir, layer = "Special_Use_Airspace") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # obtain only active oil and gas lease blocks in the study area
+  # obtain only special use airspace areas in the study area
   sf::st_intersection(study_area) %>%
-  # create field called "layer" and fill with "active oil and gas lease" for summary
+  # create field called "layer" and fill with "special use airspace" for summary
   dplyr::mutate(layer = "special use airspace") %>%
   # group by layer to later summarise data
   dplyr::group_by(layer,
