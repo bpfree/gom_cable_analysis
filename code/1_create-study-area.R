@@ -185,6 +185,11 @@ aoi_marine <- aoi_poly %>%
 
 #####################################
 
+g <- ggplot() +
+  geom_sf(data = aoi_marine) +
+  geom_sf(data = wind_farm_i)
+g
+
 
 # Alternative: Create single land features
 ## This feature will allow the study area to target only marine / coastal areas
