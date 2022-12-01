@@ -55,7 +55,7 @@ anchorage_areas <- st_read(dsn = anchorage_areas_dir, layer = "AnchorageAreas") 
   # obtain only active oil and gas lease blocks in the study area
   sf::st_intersection(study_area) %>%
   # create field called "layer" and fill with "active oil and gas lease" for summary
-  dplyr::mutate(layer = "active oil and gas lease") %>%
+  dplyr::mutate(layer = "anchorage areas") %>%
   # group by layer to later summarise data
   dplyr::group_by(layer,
                   value) %>%
