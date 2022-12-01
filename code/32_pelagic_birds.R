@@ -63,6 +63,8 @@ smf_function_terra <- function(raster){
   return(pelagic_svalues)
 }
 
+#####################################
+
 smf_function_raster <- function(raster){
   # calculate minimum value
   min <- raster::minValue(raster)
