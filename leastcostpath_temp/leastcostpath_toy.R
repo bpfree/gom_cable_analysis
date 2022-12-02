@@ -125,5 +125,7 @@ g <- ggplot() +
   geom_sf(data = starting_points, color = "red", size = 2) +
   geom_sf(data = landing_points, size = 2, color = "black") +
   geom_sf(data = lcp300463, color = "yellow") +
-  geom_sf(data = lcp302357, color = "green")
+  geom_sf(data = lcp302357, color = "green") +
+  geom_sf(data = lcp303708, color = "orange") +
+  geom_sf(data = lcp304846, color = "purple")
 g
