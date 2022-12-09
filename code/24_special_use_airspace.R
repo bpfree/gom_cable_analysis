@@ -26,7 +26,10 @@ pacman::p_load(dplyr,
 airspace_dir <- "data/a_raw_data/Special_Use_Airspace"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 airspace_gpkg <- "data/b_intermediate_data/nexrad.gpkg"
 
 #####################################
@@ -45,7 +48,8 @@ airspace <- st_read(dsn = airspace_dir, layer = "Special_Use_Airspace") %>%
   sf::st_intersection(study_area) %>%
   # create field called "layer" and fill with "special use airspace" for summary
   dplyr::mutate(layer = "special use airspace") %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature

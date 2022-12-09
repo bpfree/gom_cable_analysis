@@ -27,7 +27,10 @@ environmental_sensors_dir <- "data/a_raw_data/environmental_sensors"
 ndbc_kml <- "data/a_raw_data/environmental_sensors/stations_by_program.kml"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 environmental_sensors_gpkg <- "data/b_intermediate_data/environmental_sensors.gpkg"
 
 #####################################
@@ -69,7 +72,7 @@ ndbc_preparation <- function(sensor_data){
 
 clean_sensor <- function(sensor_data){
   sensor_layer <- sensor_data %>%
-    # reproject the coordinate reference system to match BOEM call areas
+    # reproject the coordinate reference system
     st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
     # obtain sensor data within study area
     st_intersection(study_area) %>%
@@ -86,7 +89,7 @@ clean_sensor <- function(sensor_data){
 # Load environmental sensor data
 ## NDBC buoy data (source: https://www.ndbc.noaa.gov/kml/marineobs_as_kml.php?sort=pgm)
 ### Site page: https://www.ndbc.noaa.gov/obs.shtml
-### Beware: the download link on the NDBC website for the KML data (https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml) will not download a usable dataset (as they lack corresponding spatial data)
+### ***Beware: the download link on the NDBC website for the KML data (https://www.ndbc.noaa.gov/kml/marineobs_by_pgm.kml) will not download a usable dataset (as they lack corresponding spatial data)
 ### ***Note: if really want to use those data, downloaded as a KML and then convert to a shapefile in ArcGIS
 
 #### International Partners
@@ -139,6 +142,7 @@ ndbc_tsunami <- sf::st_read(dsn = ndbc_kml, layer = "Tsunami") %>%
   clean_sensor()
 
 ndbc_sensor <- ndbc_international_partners %>%
+  # combine all cleaned and processed NDBC data
   rbind(ndbc_ioos_partners,
         ndbc_marine_metar,
         ndbc_metero_ocean,
@@ -147,7 +151,6 @@ ndbc_sensor <- ndbc_international_partners %>%
         ndbc_ships,
         ndbc_tao,
         ndbc_tsunami)
-
 
 #####################################
 
@@ -249,12 +252,12 @@ environmental_sensor <- ndbc_sensor %>%
   # remove duplicated buoys / sensors
   # ***Note: 42043 and 42050 both still have 2 records as they have different coordinates; need to determine which is best option
   dplyr::distinct() %>%
-  # group by layer to summarise and create uniform buffer
+  # group all features by the "layer" and "value" fields to then have a single feature
   dplyr::group_by(layer,
                   value) %>%
   # summarise data for buffer generation
   dplyr::summarise() %>%
-  # add buffer of 500 meters
+  #  add a setback (buffer) distance of 500 meters
   sf::st_buffer(dist = 500)
 
 #####################################

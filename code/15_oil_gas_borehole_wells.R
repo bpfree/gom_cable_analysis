@@ -26,15 +26,15 @@ pacman::p_load(dplyr,
 borehole_dir <- "data/a_raw_data/borehole"
 
 ### Output directories
+#### Analyis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
-borehole_gpkg <- "data/b_intermediate_data/borehole.gpkg"
 
-#####################################
-#####################################
+#### Intermediate directory
+borehole_gpkg <- "data/b_intermediate_data/borehole.gpkg"
 
 # Load study area (to clip habitats to only that area)
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
-
+#####################################
 #####################################
 
 # Load borehole data (source: https://www.data.boem.gov/Well/Borehole/Default.aspx)
@@ -72,14 +72,16 @@ borehole <- read.csv(paste(borehole_dir, "Borehole.csv", sep = "/")) %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # remove any boreholes that have been side tracked or permanently abandoned
-  dplyr::filter(!Status.Code %in% c("CNL", "PA", "ST")) %>% # return all not status codes CNL, PA and ST
-  # # obtain only active oil and gas lease blocks in the study area
+  # return all not status codes CNL, PA and ST
+  dplyr::filter(!Status.Code %in% c("CNL", "PA", "ST")) %>%
+  # obtain only borehole wells in the study area
   sf::st_intersection(study_area) %>%
-  # create buffer of 60.96 meters (200 feet) around the boreholes
+  #  add a setback (buffer) distance of 60.96 meters (200 feet) around the boreholes
   sf::st_buffer(dist = 60.96) %>%
   # create field called "layer" and fill with "borehole" for summary
   dplyr::mutate(layer = "borehole") %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature

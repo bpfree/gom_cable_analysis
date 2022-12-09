@@ -46,17 +46,18 @@ sf::st_layers(dsn = anchorage_areas_dir,
 # Load anchorage area data (source: https://marinecadastre.gov/downloads/data/mc/Anchorage.zip)
 ## Metadata: https://www.fisheries.noaa.gov/inport/item/48849
 anchorage_areas <- st_read(dsn = anchorage_areas_dir, layer = "AnchorageAreas") %>%
-  # change to multipolygon from multistring (for 5 features are multisurface: 654, 661, 672, 673, 721)
+  # change multistring to multipolygon (for 5 features are multisurface: 654, 661, 672, 673, 721)
   st_cast(to = "MULTIPOLYGON") %>%
   # make sure all geometries are valid
   st_make_valid() %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # obtain only active oil and gas lease blocks in the study area
+  # obtain only anchorage areas in the study area
   sf::st_intersection(study_area) %>%
-  # create field called "layer" and fill with "active oil and gas lease" for summary
+  # create field called "layer" and fill with "anchorage areas" for summary
   dplyr::mutate(layer = "anchorage areas") %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature

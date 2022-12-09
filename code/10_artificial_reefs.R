@@ -26,7 +26,10 @@ pacman::p_load(dplyr,
 data_dir <- "data/a_raw_data/tpwd-artificial-reef-data"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 artificial_reefs_gpkg <- "data/b_intermediate_data/gom_artificial_reefs.gpkg"
 
 #####################################
@@ -44,11 +47,10 @@ artificial_reefs <- read.csv(paste(data_dir, "TPWD_ArtReefSites_Jan21.csv", sep 
   na.omit() %>%
   # convert to simple feature
   sf::st_as_sf(coords = c("Longitude.WGS84", "Latitude.WGS84"),
-           # set the coordinate reference system to WGS84
-           crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-           # Read Me for the data states data are in decimal degrees and Web Mercator
-           ## Web Mercator (https://epsg.io/3857)
-  # reproject the coordinate reference system to match BOEM call areas
+               # set the coordinate reference system to WGS84
+               # ***Note: Read Me for the data states data are in decimal degrees and Web Mercator (https://epsg.io/3857)
+               crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
+  # reproject the coordinate reference system
   st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # create setback (buffer) of 304.8 meters (1000 feet)
   st_buffer(dist = 304.8) %>%
@@ -56,7 +58,8 @@ artificial_reefs <- read.csv(paste(data_dir, "TPWD_ArtReefSites_Jan21.csv", sep 
   st_intersection(study_area) %>%
   # create field "layer" and populate with description "artificial reefs"
   dplyr::mutate(layer = "artificial reefs") %>%
-  # group by "layer" field for summarising data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data

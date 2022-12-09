@@ -26,20 +26,20 @@ pacman::p_load(dplyr,
 pipelines_dir <- "data/a_raw_data/Pipelines.gdb"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 pipelines_gpkg <- "data/b_intermediate_data/pipelines.gpkg"
 
+# View layer names within geodatabase
+sf::st_layers(dsn = pipelines_dir,
+              do_count = TRUE)
 #####################################
 #####################################
 
 # Load study area (to clip habitats to only that area)
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
-
-#####################################
-
-# View layer names within geodatabase
-sf::st_layers(dsn = pipelines_dir,
-              do_count = TRUE)
 
 #####################################
 
@@ -134,9 +134,10 @@ pipelines <- st_read(dsn = pipelines_dir, layer = "Pipelines") %>%
   sf::st_intersection(study_area) %>%
   # create field called "layer" and fill with "pipelines" for summary
   dplyr::mutate(layer = "pipelines") %>%
-  # create a buffer of 500 meters
+  #  add a setback (buffer) distance of 500 meters
   sf::st_buffer(dist = 500) %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature

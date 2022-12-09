@@ -27,7 +27,10 @@ pacman::p_load(dplyr,
 carbon_capture_dir <- "data/a_raw_data/GOM_Potential_CCUS_BlocksForSuitabilityModelRun"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 carbon_capture_gpkg <- "data/b_intermediate_data/carbon_capture.gpkg"
 
 #####################################
@@ -37,19 +40,18 @@ carbon_capture_gpkg <- "data/b_intermediate_data/carbon_capture.gpkg"
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
-#####################################
 
 # Data came from Tershara Matthews (Tershara.Matthews@boem.gov)
 ## For further questions, direct them to BOEM
 
 ### Carbon capture underground storage lease blocks
 carbon_capture <- st_read(dsn = carbon_capture_dir, layer = "GOM_Potential_CCUS_Blocks") %>%
-  # reproject the coordinate reference system to match BOEM call areas
+  # reproject the coordinate reference system
   st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # create field called "layer" and fill with "environmental sensor" for summary
+  # create field called "layer" and fill with "carbon capture" for summary along with "value" field with 0
   dplyr::mutate(layer = "carbon capture",
                 value = 0) %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature

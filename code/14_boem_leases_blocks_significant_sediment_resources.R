@@ -26,8 +26,15 @@ pacman::p_load(dplyr,
 sediment_dir <- "data/a_raw_data/significant_sediment/MMIS.gdb"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 sediment_gpkg <- "data/b_intermediate_data/sediment.gpkg"
+
+# View layer names within geodatabase
+sf::st_layers(dsn = sediment_dir,
+              do_count = TRUE)
 
 #####################################
 #####################################
@@ -37,22 +44,16 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
-# View layer names within geodatabase
-sf::st_layers(dsn = sediment_dir,
-              do_count = TRUE)
-
-#####################################
-
 # Load significant sediment data
-## Note: There are a few ways to obtain the data
+## ***Note: There are a few ways to obtain the data
 ### 1.) BOEM Marine Mineral Mapping and Data page: https://www.boem.gov/marine-minerals/marine-minerals-mapping-and-data
 ### Here you can download the geodatabase or shapefile for the Gulf of Mexico or the Atlantic
-### Geodatabase download link: https://mmis.doi.gov/boemmmis/downloads/layers/GOMSigSedBlocks_fgdb.zip
-### Shapefile download link: https://mmis.doi.gov/boemmmis/downloads/layers/GOMSigSedBlocks_shp.zip
-### Metadata: https://mmis.doi.gov/boemmmis/metadata/PlanningAndAdministration/GOMSigSedBlocks.xml
+###   - Geodatabase download link: https://mmis.doi.gov/boemmmis/downloads/layers/GOMSigSedBlocks_fgdb.zip
+###   - Shapefile download link: https://mmis.doi.gov/boemmmis/downloads/layers/GOMSigSedBlocks_shp.zip
+###   - Metadata: https://mmis.doi.gov/boemmmis/metadata/PlanningAndAdministration/GOMSigSedBlocks.xml
 
 ### 2.) Gulf of Mexico: https://www.boem.gov/marine-minerals/managing-multiple-uses-gulf-mexico
-### Shapefile download link:https://mmis.doi.gov/boemmmis/downloads/layers/GOMSigSedBlocks_shp.zip
+###   - Shapefile download link: https://mmis.doi.gov/boemmmis/downloads/layers/GOMSigSedBlocks_shp.zip
 
 ### 3.) Marine Minerals Information System (https://mmis.doi.gov/BOEMMMIS/) -- interactive data and map portal
 ### Metadata: https://mmis.doi.gov/BOEMMMIS/metadata/WAF/GOMSigSedBlocks.xml
@@ -62,7 +63,7 @@ sf::st_layers(dsn = sediment_dir,
 ###     ***Note: If the layer name is greyed out, zoom in further on the map till the layer name becomes black.
 ###              Now you can mark the layer and it should appear.
 ###   d.) Click the "Downloads" option on the top left of the page
-###     ***Note: If too far zoomed out, page will notify you to zoom in farther before being able to draw a boundary box
+###     ***Note: If too far zoomed out, page will notify you to zoom in further before being able to draw a boundary box
 ###   e.) Click "Select Area to Download"
 ###   f.) Mark boundary on the map for download area
 ###     ***Note: Click points on map and closing by clicking on first point.
@@ -71,17 +72,18 @@ sf::st_layers(dsn = sediment_dir,
 ### ***NOTE: If entire dataset is desired, on layers page click the "Download Layer GDB" icon next to layer name
 
 significant_sediment <- st_read(dsn = sediment_dir, layer = "Gulf_of_Mexico_OCS_Blocks_with_Significant_Sediment_Resources") %>%
-  # change to multipolygon from multipolygon Z
-  st_cast(to = "MULTIPOLYGON") %>%
+  # change multipolygon Z to multipolygon
+  sf::st_cast(to = "MULTIPOLYGON") %>%
   # make sure all geometries are valid
-  st_make_valid() %>%
+  sf::st_make_valid() %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # obtain only active oil and gas lease blocks in the study area
+  # obtain only lease blocks with significant sediment in the study area
   sf::st_intersection(study_area) %>%
   # create field called "layer" and fill with "significant sediment" for summary
   dplyr::mutate(layer = "significant sediment") %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature

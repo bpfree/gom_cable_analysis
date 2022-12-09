@@ -29,11 +29,12 @@ lease_dir <- "data/a_raw_data/BlockPolygons.gdb"
 raster_dir <- "data/d_raster_data"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directories
 intermediate_dir <- "data/b_intermediate_data"
 osw_value_gpkg <- "data/b_intermediate_data/offshore_wind_potential.gpkg"
-
-#####################################
 
 # View layer names within geodatabase
 sf::st_layers(dsn = lease_dir,
@@ -55,13 +56,13 @@ gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raste
 ## BOEM Lease Blocks (source: https://www.data.boem.gov/Mapping/Files/Blocks.gdb.zip) -- shapefile format is also available
 ### Metadata: https://www.data.boem.gov/Mapping/Files/blocks_meta.html
 lease_blocks <- sf::st_read(dsn = lease_dir, layer = "BlockPolygons") %>%
-  # reproject the coordinate reference system to match BOEM call areas
+  # reproject the coordinate reference system
   st_transform("EPSG:5070") # EPSG 5070 (https://epsg.io/5070)
 
 ## NREL Net Value -- 2015 (source: https://data.nrel.gov/system/files/67/170514_OSW%20cost%20analysis_output%20file%20%281%29.xlsx)
 ### Data page: https://data.nrel.gov/submissions/67, report: https://www.nrel.gov/docs/fy17osti/67675.pdf
-### ***Note: Data come as an Excel spreadsheet. To use data, delete tabs expect 2015 (COD) and save as CSV.
-### ***Note: The data were renamed as nrel_offshore_wind-net_value2015.csv, but any name can be used.
+### ***Note: Data come as an Excel spreadsheet. To use data, delete tabs expect 2015 (COD) and save as CSV
+### ***Note: The data were renamed as nrel_offshore_wind-net_value2015.csv, but any name can be used
 nrel_net_value <- read.csv(paste(input_dir, "nrel_offshore_wind_net_value2015.csv", sep = "/")) %>%
   # remove final field (as there are no data associated with it)
   dplyr::select(-X) %>%
@@ -71,7 +72,7 @@ nrel_net_value <- read.csv(paste(input_dir, "nrel_offshore_wind_net_value2015.cs
   sf::st_as_sf(coords = c("Longitude", "Latitude"),
                # set the coordinate reference system to WGS84
                crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-  # reproject the coordinate reference system to match BOEM call areas
+  # reproject the coordinate reference system
   sf::st_transform("EPSG:5070") # EPSG 5070 (https://epsg.io/5070)
 
 #####################################
@@ -100,8 +101,8 @@ nrel_net_value_lease_blocks <- lease_blocks %>%
 
 # Convert data to a raster
 nrel_net_value_raster <- nrel_net_value_lease_blocks %>%
-  fasterize(raster = gom_raster,
-            field = "value")
+  fasterize::fasterize(raster = gom_raster,
+                       field = "value")
 
 #####################################
 #####################################
@@ -123,4 +124,3 @@ st_write(obj = nrel_net_value_lease_blocks, dsn = osw_value_gpkg, "nrel_net_valu
 
 ## Intermediate data
 writeRaster(nrel_net_value_raster, filename = file.path(intermediate_dir, "nrel_net_value_raster.grd"), overwrite = T)
-

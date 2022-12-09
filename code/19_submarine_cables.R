@@ -28,16 +28,11 @@ submarine_cable_dir <- "data/a_raw_data/SubmarineCable/NOAAChartedSubmarineCable
 geocable_dir <- "data/a_raw_data/u_fouo_sd_geocables_June_2022_distribution/u_fouo_geocable_state_dept_v10_geo_wgs84.gdb"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 submarine_cables_gpkg <- "data/b_intermediate_data/submarine_cables.gpkg"
-
-#####################################
-#####################################
-
-# Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
-
-#####################################
 
 # View layer names within geodatabase
 sf::st_layers(dsn = submarine_cable_area_dir,
@@ -52,22 +47,26 @@ sf::st_layers(dsn = geocable_dir,
 #####################################
 #####################################
 
+# Load study area (to clip habitats to only that area)
+study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+
 # Load submarine cable area data (source: https://marinecadastre.gov/downloads/data/mc/SubmarineCableArea.zip)
 ## Metadata: https://www.fisheries.noaa.gov/inport/item/66190
 submarine_cable_areas <- st_read(dsn = submarine_cable_area_dir, layer = "SubmarineCableArea") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # filter for only operational submarine cable areas
-  # Note: Other statuses include: "Inactive", "Abandoned", and "Proposed" status
   # Study area has only "Operational" and NA
+  #   ***Note: Other statuses include: "Inactive", "Abandoned", and "Proposed" status
   dplyr::filter(status == "Operational") %>%
-  # obtain only active oil and gas lease blocks in the study area
+  # obtain only submarine cables in the study area
   sf::st_intersection(study_area) %>%
-  # create field called "layer" and fill with "active oil and gas lease" for summary
+  # create field called "layer" and fill with "submarine cables" for summary
   dplyr::mutate(layer = "submarine_cables") %>%
-  # create a buffer of 152.4 meters (500 feet)
+  # add a setback (buffer) distance of 152.4 meters (500 feet)
   sf::st_buffer(dist = 152.4) %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature
@@ -87,13 +86,14 @@ submarine_cables_noaa <- st_read(dsn = submarine_cable_dir, layer = "NOAACharted
   st_make_valid() %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # obtain only active oil and gas lease blocks in the study area
+  # obtain only submarine cables in the study area
   sf::st_intersection(study_area) %>%
-  # create field called "layer" and fill with "active oil and gas lease" for summary
+  # create field called "layer" and fill with "submarine cables" for summary
   dplyr::mutate(layer = "submarine_cables") %>%
-  # create a buffer of 152.4 meters (500 feet)
+  #  add a setback (buffer) distance of 152.4 meters (500 feet)
   sf::st_buffer(dist = 152.4) %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature
@@ -109,15 +109,16 @@ st_crs(submarine_cables_noaa, parameters = TRUE)$units_gdal
 geocable <- st_read(dsn = geocable_dir, layer = "u_fouo_geocable_lns_geo_wgs84") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # obtain only active oil and gas lease blocks in the study area
+  # obtain only geocable in the study area
   sf::st_intersection(study_area) %>%
-  # create field called "layer" and fill with "active oil and gas lease" for summary
+  # create field called "layer" and fill with "submarine cable" for summary
   dplyr::mutate(layer = "submarine_cables") %>%
   # rename geom field
   dplyr::rename("Shape" = "SHAPE") %>%
-  # create a buffer of 152.4 meters (500 feet)
+  #  add a setback (buffer) distance of 152.4 meters (500 feet)
   sf::st_buffer(dist = 152.4) %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature
@@ -139,10 +140,13 @@ g
 #####################################
 
 submarine_cables <- submarine_cable_areas %>%
+  # combine submarine cable data
   rbind(submarine_cables_noaa,
         geocable) %>%
+  # group data by "layer" and "value" fields
   dplyr::group_by(layer,
                   value) %>%
+  # summarise to return single feature
   dplyr::summarise()
 
 #####################################

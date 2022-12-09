@@ -26,8 +26,15 @@ pacman::p_load(dplyr,
 uxo_dir <- "data/a_raw_data/UnexplodedOrdnance/UnexplodedOrdnance.gdb"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 uxo_gpkg <- "data/b_intermediate_data/gom_uneploded_ordnance.gpkg"
+
+# View layer names within geodatabase
+sf::st_layers(dsn = uxo_dir,
+              do_count = TRUE)
 
 #####################################
 #####################################
@@ -35,15 +42,8 @@ uxo_gpkg <- "data/b_intermediate_data/gom_uneploded_ordnance.gpkg"
 # Load study area (to clip habitats to only that area)
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
-#####################################
-
-# View layer names within geodatabase
-sf::st_layers(dsn = uxo_dir,
-              do_count = TRUE)
-
-#####################################
-
 # Load unexploded ordnance point data (source: https://marinecadastre.gov/downloads/data/mc/UnexplodedOrdnance.zip)
+## Metadata: https://www.fisheries.noaa.gov/inport/item/66208
 unexploded_ordnance_points <- st_read(dsn = uxo_dir, layer = "UnexplodedOrdnanceLocations") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
@@ -53,7 +53,7 @@ unexploded_ordnance_points <- st_read(dsn = uxo_dir, layer = "UnexplodedOrdnance
   sf::st_buffer(dist = 500) %>%
   # create field called "layer" and fill with "unexploded ordnance" for summary
   dplyr::mutate(layer = "unexploded ordnance") %>%
-  # select the layer field for later data summary
+  # select the "layer" and "value" fields for later data summary
   dplyr::select(layer,
                 value)
 
@@ -69,7 +69,7 @@ unexploded_ordnance_areas <- st_read(dsn = uxo_dir, layer = "UnexplodedOrdnanceA
   sf::st_intersection(study_area) %>%
   # create field called "layer" and fill with "unexploded ordnance" for summary
   dplyr::mutate(layer = "unexploded ordnance") %>%
-  # select the layer field for later data summary
+  # select the "layer" and "value" fields for later data summary
   dplyr::select(layer,
                 value)
 
@@ -89,7 +89,7 @@ g
 unexploded_ordnance <- unexploded_ordnance_points %>%
   # Combine site data with area data
   rbind(unexploded_ordnance_areas) %>%
-  # group by layer for later summary
+  # group all features by the "layer" and "value" fields to then have a single feature
   dplyr::group_by(layer,
                   value) %>%
   # summarise the data to get single feature

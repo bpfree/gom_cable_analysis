@@ -26,7 +26,10 @@ pacman::p_load(dplyr,
 input_dir <- "data/a_raw_data"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 nexrad_gpkg <- "data/b_intermediate_data/nexrad.gpkg"
 
 #####################################
@@ -38,7 +41,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 #####################################
 
 # NEXRAD data are maintained on this site: https://www.roc.noaa.gov/WSR88D/
-# To obtian the data, do the following:
+# To obtain the data, do the following:
 ## 1.) On left panel, navigate to Site ID / Maps
 ## 2.) Within that option, select Site ID Database
 ## 3.) On new page, click "Advanced Search" (page: https://www.roc.noaa.gov/WSR88D/Program/SiteID.aspx)
@@ -64,7 +67,7 @@ nexrad_sites <- read.csv(paste(input_dir, "nexrad_sites.csv", sep = "/")) %>%
   dplyr::select(site_name,
                 lon,
                 lat) %>%
-  # fix site names
+  # fix site names and create field called "layer" and fill with "nexrad" for summary
   dplyr::mutate(across(site_name, str_to_title),
                 layer = "nexrad") %>%
   # Separate longitude
@@ -72,9 +75,10 @@ nexrad_sites <- read.csv(paste(input_dir, "nexrad_sites.csv", sep = "/")) %>%
   # Separate latitude
   tidyr::separate(lat, into=c("lat_d", "lat_m", "lat_s"), sep=" ", remove=T, convert = T) %>%
   # convert to longitude and latitude into decimal degrees (degrees + minutes / 60 + seconds / (60 * 60))
+  # ***Note: longitude values are multiplied by -1 as they are in the west of the Prime Meridian
   dplyr::mutate(lon_dd = -1 * (-1 * lon_d + lon_m /60 + lon_s/60^2),
                 lat_dd = lat_d + lat_m /60 + lat_s/60^2) %>%
-  # only site, longitude, latitude
+  # select only site, longitude, latitude
   dplyr::select(site_name,
                 layer,
                 lon_dd,
@@ -85,7 +89,8 @@ nexrad_sites <- read.csv(paste(input_dir, "nexrad_sites.csv", sep = "/")) %>%
                crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer) %>%
   # summarise data to obtain single feature
   dplyr::summarise()
@@ -99,12 +104,12 @@ st_crs(nexrad_sites, parameters = TRUE)$units_gdal
 
 # NEXRAD sites with 35 kilometer buffer
 nexrad35km <- nexrad_sites %>%
-  # create setback of 35km (35,000 meters)
+  #  add a setback (buffer) distance of 35km (35,000 meters)
   sf::st_buffer(35000)
 
 # NEXRAD sites with 35 - 70 kilometer bufer
 nexrad35_70km <- nexrad_sites %>%
-  # create setback of 70km (70,000 meters)
+  #  add a setback (buffer) distance of 70km (70,000 meters)
   sf::st_buffer(70000) %>%
   # remove the 35km buffer
   sf::st_difference(nexrad35km) %>%

@@ -26,10 +26,11 @@ pacman::p_load(dplyr,
 fish_haven_dir <- "data/a_raw_data/fish_havens.gdb"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
-fish_haven_gpkg <- "data/b_intermediate_data/gom_fish_havens.gpkg"
 
-#####################################
+#### Intermediate directory
+fish_haven_gpkg <- "data/b_intermediate_data/gom_fish_havens.gpkg"
 
 # View layer names within geodatabase
 sf::st_layers(dsn = fish_haven_dir,
@@ -76,7 +77,8 @@ fish_haven <- st_read(dsn = fish_haven_dir, layer = "Coastal_Obstruction_area") 
                                "fish haven" = "obstruction",
                                # other field value is actually " " not "" (see list(unique(fish_haven$layer)) to see this before running this step)
                                " " = "obstruction")) %>%
-  # group by type for later summary
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to reduce features to a single observation

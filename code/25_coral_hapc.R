@@ -26,7 +26,10 @@ pacman::p_load(dplyr,
 coral_hapc_dir <- "data/a_raw_data/coral_hapc"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 coral_hapc_gpkg <- "data/b_intermediate_data/coral_hapc.gpkg"
 
 #####################################
@@ -40,11 +43,11 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 clean_coral <- function(coral_data){
   coral_layer <- coral_data %>%
-    # reproject the coordinate reference system to match BOEM call areas
+    # reproject the coordinate reference system
     st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-    # obtain sensor data within study area
+    # obtain coral data within study area
     st_intersection(study_area) %>%
-    # create field called "layer" and fill with "environmental sensor" for summary
+    # create field called "layer" and fill with "coral hapc" for summary
     dplyr::mutate(layer = "coral hapc") %>%
     # select key fields
     dplyr::select(layer,
@@ -82,10 +85,11 @@ coral9_hapc_noregs <- st_read(dsn = coral_hapc_dir, layer = "Coral9NoRegs") %>%
 #####################################
 
 coral_hapc_combined <- coral_hapc_regs %>%
+  # combine coral datasets
   rbind(coral_hapc_noregs,
         coral9_hapc_regs,
         coral9_hapc_noregs) %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature

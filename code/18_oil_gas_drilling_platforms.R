@@ -27,8 +27,15 @@ bsee_platform_dir <- "data/a_raw_data/drilling_platforms"
 boem_platform_dir <- "data/a_raw_data/Platforms.gdb"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 platforms_gpkg <- "data/b_intermediate_data/drilling_platforms.gpkg"
+
+# View layer names within geodatabase
+sf::st_layers(dsn = boem_platform_dir,
+              do_count = TRUE)
 
 #####################################
 #####################################
@@ -38,15 +45,10 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
-# View layer names within geodatabase
-sf::st_layers(dsn = boem_platform_dir,
-              do_count = TRUE)
-
-#####################################
-
-# Load BSEE drilling platform data (source: https://www.data.bsee.gov/Platform/PlatformStructures/Default.aspx)
+# Load BSEE drilling platform data (source: https://www.data.bsee.gov/Main/Platform.aspx)
+## Query: https://www.data.bsee.gov/Platform/PlatformStructures/Default.aspx
 ## Metadata information: https://www.data.bsee.gov/Main/Platform.aspx
-### Note: These data came from generated CSV for all data within the query database
+### ***Note: These data came from generated CSV for all data within the query database
 bsee_platforms <- read.csv(file = paste(bsee_platform_dir, "PlatStruc.csv", sep = "/")) %>%
   # remove any features that do not have longitude data
   dplyr::filter(!is.na(Longitude)) %>%
@@ -60,11 +62,12 @@ bsee_platforms <- read.csv(file = paste(bsee_platform_dir, "PlatStruc.csv", sep 
   # Filter for platforms that have been installed but not yet removed
   dplyr::filter(Install.Date != "" & # platforms that have an install date (so not blank)
                 Removal.Date == "") %>% # platforms that lack a removal date (so are blank)
-  # create buffer of 152.4 meters (500 feet) around each drilling platform
+  #  add a setback (buffer) distance of 152.4 meters (500 feet) around each drilling platform
   sf::st_buffer(dist = 152.4) %>%
   # create field called "layer" and fill with "drilling platform" for summary
   dplyr::mutate(layer = "drilling platform") %>%
-  # group by layer to later summarise data
+  # group all features by the "layer" and "value" fields to then have a single feature
+  # "value" will get pulled in from the study area layer
   dplyr::group_by(layer,
                   value) %>%
   # summarise data to obtain single feature
