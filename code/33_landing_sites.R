@@ -31,20 +31,21 @@ analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 raster_dir <- "data/d_raster_data"
 
 ### Output directories
+#### Least Cost Path directory
 least_cost_gpkg <- "data/e_least_cost_path/least_cost_path_analysis.gpkg"
-landing_sites_gpkg <-"data/b_intermediate_data/landing_sites.gpkg"
 
-#####################################
-#####################################
+#### Intermediate directory
+landing_sites_gpkg <-"data/b_intermediate_data/landing_sites.gpkg"
 
 # View layer names within geodatabase
 sf::st_layers(dsn = landing_points_dir,
               do_count = TRUE)
 
 #####################################
+#####################################
 
 # Load coastal point data
-coast_points <- sf::st_read(dsn = landing_points_dir, layer = "coast_point_costs")
+coast_points <- st_read(dsn = landing_points_dir, layer = "coast_point_costs")
 
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
@@ -54,13 +55,14 @@ coast_points
 #####################################
 #####################################
 
-# Obtain 50 cheapest landing locations
+# Obtain 100 cheapest landing locations
 coast100 <- coast_points %>%
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # arrange costs  by cost
   dplyr::arrange(cost) %>%
   # select the cheapest 50 (- signifies bottom) to get cheapest locations
   dplyr::top_n(-100, cost) %>%
+  # clip the data to the study area
   rmapshaper::ms_clip(study_area)
 
 coast100
