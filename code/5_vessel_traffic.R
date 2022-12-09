@@ -39,37 +39,37 @@ intermediate_dir <- "data/b_intermediate_data"
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 ## Raster grid
-gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
+gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
 
 #####################################
 
-## Load AIS data
+## Load AIS data (2019)
 ### Transit counts: https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip)
 ### Metadata: https://www.fisheries.noaa.gov/inport/item/61037
 
 #### Cargo vessels
-cargo_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_Cargo1.tif", sep = "/"))
+cargo_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Cargo1.tif", sep = "/"))
 
 #### Fishing vessels
-fishing_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_Fishing1.tif", sep = "/"))
+fishing_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Fishing1.tif", sep = "/"))
 
 #### Passenger vessels
-passenger_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_Passenger1.tif", sep = "/"))
+passenger_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Passenger1.tif", sep = "/"))
 
 #### Pleasure craft and sailing vessels
-pleasure_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_Pleasure1.tif", sep = "/"))
+pleasure_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Pleasure1.tif", sep = "/"))
 
 #### Tanker vessels
-tanker_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_Tanker1.tif", sep = "/"))
+tanker_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Tanker1.tif", sep = "/"))
 
 #### Tug and tow vessels
-tugtow_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_TugTow1.tif", sep = "/"))
+tugtow_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_TugTow1.tif", sep = "/"))
 
 ## Vessel tracks (other): https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTracks2019.zip
 ### Metadata: https://www.fisheries.noaa.gov/inport/item/59927
 
 #### Other vessels
-other_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_Other1.tif", sep = "/"))
+other_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Other1.tif", sep = "/"))
 
 #####################################
 #####################################
@@ -78,24 +78,28 @@ other_ais2019 <- raster::raster(paste(ais_tracks_dir, "AIS19_Other1.tif", sep = 
 ## Linear function
 linear_function <- function(raster){
   # define projection (EPSG:5070)
-  crs <- 5070
+  crs <- "EPSG:5070"
   
-  # reproject into coordinate reference system to match BOEM call areas
-  raster_5070 <- raster::projectRaster(from = raster,
-                                       crs = crs,
-                                       res = 100) # resolution should be put in meters as EPSG:5070 is in meters, no longer degrees
+  # reproject into coordinate reference system
+  raster_5070 <- terra::project(x = raster,
+                                y = crs,
+                                res = 100) # resolution should be put in meters as EPSG:5070 is in meters, no longer degrees
   
   # calculate minimum value
-  min <- minValue(raster_5070)
+  min <- terra::minmax(raster_5070)[1,]
   
   # recalculate maximum value
-  max <- maxValue(raster_5070)
+  max <- terra::minmax(raster_5070)[2,]
   
   # create linear function
   normalize <- (raster_5070[] - min) / (max - min)
   
   # set values back to the newly projected raster
-  vessel_normalize <- setValues(raster_5070, normalize)
+  vessel_normalize <- terra::setValues(raster_5070, normalize) %>%
+    # crop to the study area (will be for the extent)
+    terra::crop(gom_raster) %>%
+    # mask to study area
+    terra::mask(study_area)
   
   # return the raster
   return(vessel_normalize)
@@ -106,53 +110,25 @@ linear_function <- function(raster){
 
 # Normalize vessel traffic
 cargo_normalized <- cargo_ais2019 %>%
-  linear_function() %>%
-  # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
-  # mask to study area
-  raster::mask(study_area)
+  linear_function()
 
 fishing_normalized <- fishing_ais2019 %>%
-  linear_function() %>%
-  # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
-  # mask to study area
-  raster::mask(study_area)
+  linear_function()
 
 passenger_normalized <- passenger_ais2019 %>%
-  linear_function() %>%
-  # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
-  # mask to study area
-  raster::mask(study_area)
+  linear_function()
 
 pleasure_normalized <- pleasure_ais2019 %>%
-  linear_function() %>%
-  # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
-  # mask to study area
-  raster::mask(study_area)
+  linear_function()
 
 tanker_normalized <- tanker_ais2019 %>%
-  linear_function() %>%
-  # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
-  # mask to study area
-  raster::mask(study_area)
+  linear_function()
 
 tugtow_normalized <- tugtow_ais2019 %>%
-  linear_function() %>%
-  # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
-  # mask to study area
-  raster::mask(study_area)
+  linear_function()
 
 other_normalized <- other_ais2019 %>%
-  linear_function() %>%
-  # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
-  # mask to study area
-  raster::mask(study_area)
+  linear_function()
 
 #####################################
 #####################################
