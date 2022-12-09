@@ -74,48 +74,64 @@ landing_points_303708 <- sf::st_read(dsn = least_cost_gpkg, layer = "landing_are
 landing_points_304846 <- sf::st_read(dsn = least_cost_gpkg, layer = "landing_areas") %>%
   dplyr::filter(endID == 304846)
 
-#### a cost surface without barriers removed from overall data
-cost_raster <- terra::rast(paste(least_cost_dir, "cost_raster.grd", sep = "/"))
-
 #### a cost surface with barriers removed from overall data
 costs_barriers_extracted <- terra::rast(paste(least_cost_dir, "costs.grd", sep = "/"))
 
 #####################################
 
+## Swapping values
+test_function <- function(raster){
+  max <- minmax(costs_barriers_extracted)[2,]
+  
+  # create linear function
+  swap <- max - raster[]
+  
+  # set values back to the original raster
+  new_value <- setValues(raster, swap)
+  
+  # return the raster
+  return(new_value)
+}
+
+min <- minmax(costs_barriers_extracted)[1,]
+max <- minmax(costs_barriers_extracted)[2,]
+
+new_value <- max - costs_barriers_extracted
+
+new_value[new_value <= 0] <- NA
+
 # create slope cost surface
-slope_cs <- leastcostpath::create_slope_cs(x = costs_barriers_extracted,
-                                           # functions
-                                           cost_function = "tobler",
-                                           # neighbors = 4, 8, 16, 32, 48
-                                           neighbours = 4)
+cs <- leastcostpath::create_cs(x = new_value,
+                               # neighbors = 4, 8, 16, 32, 48
+                               neighbours = 8)
 
 # create least cost path
 ## Option 1
 ## 300463
-lcp300463 <- leastcostpath::create_lcp(x = slope_cs,
+lcp300463 <- leastcostpath::create_lcp(x = cs,
                                        origin = starting_points,
                                        destination = landing_points_300463,
-                                       cost_distance = FALSE)
+                                       cost_distance = TRUE)
 
 ## 302357
-lcp302357 <- leastcostpath::create_lcp(x = slope_cs,
+lcp302357 <- leastcostpath::create_lcp(x = cs,
                                        origin = starting_points,
                                        destination = landing_points_302357,
                                        cost_distance = TRUE)
 
 ## 303708
-lcp303708 <- leastcostpath::create_lcp(x = slope_cs,
+lcp303708 <- leastcostpath::create_lcp(x = cs,
                                        origin = starting_points,
                                        destination = landing_points_303708,
                                        cost_distance = TRUE)
 
 ## 304846
-lcp304846 <- leastcostpath::create_lcp(x = slope_cs,
+lcp304846 <- leastcostpath::create_lcp(x = cs,
                                        origin = starting_points,
                                        destination = landing_points_304846,
                                        cost_distance = TRUE)
 
-#####################################
+
 tile_raster <- costs_barriers_extracted %>%
   as.data.frame(xy=T) %>%
   setNames(c("longitude", "latitude", "cost"))
@@ -129,3 +145,20 @@ g <- ggplot() +
   geom_sf(data = lcp303708, color = "orange") +
   geom_sf(data = lcp304846, color = "purple")
 g
+
+#####################################
+#####################################
+
+# Combine lines
+lcp_lines <- lcp300463 %>%
+  rbind(lcp302357,
+        lcp303708,
+        lcp304846)
+
+
+#####################################
+#####################################
+
+# Export data
+## Cost paths
+st_write(obj = lcp_lines, dsn = least_cost_gpkg, "gom_lcp_lines", append = F)
