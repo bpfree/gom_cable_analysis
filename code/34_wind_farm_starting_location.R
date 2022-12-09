@@ -29,16 +29,17 @@ pacman::p_load(dplyr,
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 
 ### Output directories
+#### Least Cost Path directory
 least_cost_gpkg <- "data/e_least_cost_path/least_cost_path_analysis.gpkg"
-wind_start_gpkg <- "data/b_intermediate_data/wind_farm_start_point.gpkg"
 
-#####################################
-#####################################
+#### Intermediate directory
+wind_start_gpkg <- "data/b_intermediate_data/wind_farm_start_point.gpkg"
 
 # View layer names within geodatabase
 sf::st_layers(dsn = analysis_gpkg,
               do_count = TRUE)
 
+#####################################
 #####################################
 
 # Load wind farm data
