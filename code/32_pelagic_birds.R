@@ -31,9 +31,9 @@ analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 raster_dir <- "data/d_raster_data"
 
 ### Output directories
+#### Intermediate directories
 pelagic_gpkg <- "data/b_intermediate_data/prd_species.gpkg"
 intermediate_dir <- "data/b_intermediate_data"
-raster_dir <- "data/d_raster_data"
 
 #####################################
 #####################################
@@ -57,12 +57,59 @@ smf_function_terra <- function(raster){
                                   ifelse(raster[] == max, 1, NA))))
   
   # set values back to the original raster
-  pelagic_svalues <- setValues(raster, s_value)
+  pelagic_svalues <- terra::setValues(raster, s_value)
   
   # return the raster
   return(pelagic_svalues)
 }
 
+
+
+#####################################
+#####################################
+
+# Load data
+## Study area (to clip habitats to only that area)
+study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+
+## Raster grid
+gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
+
+## Pelagic bird species
+### ***Note: These data were originally from a geodatabase. To use them in this analysis,
+### the data were exported from ArcGIS as a GRID.
+
+#### If not already in EPSG:5070, to project to it use the following:
+# pelagic_bird5070 <- terra::rast(paste(pelagic_dir, "seabird", sep = "/")) %>%
+#    terra::project(y = "EPSG:5070")
+
+pelagic_birds <- terra::rast(paste(intermediate_dir, "pelagic_bird5070.grd", sep = "/")) %>%
+  # downscale to resolution of 100 meters (factor = current resolution / 100)
+  #terra::disagg(fact = res(.)/100) %>%
+  terra::project(x = .,
+                 y = "EPSG:5070",
+                 res = 100,
+                 origin = c(0,0),
+                 method = "bilinear") %>%
+  # crop to the study area (will be for the extent)
+  terra::crop(gom_raster)
+
+#####################################
+
+# Create normalized pelagic data
+pelagic_normalize <- pelagic_birds %>%
+  smf_function_terra()
+
+# Inspect 
+terra::minmax(pelagic_normalize)[2,] # maximum value = 1
+terra::minmax(pelagic_normalize)[1,] # minimum value = 0
+res(pelagic_normalize) # 100 x 100
+hist(pelagic_normalize) # show histogram of values (though mostly values near 1)
+freq(pelagic_normalize) # show frequency of values (though will round to 0 and 1)
+
+#####################################
+#####################################
+#####################################
 #####################################
 
 smf_function_raster <- function(raster){
@@ -82,64 +129,18 @@ smf_function_raster <- function(raster){
                                   ifelse(raster[] == max, 1, NA))))
   
   # set values back to the original raster
-  pelagic_svalues <- setValues(raster, s_value)
+  pelagic_svalues <- raster::setValues(raster, s_value)
   
   # return the raster
   return(pelagic_svalues)
 }
-
-#####################################
-#####################################
-
-# Load data
-## Study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
-
-## Raster grid
-gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
-
-## Pelagic bird species
-### ***Note: These data were originally from a geodatabase. To use them in this analysis,
-### the data were exported from ArcGIS as a GRID.
-
-#### To project to EPSG:5070 use the following:
-# pelagic_bird5070 <- terra::rast(paste(pelagic_dir, "seabird", sep = "/")) %>%
-#    terra::project(y = "EPSG:5070")
-
-pelagic_birds <- terra::rast(paste(intermediate_dir, "pelagic_bird5070.grd", sep = "/")) %>%
-  # downscale to resolution of 100 meters (factor = current resolution / 100)
-  #terra::disagg(fact = res(.)/100) %>%
-  terra::project(x = .,
-                 y = "EPSG:5070",
-                 res = 100,
-                 origin = c(0,0),
-                 method = "bilinear") %>%
-  # crop to the study area (will be for the extent)
-  terra::crop(gom_raster)
-
-
-#####################################
-
-# Create normalized pelagic data
-pelagic_normalize <- pelagic_birds %>%
-  smf_function_terra()
-
-# Inspect 
-terra::minmax(pelagic_normalize)[2,] # maximum value = 1
-terra::minmax(pelagic_normalize)[1,] # minimum value = 0
-res(pelagic_normalize) # 100 x 100
-hist(pelagic_normalize) # show histogram of values (though mostly values near 1)
-freq(pelagic_normalize) # show frequency of values (though will round to 0 and 1)
-
-#####################################
-#####################################
   
 pelagic_bird <- raster::raster(paste(intermediate_dir, "pelagic_bird5070.grd", sep = "/")) %>%
   # reproject so resolution is 100 meters
   raster::projectRaster(crs = 5070,
                         res = 100) %>% # resolution should be put in meters as EPSG:5070 is in meters, no longer degrees
   # crop to the study area (will be for the extent)
-  raster::crop(gom_raster) %>%
+  raster::crop(study_area) %>%
   # mask to study area
   raster::mask(study_area)
   
@@ -149,7 +150,7 @@ pelagic_bird <- raster::raster(paste(intermediate_dir, "pelagic_bird5070.grd", s
 pelagic_bird_normalize <- pelagic_bird %>%
   smf_function_raster()
 
-extent(pelagic_bird_normalize) <- extent(gom_raster)
+extent(pelagic_bird_normalize) <- terra::ext(gom_raster)
 nrow(pelagic_bird_normalize) <- nrow(gom_raster)
 
 # Inspect 
