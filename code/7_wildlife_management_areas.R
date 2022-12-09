@@ -31,10 +31,11 @@ fws_nrb_dir <- "data/a_raw_data/fws_nrb.gdb"
 fgbnms_dir <- "data/a_raw_data/fgbnms_py"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
-conservation_areas_gpkg <- "data/b_intermediate_data/gom_conservation_areas.gpkg"
 
-#####################################
+#### Intermediate directory
+conservation_areas_gpkg <- "data/b_intermediate_data/gom_conservation_areas.gpkg"
 
 # View layer names within geodatabase
 ## FWS National Realty Boundaries directory
@@ -58,9 +59,10 @@ conservation_areas_function <- function(conservation_data){
     sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
     # obtain only conservation management areas that fall within study area
     sf::st_intersection(study_area) %>%
-    # create field "layer" to set
+    # create field to define as "conservation area"
     dplyr::mutate(layer = "conservation area") %>%
-    # group by setback to have all features become one
+    # group all features by the oyster and value fields to then have a single feature
+    # value will get pulled in from the study area layer
     dplyr::group_by(layer,
                     value) %>%
     # summarise all features to become single feature
@@ -98,11 +100,11 @@ fgbnms <- st_read(dsn = fgbnms_dir, layer = "FGBNMS_py") %>%
 
 # Combine conservation areas
 texas_conservation <- texas_wma %>%
-  # combine wildlife management areas with other datasets
+  # combine wildlife management areas with other conservation area datasets
   rbind(texas_state_parks,
         fws_nrb,
         fgbnms) %>%
-  # group by layer
+  # group all features by the "layer" and "value" fields to then have a single feature
   dplyr::group_by(layer,
                   value) %>%
   # summarise to have single feature
