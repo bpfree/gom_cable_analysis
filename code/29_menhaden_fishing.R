@@ -31,6 +31,7 @@ analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 raster_dir <- "data/d_raster_data"
 
 ### Output directories
+#### Intermediate directory
 menhaden_gpkg <- "data/b_intermediate_data/menhaden_fishing.gpkg"
 
 #####################################
@@ -40,7 +41,7 @@ menhaden_gpkg <- "data/b_intermediate_data/menhaden_fishing.gpkg"
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Load raster grid
-gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
+gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
 
 #####################################
 #####################################
@@ -49,28 +50,35 @@ gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raste
 ## Menhaden 2000 - 2004 function
 clean_menhaden2000_2004 <- function(menhaden_data){
   menhaden_layer <- menhaden_data %>%
+    # rename field "LOCATION" to "code"
     dplyr::rename("code" = "LOCATION") %>%
+    # join data to the menhaden codebook using the code field
     dplyr::inner_join(menhaden_codebook,
                       by = "code") %>%
     # convert to simple feature
     sf::st_as_sf(coords = c("lon", "lat"),
                  # set the coordinate reference system to WGS84
                  crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-    # reproject the coordinate reference system to match BOEM call areas
+    # reproject the coordinate reference system
     sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-    # convert date fields from strings to date format (year is abbreviated, hence lowercase)
+    # convert date fields from strings to date format (year is abbreviated [00 for 2000], hence lowercase)
     dplyr::mutate(SDATE = as.Date(SDATE, format = "%m/%d/%y"),
                   DDATE = as.Date(DDATE, format = "%m/%d/%y"),
                   RDATE = as.Date(SDATE, format = "%m/%d/%y")) %>%
+    # fill in year field with next date if the previous one does not have one
     dplyr::mutate(year = coalesce(SDATE, DDATE, RDATE)) %>%
-    # update year field (year is full, hence uppercase)
-    dplyr::mutate(year = format(as.Date(SDATE, format="%d/%m/%Y"),"%Y")) %>%
+    # update year field (year is full, hence uppercase) so that it is only the year (can drop month and day)
+    dplyr::mutate(year = format(as.Date(year, format="%d/%m/%Y"),"%Y")) %>%
+    # group data by "locale" and "year" fields
     dplyr::group_by(locale,
                     year) %>%
+    # summarise by counting the number per locale
     dplyr::summarise(count(locale)) %>%
+    # select the important fields
     dplyr::select(locale,
                   year,
                   freq) %>%
+    # rename the "freq" field" as "visits"
     dplyr::rename("visits" = "freq")
   return(menhaden_layer)
 }
@@ -78,27 +86,34 @@ clean_menhaden2000_2004 <- function(menhaden_data){
 ## Menhaden 2005 - 2008 function
 clean_menhaden2005_2008 <- function(menhaden_data){
   menhaden_layer <- menhaden_data %>%
+    # rename field "location" to "code"
     dplyr::rename("code" = "location") %>%
+    # join data to the menhaden codebook using the code field
     dplyr::inner_join(menhaden_codebook,
                       by = "code") %>%
     # convert to simple feature
     sf::st_as_sf(coords = c("lon", "lat.y"),
                  # set the coordinate reference system to WGS84
                  crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-    # reproject the coordinate reference system to match BOEM call areas
+    # reproject the coordinate reference system
     sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
     # convert date fields from strings to date format (year is abbreviated, hence lowercase)
     dplyr::mutate(sdate = as.Date(SDATE, format = "%m/%d/%Y"),
                   rdate = as.Date(RDATE, format = "%m/%d/%Y")) %>%
+    # fill in year field with next date if the previous one does not have one
     dplyr::mutate(year = coalesce(sdate, rdate)) %>%
     # create year field column from year field (year is full, hence uppercase)
     dplyr::mutate(year = format(as.Date(year, format="%d/%m/%Y"),"%Y")) %>%
+    # group data by "locale" and "year" fields
     dplyr::group_by(locale,
                     year) %>%
+    # summarise by counting the number per locale
     dplyr::summarise(count(locale)) %>%
+    # select the important fields
     dplyr::select(locale,
                   year,
                   freq) %>%
+    # rename the "freq" field" as "visits"
     dplyr::rename("visits" = "freq")
   return(menhaden_layer)
 }
@@ -106,23 +121,29 @@ clean_menhaden2005_2008 <- function(menhaden_data){
 ## Menhaden 2011 - 2018 function
 clean_menhaden2011_2018 <- function(menhaden_data){
   menhaden_layer <- menhaden_data %>%
+    # rename field "location" to "code"
     dplyr::rename("code" = "location") %>%
+    # join data to the menhaden codebook using the code field
     dplyr::inner_join(menhaden_codebook,
                       by = "code") %>%
     # convert to simple feature
     sf::st_as_sf(coords = c("lon", "lat"),
                  # set the coordinate reference system to WGS84
                  crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-    # reproject the coordinate reference system to match BOEM call areas
+    # reproject the coordinate reference system
     sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
     # create year field column from SDATE field (month is abbreviated thus lowercase b; year is abbreviated, hence lowercase)
     dplyr::mutate(year = format(as.Date(sdate, format = "%d-%b-%y"),"%Y")) %>%
+    # group data by "locale" and "year" fields
     dplyr::group_by(locale,
                     year) %>%
+    # summarise by counting the number per locale
     dplyr::summarise(count(locale)) %>%
+    # select the important fields
     dplyr::select(locale,
                   year,
                   freq) %>%
+    # rename the "freq" field" as "visits"
     dplyr::rename("visits" = "freq")
   return(menhaden_layer)
 }
@@ -155,6 +176,7 @@ menhaden2003 <- read.csv(paste(menhaden_dir, "menhaden2003.csv", sep = "/")) %>%
 
 ## 2004 fishing data
 menhaden2004 <- read.csv(paste(menhaden_dir, "menhaden2004.csv", sep = "/")) %>%
+  # rename fields so they conform to the clean function
   dplyr::rename("SDATE" = "sdate",
                 "DDATE" = "ddate",
                 "RDATE" = "rdate") %>%
@@ -166,7 +188,7 @@ menhaden2005 <- read.csv(paste(menhaden_dir, "menhaden2005.csv", sep = "/")) %>%
 
 ## 2006 fishing data
 menhaden2006 <- read.csv(paste(menhaden_dir, "menhaden2006.csv", sep = "/")) %>%
-  # convert date fields from strings to date format (year is abbreviated, hence lowercase)
+  # convert date fields from strings to date format (year is abbreviated, hence lowercase) so that they conform to clean function
   dplyr::mutate(SDATE = format(as.Date(SDATE, format = "%m/%d/%y"), "%m/%d/%Y"),
                 RDATE = format(as.Date(RDATE, format = "%m/%d/%y"), "%m/%d/%Y")) %>%
   clean_menhaden2005_2008
@@ -177,51 +199,63 @@ menhaden2007 <- read.csv(paste(menhaden_dir, "menhaden2007.csv", sep = "/")) %>%
 
 ## 2008 fishing data
 menhaden2008 <- read.csv(paste(menhaden_dir, "menhaden2008.csv", sep = "/")) %>%
-  # convert date fields from strings to date format (year is abbreviated, hence lowercase)
+  # convert date fields from strings to date format (year is abbreviated, hence lowercase) so that they conform to clean function
   dplyr::mutate(SDATE = format(as.Date(SDATE, format = "%d%b%Y"), "%m/%d/%Y"),
                 RDATE = format(as.Date(RDATE, format = "%d%b%Y"), "%m/%d/%Y")) %>%
   clean_menhaden2005_2008()
 
 ## 2009 fishing data
 menhaden2009 <- read.csv(paste(menhaden_dir, "menhaden2009.csv", sep = "/")) %>%
+  # rename field "location" to "code"
   dplyr::rename("code" = "location") %>%
+  # join data to the menhaden codebook using the code field
   dplyr::inner_join(menhaden_codebook,
                     by = "code") %>%
   # convert to simple feature
   sf::st_as_sf(coords = c("lon", "lat.y"),
                # set the coordinate reference system to WGS84
                crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-  # reproject the coordinate reference system to match BOEM call areas
+  # reproject the coordinate reference system
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # create year field column from SDATE field (month is abbreviated hence lowercase b; year is short, hence lowercase)
   dplyr::mutate(year = format(as.Date(sdate, format="%d-%b-%y"),"%Y")) %>%
+  # group data by "locale" and "year" fields
   dplyr::group_by(locale,
                   year) %>%
+  # summarise by counting the number per locale
   dplyr::summarise(count(locale)) %>%
+  # select the important fields
   dplyr::select(locale,
                 year,
                 freq) %>%
+  # rename the "freq" field" as "visits"
   dplyr::rename("visits" = "freq")
 
 ## 2010 fishing data
 menhaden2010 <- read.csv(paste(menhaden_dir, "menhaden2010.csv", sep = "/")) %>%
+  # rename field "location" to "code"
   dplyr::rename("code" = "location") %>%
+  # join data to the menhaden codebook using the code field
   dplyr::inner_join(menhaden_codebook,
                     by = "code") %>%
   # convert to simple feature
   sf::st_as_sf(coords = c("lon", "lat.y"),
                # set the coordinate reference system to WGS84
                crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-  # reproject the coordinate reference system to match BOEM call areas
+  # reproject the coordinate reference system
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # create year field column from SDATE field (month is abbreviated thus lowercase b; year is full, hence uppercase)
   dplyr::mutate(year = format(as.Date(sdate, format = "%d%b%Y"),"%Y")) %>%
+  # group data by "locale" and "year" fields
   dplyr::group_by(locale,
                   year) %>%
+  # summarise by counting the number per locale
   dplyr::summarise(count(locale)) %>%
+  # select the important fields
   dplyr::select(locale,
                 year,
                 freq) %>%
+  # rename the "freq" field" as "visits"
   dplyr::rename("visits" = "freq")
 
 ## 2011 fishing data
@@ -260,23 +294,29 @@ menhaden2018 <- read.csv(paste(menhaden_dir, "menhaden2018.csv", sep = "/")) %>%
 
 ## 2019 fishing data
 menhaden2019 <- read.csv(paste(menhaden_dir, "menhaden2019.csv", sep = "/")) %>%
+  # rename field "location" to "code"
   dplyr::rename("code" = "location") %>%
+  # join data to the menhaden codebook using the code field
   dplyr::inner_join(menhaden_codebook,
                     by = "code") %>%
   # convert to simple feature
   sf::st_as_sf(coords = c("lon", "lat"),
                # set the coordinate reference system to WGS84
                crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
-  # reproject the coordinate reference system to match BOEM call areas
+  # reproject the coordinate reference system
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # create year field column from SDATE field (year is full, hence uppercase)
   dplyr::mutate(year = format(as.Date(sdate, format = "%m/%d/%Y"),"%Y")) %>%
+  # group data by "locale" and "year" fields
   dplyr::group_by(locale,
                   year) %>%
+  # summarise by counting the number per locale
   dplyr::summarise(count(locale)) %>%
+  # select the important fields
   dplyr::select(locale,
                 year,
                 freq) %>%
+  # rename the "freq" field" as "visits"
   dplyr::rename("visits" = "freq")
 
 #####################################
@@ -285,6 +325,7 @@ menhaden2019 <- read.csv(paste(menhaden_dir, "menhaden2019.csv", sep = "/")) %>%
 # Combine menhaden fishing data
 ## 2000 - 2019
 menhaden_2000_2019 <- menhaden2000 %>%
+  # combine all the years
   rbind(menhaden2001,
         menhaden2002,
         menhaden2003,
@@ -309,7 +350,7 @@ menhaden_2000_2019 <- menhaden2000 %>%
                 value = visits) %>%
   # create new field of total visits across all years
   dplyr::mutate(total_visits = rowSums(across(where(is.numeric)), na.rm = T)) %>%
-  # recode locale to have match
+  # recode locale to have them match
   dplyr::mutate(locale = recode(locale,
                                 "Breeze Inn (Beach House)" = "Beach House (Breeze Inn)")) %>%
   # remove any duplicated rows (thus to remove double counting)
@@ -353,9 +394,9 @@ g
 #####################################
 
 # Convert to raster
-menhaden_raster <- fasterize::fasterize(sf = square_grid,
-                                        raster = gom_raster,
-                                        field = "total_visits")
+menhaden_raster <- terra::rasterize(x = square_grid,
+                                    y = gom_raster,
+                                    field = "total_visits")
 
 #####################################
 #####################################
@@ -365,10 +406,10 @@ menhaden_raster <- fasterize::fasterize(sf = square_grid,
 ### Adapted from https://www.mathworks.com/help/fuzzy/smf.html
 smf_function <- function(raster){
   # calculate minimum value
-  min <- minValue(raster)
+  min <- terra::minmax(raster)[1,]
   
   # calculate maximum value
-  max <- maxValue(raster)
+  max <- terra::minmax(raster)[2,]
   
   # calculate s-scores (more desired values get score of 0 while less desired will increase till 1)
   s_value <- ifelse(raster[] == min, 0, # if value is equal to minimum, score as 0
@@ -380,7 +421,7 @@ smf_function <- function(raster){
                                   ifelse(raster[] == max, 1, NA))))
   
   # set values back to the original raster
-  slope_svalues <- setValues(raster, s_value)
+  slope_svalues <- terra::setValues(raster, s_value)
   
   # return the raster
   return(slope_svalues)
@@ -390,7 +431,9 @@ smf_function <- function(raster){
 menhaden_normalize <- menhaden_raster %>%
   smf_function() %>%
   # have data get limited to study area dimensions
-  raster::crop(gom_raster)
+  terra::crop(gom_raster) %>%
+  # have data masked to study area
+  terra::mask(gom_raster)
 
 #####################################
 #####################################
