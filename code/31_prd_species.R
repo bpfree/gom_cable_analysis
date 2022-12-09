@@ -30,6 +30,7 @@ prd_dir <- "data/a_raw_data/prd_species_data"
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 
 ### Output directories
+#### Intermediate directory
 prd_gpkg <- "data/b_intermediate_data/prd_species.gpkg"
 
 #####################################
@@ -42,16 +43,17 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 ## PRD scored data
 ### ***Note: score of 1 signifies no conflict occurs, 0 is unsuitable
 prd_species <- sf::st_read(dsn = prd_dir, layer = "final_Scored_PRD_WP_Layer_clip") %>%
-  # reproject the coordinate reference system to match BOEM call areas
+  # reproject the coordinate reference system
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
-  # obtain sensor data within study area
+  # obtain species data within study area
   st_intersection(study_area) %>%
   # keep "product" and "value" fields
   dplyr::select(PRODUCT,
                 value) %>%
-  # create field called "layer" and fill with "environmental sensor" for summary
+  # create field called "layer" and fill with "protected species division" for summary
   dplyr::mutate(layer = "protected species division",
                 value = 1 - PRODUCT) %>%
+  # select important fields
   dplyr::select(layer,
                 value)
 
