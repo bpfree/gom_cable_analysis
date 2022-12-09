@@ -6,6 +6,10 @@
 rm(list = ls())
 
 # Load packages
+## Need to install a development version of terra to open the netCDF
+### ***Note: May need restart R upon installing (stop running after first installation)
+install.packages('terra', repos='https://rspatial.r-universe.dev')
+
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr,
                fasterize,
@@ -17,6 +21,7 @@ pacman::p_load(dplyr,
                rgeos,
                sf,
                sp,
+               terra,
                tidyr)
 
 #####################################
@@ -25,11 +30,14 @@ pacman::p_load(dplyr,
 # Set directories
 ## Define data directory (as this is an R Project, pathnames are simplified)
 ### Input directories
-bathymetry_dir <- "data/a_raw_data/"
+bathymetry_dir <- "data/a_raw_data"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 raster_dir <- "data/d_raster_data"
+
+#### Intermediate directory
 intermediate_dir <- "data/b_intermediate_data"
 
 #####################################
@@ -39,19 +47,22 @@ intermediate_dir <- "data/b_intermediate_data"
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine") %>%
   # reproject into NAD83 to match with the bathymetry / topography data
   sf::st_transform("EPSG:4269") # EPSG 4269 (https://epsg.io/4269)
-study_area_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
+
+study_area_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
 
 # Load bathymetry data (source: https://www.ngdc.noaa.gov/thredds/fileServer/crm/crm_vol5.nc)
 ## For more United States coverage and spatial resolution information, visit: https://www.ngdc.noaa.gov/mgg/coastal/crm.html
-gom_bath <- raster::raster(paste(bathymetry_dir, "crm_vol5.nc", sep = "/"))
+gom_bath <- terra::rast(paste(bathymetry_dir, "crm_vol5.nc", sep = "/"))
+
+## ***Note: if wanting to use raster package, then notation is raster::raster() to open files
 
 #####################################
 #####################################
 
 ## The raster/netCDF file will appear to have no CRS. According to the metadata its CRS is 4269
 ## Set coordinate reference system ("EPSG:4269","+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs +type=crs")
-crs(gom_bath) <- 4269
-cat(wkt(gom_bath)) # check the coordinate system
+crs(gom_bath) <- "EPSG:4269"
+cat(crs(gom_bath)) # to inspect the details around the coordinate reference system
 
 #####################################
 #####################################
@@ -59,37 +70,41 @@ cat(wkt(gom_bath)) # check the coordinate system
 # Generate raster to only study area
 tx_bath_mask <- gom_bath %>%
   # crop to the study area (will be for the extent)
-  raster::crop(study_area) %>%
+  terra::crop(study_area) %>%
   # mask to the study area (show data within the extent)
-  raster::mask(study_area)
+  terra::mask(study_area)
 
 ## Set the coordinate coordinate system of the Texas bathymetry if it is missing
-cat(wkt(tx_bath_mask)) # check the coordinate system
-crs(tx_bath_mask) <- 4269
+cat(crs(tx_bath_mask)) # check the coordinate system (if EPSG is 4269 no need to run next line of code)
+crs(tx_bath_mask) <- "EPSG:4269"
 
 #####################################
 #####################################
 
 # If slope data is already created and need to be reprojected,
 # pull in exported slope data instead of generating the data again.
-# tx_bath_mask <- raster::raster(paste(intermediate_dir, "tx_bath_mask_4269.grd", sep = "/"))
+# tx_bath_mask <- terra::rast(paste(intermediate_dir, "tx_bath_mask_4269.grd", sep = "/"))
 
-st_crs(tx_bath_mask, parameters = TRUE)$units_gdal # shows resolution is in degrees (0.001 = 111 meters approximately)
+# Inspect the units
+# Should show resolution is in degrees (0.001 = 111 meters approximately)
+# Can also see units under the angle unit using cat(crs())
+st_crs(tx_bath_mask, parameters = TRUE)$units_gdal
 
 ## Set coordinate reference system
-crs <- 5070
+### ***Note: this coordinate reference system will put units in meters
+crs <- "EPSG:5070"
 
 ## Reproject raster
 tx_bath_mask_5070 <- tx_bath_mask %>%
-  # reproject into coordinate reference system to match BOEM call areas
-  raster::projectRaster(crs = crs,
-                        res = 100) # resolution should be put in meters as EPSG:5070 is in meters, no longer degrees
+  # reproject into coordinate reference system
+  terra::project(y = crs,
+                 res = 100) # resolution should be put in meters as EPSG:5070 is in meters, no longer degrees
 
 #####################################
 
 ## check units and coordinate reference system
 st_crs(tx_bath_mask_5070, parameters = TRUE)$units_gdal # shows resolution is in meters
-cat(wkt(tx_bath_mask))
+cat(crs(tx_bath_mask_5070))
 
 #####################################
 #####################################
@@ -98,9 +113,9 @@ cat(wkt(tx_bath_mask))
 gom_slope <- tx_bath_mask_5070 %>% 
   # calculate the slope with result being in degrees
   ## for more on the methods, see: https://www.rdocumentation.org/packages/raster/versions/3.0-2/topics/terrain
-  raster::terrain(opt = "slope",
-                  unit = "degrees",
-                  neighbors = 8) # neighbors 4 is faster, 8 takes all neighboring cells
+  terra::terrain(v = "slope",
+                 unit = "degrees",
+                 neighbors = 8) # neighbors 4 is faster, 8 takes all neighboring cells
 
 # If slope data is already created and need to be reprojected,
 # pull in exported slope data instead of generating the data again.
@@ -109,9 +124,11 @@ gom_slope <- tx_bath_mask_5070 %>%
 st_crs(gom_slope, parameters = TRUE)$units_gdal # shows resolution is in meters
 
 slope_5070 <- gom_slope %>%
-  # reproject into coordinate reference system to match BOEM call areas
-  raster::projectRaster(crs = crs,
-                        res = 100) # 100 meter resolution
+  # reproject into coordinate reference system
+  terra::project(y = crs,
+                 res = 100) # 100 meter resolution
+
+cat(crs(slope_5070))
 
 #####################################
 #####################################
