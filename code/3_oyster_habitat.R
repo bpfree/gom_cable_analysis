@@ -29,7 +29,10 @@ texas_oyster_dir <- "data/a_raw_data/texas_oyster"
 gom_oyster_dir <- "data/a_raw_data/oysters_gom_2011"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 oyster_gpkg <- "data/b_intermediate_data/gom_oyster.gpkg"
 
 # View layer names within geodatabase
@@ -49,13 +52,14 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 ## This function will take the imported data and reduce it down to a single feature.
 clean_oyster <- function(oyster_data){
   oyster_layer <- oyster_data %>%
-    # reproject the coordinate reference system to match BOEM call areas
+    # reproject the coordinate reference system
     sf::st_transform("EPSG:5070") %>%
     # have only the oyster data that exists study area
     sf::st_intersection(study_area) %>%
-    # create field to define as oyster
+    # create field to define as "oyster"
     dplyr::mutate(layer = "oyster") %>%
-    # group all features by the oyster field to then have a single feature
+    # group all features by the "layer" and "value" fields to then have a single feature
+    # "value" will get pulled in from the study area layer
     dplyr::group_by(layer,
                     value) %>%
     # summarise the single feature
@@ -69,12 +73,12 @@ clean_oyster <- function(oyster_data){
 # Load oyster layers
 ## Texas Parks & Wildlife (https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/)
 ### Copano Bay survey (2015) (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/copano-bay-habitat-classification-shapefiles.zip)
-### Note: None of these data fall within the present study area
+### ***Note: None of these data fall within the present study area
 copano_bay_survey <- st_read(dsn = texas_oyster_dir, layer = "Copano_Habitats_WGSUTM14N") %>%
   clean_oyster()
 
 ### Espiritu Santo survey (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/espiritu-santo-oyster-habitat-shapefiles.zip)
-### Note: None of these data fall within the present study area
+### ***Note: None of these data fall within the present study area
 espiritu_santo_survey <- st_read(dsn = texas_oyster_dir, layer = "EspirituSanto_OysterShellHabitat_2017") %>%
   clean_oyster()
 
@@ -83,7 +87,7 @@ galveston_bay_survey <- st_read(dsn = texas_oyster_dir, layer = "2019Delineation
   clean_oyster()
 
 ### Lavaca Tres Palacios survey (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/lavaca-tres-palacios-habitat-shapefile.zip)
-### Note: None of these data fall within the present study area
+### ***Note: None of these data fall within the present study area
 lavaca_tres_palacios_survey <- st_read(dsn = texas_oyster_dir, layer = "OysterHabitat_LavacaTP_Merge") %>%
   clean_oyster()
 
@@ -112,45 +116,51 @@ gom_atlas <- st_read(dsn = gom_oyster_dir, layer = "Oysters_GOM_2011") %>%
   clean_oyster()
 
 ### Lavaca oysters harper (2002)
-### Note: None of these data fall within the present study area
+### ***Note: None of these data fall within the present study area
 lavaca_oyster_harper <- st_read(dsn = nrc_dir, layer = "Lavaca_Oysters_Harper_2002") %>%
+  # rename field to have all match
   dplyr::rename("geometry" = "Shape") %>%
   clean_oyster()
 
 ### Oyster reefs NOAA (2007)
-### Note: None of these data fall within the present study area
+### ***Note: None of these data fall within the present study area
 noaa_oyster_reefs <- st_read(dsn = nrc_dir, layer = "OysReef_NOAAAtlas2007_SAB") %>%
+  # rename field to have all match
   dplyr::rename("geometry" = "Shape") %>%
   clean_oyster()
 
 ### Powell (1995)
-#### Note: While the data are not publicly available for download, the data can be viewed
+#### ***Note: While the data are not publicly available for download, the data can be viewed
 #### on the Texas GLO Coastal Resource Map viewer page: https://cgis.glo.texas.gov/rmc/index.html
 #### Click on the layers symbol and under the "Sensitive Areas" group layer, mark "Oysters"
 #### The data layer of interest is the "Oyster Habitat"
 powell_1995 <- st_read(dsn = nrc_dir, layer = "Oysters_Powell_1995") %>%
+  # rename field to have all match
   dplyr::rename("geometry" = "Shape") %>%
   clean_oyster()
 
 ### Oyster lease areas (2018)
-#### Note: While the data are not publicly available for download, the data can be viewed
+#### ***Note: While the data are not publicly available for download, the data can be viewed
 #### on the Texas HHS Shellfish ArcMap page: https://txdshsea.maps.arcgis.com/apps/webappviewer/index.html?id=801ef406eada4f88b19d960b57d5d680
 #### Click on the layers symbol and mark the "Private Oyster Leases" to view the data
 #### Contact for the data is Christine Jensen (Christine.Jensen@tpwd.texas.gov)
 oyster_lease_2018 <- st_read(dsn = nrc_dir, layer = "oyster_leases_2018") %>%
+  # rename field to have all match
   dplyr::rename("geometry" = "Shape") %>%
   clean_oyster()
 
 ## Oyster lease (Texas)
-### Note: None of these data fall within the present study area
+### ***Note: None of these data fall within the present study area
 oyster_lease <- st_read(dsn = nrc_dir, layer = "LeaseFind_220823_Oyster") %>%
-   dplyr::filter(STATE == "TX") %>%
+  # filter data for just ones in Texas's jurisdiction
+  dplyr::filter(STATE == "TX") %>%
   clean_oyster()
 
 #####################################
 
 # Combine oyster layers
 oyster_study_area <- copano_bay_survey %>%
+  # bind all datasets as unique rows
   rbind(espiritu_santo_survey,
         galveston_bay_survey,
         lavaca_tres_palacios_survey,
