@@ -30,7 +30,10 @@ texas_county_dir <- "data/a_raw_data/texas_county"
 texas_county_ship <- "data/a_raw_data/tx_county_ship"
 
 ### Output directories
+#### Analysis directory
 analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
+
+#### Intermediate directory
 vessel_gpkg <- "data/b_intermediate_data/gom_vessel.gpkg"
 
 #####################################
@@ -38,12 +41,16 @@ vessel_gpkg <- "data/b_intermediate_data/gom_vessel.gpkg"
 
 # Load study area (to clip habitats to only that area)
 study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+
+# Texas county data (source: https://gis-txdot.opendata.arcgis.com/datasets/TXDOT::texas-county-boundaries-detailed/explore?location=31.059220%2C-100.077018%2C6.58)
+## Summary details: https://gis-txdot.opendata.arcgis.com/datasets/TXDOT::texas-county-boundaries-detailed/about
 texas_county <- st_read(dsn = texas_county_dir, layer = "County") %>%
   # match coordinate reference system as study area
   sf::st_transform("EPSG:5070") %>%
   # obtain only parts of counties that have coastlines in study area
-  st_intersection(study_area)
+  sf::st_intersection(study_area)
 
+# Sort the list of counties bounded to the study area
 list(sort(texas_county$CNTY_NM))
 
 ### We see that five counties as potential landing areas for the cabling:
@@ -63,13 +70,14 @@ vessel_function <- function(vessel_data){
     # change coordinate reference system to match all other data (EPSG:5070)
     sf::st_transform("EPSG:5070") %>%
     # create setback (buffer) of 500 meters
-    st_buffer(dist = 500) %>%
+    sf::st_buffer(dist = 500) %>%
     # change to multipolygon from multistring (to match shipping lane data)
-    st_cast(to = "MULTIPOLYGON") %>%
-    # create field called "layer" designated as shipping lane and "value" populated with 0
+    sf::st_cast(to = "MULTIPOLYGON") %>%
+    # create fields to define as "shipping lane" and "value" populated with 0
     dplyr::mutate(layer = "shipping lane",
                   value = 0) %>%
-    # group by layer to have all features become one
+    # group all features by the "layer" and "value" fields to then have a single feature
+    # "value" will get pulled in from the study area layer
     dplyr::group_by(layer,
                     value) %>%
     # summarise all features to become single feature
@@ -94,7 +102,7 @@ shipping_lanes <- sf::st_read(dsn = ship_lanes_dir, layer = "shippinglanes") %>%
   st_cast(to = "MULTIPOLYGON") %>%
   # create field called "layer" and designate as shipping lane
   dplyr::mutate(layer = "shipping lane") %>%
-  # group by layer to have all features become one
+  # group by layer and value to have all features become one
   dplyr::group_by(layer,
                   value) %>%
   # summarise all features to become single feature
@@ -131,12 +139,15 @@ jefferson_ship <- st_read(dsn = texas_county_ship, layer = "ship245l") %>%
 
 ### Combine Texas shipping lane
 texas_ship <- brazoria_ship %>%
+  # binding all county datasets as unique rows
   rbind(chambers_ship,
         galveston_ship,
         harris_ship,
         jefferson_ship) %>%
+  # group data by layer and value fields
   dplyr::group_by(layer,
                   value) %>%
+  # summarise data based on those fields to return a single feature
   dplyr::summarise()
 
 st_crs(texas_ship, parameters = TRUE)$units_gdal
