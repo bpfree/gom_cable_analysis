@@ -24,6 +24,7 @@ Please contact Brian Free (brian.free@noaa.gov) with any questions.
 | Layer | Data Source | Data Name | Metadata |
 | ------------- | ------------- | ------------- | ------------- |
 | Wind Areas | BOEM | [Renewable Energy Leases and Planning Areas](https://www.boem.gov/renewable-energy/boem-renewable-energy-geodatabase) | [Metadata](https://metadata.boem.gov/geospatial/boem_renewable_lease_areas.xml), [Renewable Energy GIS Data](https://www.boem.gov/renewable-energy/mapping-and-data/renewable-energy-gis-data)
+| County | Texas Department of Transport | [Texas County Boundaries -- Detailed](https://gis-txdot.opendata.arcgis.com/datasets/TXDOT::texas-county-boundaries-detailed/explore?location=31.059220%2C-100.077018%2C6.58) | [Summary details](https://gis-txdot.opendata.arcgis.com/datasets/TXDOT::texas-county-boundaries-detailed/about)
 
 
 ##### _Constraints Data_
