@@ -112,53 +112,53 @@ freq(pelagic_normalize) # show frequency of values (though will round to 0 and 1
 #####################################
 #####################################
 
-smf_function_raster <- function(raster){
-  # calculate minimum value
-  min <- raster::minValue(raster)
-  
-  # calculate maximum value
-  max <- raster::maxValue(raster)
-  
-  # calculate s-scores (more desired values get score of 0 while less desired will increase till 1)
-  s_value <- ifelse(raster[] == min, 0, # if value is equal to minimum, score as 0
-                    # if value is larger than minimum but lower than mid-value, calculate based on reduction equation
-                    ifelse(raster[] > min & raster[] < (min + max) / 2, 2*((raster[] - min) / (max - min))**2,
-                           # if value is larger than mid-value but lower than maximum, calculate based on equation
-                           ifelse(raster[] >= (min + max) / 2 & raster[] < max, 1 - 2*((raster[] - max) / (max - min))**2,
-                                  # if value is equal to maximum, score as 1; otherwise give NA
-                                  ifelse(raster[] == max, 1, NA))))
-  
-  # set values back to the original raster
-  pelagic_svalues <- raster::setValues(raster, s_value)
-  
-  # return the raster
-  return(pelagic_svalues)
-}
-  
-pelagic_bird <- raster::raster(paste(intermediate_dir, "pelagic_bird5070.grd", sep = "/")) %>%
-  # reproject so resolution is 100 meters
-  raster::projectRaster(crs = 5070,
-                        res = 100) %>% # resolution should be put in meters as EPSG:5070 is in meters, no longer degrees
-  # crop to the study area (will be for the extent)
-  raster::crop(study_area) %>%
-  # mask to study area
-  raster::mask(study_area)
-  
-#####################################
-
-# Create normalized pelagic data
-pelagic_bird_normalize <- pelagic_bird %>%
-  smf_function_raster()
-
-extent(pelagic_bird_normalize) <- terra::ext(gom_raster)
-nrow(pelagic_bird_normalize) <- nrow(gom_raster)
-
-# Inspect 
-raster::maxValue(pelagic_bird_normalize) # maximum value = 1
-raster::minValue(pelagic_bird_normalize) # minimum value = 0
-res(pelagic_bird_normalize) # 100 x 100
-hist(pelagic_bird_normalize) # show histogram of values (though mostly values near 1)
-freq(pelagic_bird_normalize) # show frequency of values (though will round to 0 and 1)
+# smf_function_raster <- function(raster){
+#   # calculate minimum value
+#   min <- raster::minValue(raster)
+#   
+#   # calculate maximum value
+#   max <- raster::maxValue(raster)
+#   
+#   # calculate s-scores (more desired values get score of 0 while less desired will increase till 1)
+#   s_value <- ifelse(raster[] == min, 0, # if value is equal to minimum, score as 0
+#                     # if value is larger than minimum but lower than mid-value, calculate based on reduction equation
+#                     ifelse(raster[] > min & raster[] < (min + max) / 2, 2*((raster[] - min) / (max - min))**2,
+#                            # if value is larger than mid-value but lower than maximum, calculate based on equation
+#                            ifelse(raster[] >= (min + max) / 2 & raster[] < max, 1 - 2*((raster[] - max) / (max - min))**2,
+#                                   # if value is equal to maximum, score as 1; otherwise give NA
+#                                   ifelse(raster[] == max, 1, NA))))
+#   
+#   # set values back to the original raster
+#   pelagic_svalues <- raster::setValues(raster, s_value)
+#   
+#   # return the raster
+#   return(pelagic_svalues)
+# }
+#   
+# pelagic_bird <- raster::raster(paste(intermediate_dir, "pelagic_bird5070.grd", sep = "/")) %>%
+#   # reproject so resolution is 100 meters
+#   raster::projectRaster(crs = 5070,
+#                         res = 100) %>% # resolution should be put in meters as EPSG:5070 is in meters, no longer degrees
+#   # crop to the study area (will be for the extent)
+#   raster::crop(study_area) %>%
+#   # mask to study area
+#   raster::mask(study_area)
+#   
+# #####################################
+# 
+# # Create normalized pelagic data
+# pelagic_bird_normalize <- pelagic_bird %>%
+#   smf_function_raster()
+# 
+# extent(pelagic_bird_normalize) <- terra::ext(gom_raster)
+# nrow(pelagic_bird_normalize) <- nrow(gom_raster)
+# 
+# # Inspect 
+# raster::maxValue(pelagic_bird_normalize) # maximum value = 1
+# raster::minValue(pelagic_bird_normalize) # minimum value = 0
+# res(pelagic_bird_normalize) # 100 x 100
+# hist(pelagic_bird_normalize) # show histogram of values (though mostly values near 1)
+# freq(pelagic_bird_normalize) # show frequency of values (though will round to 0 and 1)
 
 #####################################
 #####################################
