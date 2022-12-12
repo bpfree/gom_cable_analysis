@@ -73,25 +73,30 @@ clean_oyster <- function(oyster_data){
 # Load oyster layers
 ## Texas Parks & Wildlife (https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/)
 ### Copano Bay survey (2015) (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/copano-bay-habitat-classification-shapefiles.zip)
+### Metadata: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/copano-bay-metadata.docx
 ### ***Note: None of these data fall within the present study area
 copano_bay_survey <- st_read(dsn = texas_oyster_dir, layer = "Copano_Habitats_WGSUTM14N") %>%
   clean_oyster()
 
 ### Espiritu Santo survey (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/espiritu-santo-oyster-habitat-shapefiles.zip)
+### Metadata: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/espiritu-santo-metadata.docx
 ### ***Note: None of these data fall within the present study area
 espiritu_santo_survey <- st_read(dsn = texas_oyster_dir, layer = "EspirituSanto_OysterShellHabitat_2017") %>%
   clean_oyster()
 
 ### Galveston Bay survey (2004 - 2015) (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/galveston-bay-habitat-classification-shapefiles.zip)
+### Metadata: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/galveston-bay-metadata.zip
 galveston_bay_survey <- st_read(dsn = texas_oyster_dir, layer = "2019Delineation") %>%
   clean_oyster()
 
-### Lavaca Tres Palacios survey (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/lavaca-tres-palacios-habitat-shapefile.zip)
+### Lavaca and Tres Palacios survey (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/lavaca-tres-palacios-habitat-shapefile.zip)
+### Metadata: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/lavaca-tres-palacios-metadata.zip
 ### ***Note: None of these data fall within the present study area
 lavaca_tres_palacios_survey <- st_read(dsn = texas_oyster_dir, layer = "OysterHabitat_LavacaTP_Merge") %>%
   clean_oyster()
 
 ### West Galveston Bay survey (source: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/west-galveston-bay-habitat-classification-shapefiles.zip)
+### Metadata: https://tpwd.texas.gov/landwater/water/habitats/coastal-fisheries-habitat-assessment-team/resources/west-galveston-bay-metadata.zip
 west_galveston_bay_survey <- st_read(dsn = texas_oyster_dir, layer = "WestGalvestonBay_OysterHabitatMap_TPWD2016") %>%
   clean_oyster()
 

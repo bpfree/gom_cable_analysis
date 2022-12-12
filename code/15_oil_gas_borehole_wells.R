@@ -67,7 +67,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 borehole <- read.csv(paste(borehole_dir, "Borehole.csv", sep = "/")) %>%
   # convert to simple feature
   sf::st_as_sf(coords = c("Surface.Longitude", "Surface.Latitude"),
-               # According to BSEE, coordinate data are in NAD27 (EPSG:4267)
+               # According to BOEM, coordinate data are in NAD27 (EPSG:4267)
                crs = 4267) %>% # EPSG:4267 (https://epsg.io/4267)
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)

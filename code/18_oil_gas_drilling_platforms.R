@@ -24,7 +24,7 @@ pacman::p_load(dplyr,
 ## Define data directory (as this is an R Project, pathnames are simplified)
 ### Input directories
 bsee_platform_dir <- "data/a_raw_data/drilling_platforms"
-boem_platform_dir <- "data/a_raw_data/Platforms.gdb"
+#boem_platform_dir <- "data/a_raw_data/Platforms.gdb" # alternative
 
 ### Output directories
 #### Analysis directory

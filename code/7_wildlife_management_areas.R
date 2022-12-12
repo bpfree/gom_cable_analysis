@@ -84,7 +84,7 @@ texas_state_parks <- st_read(dsn = state_parks_dir, layer = "TPWDStateParksBound
   conservation_areas_function()
 
 ## FWS National Realty Boundaries (source: https://gis-fws.opendata.arcgis.com/datasets/fws-national-realty-boundaries/explore?location=28.651320%2C-94.276551%2C8.00)
-## Metadata: 
+## Metadata: https://www.arcgis.com/sharing/rest/content/items/745ed874c1394da3a9aae50267c9e049/info/metadata/metadata.xml?format=default&output=html
 fws_nrb <- st_read(dsn = fws_nrb_dir, layer = "FWSBoundaries") %>%
   # clean the data to prepare
   conservation_areas_function() %>%

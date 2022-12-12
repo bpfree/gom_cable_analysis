@@ -46,6 +46,7 @@ gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.g
 ## Load AIS data (2019)
 ### Transit counts: https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTransitCounts2019.zip)
 ### Metadata: https://www.fisheries.noaa.gov/inport/item/61037
+### ***Note: these data were cleaned in ArcGIS due to R and QGIS cannot open rasters from an ESRI .gdb
 
 #### Cargo vessels
 cargo_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Cargo1.tif", sep = "/"))
@@ -67,6 +68,7 @@ tugtow_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_TugTow1.tif", sep = "
 
 ## Vessel tracks (other): https://marinecadastre.gov/downloads/data/ais/ais2019/AISVesselTracks2019.zip
 ### Metadata: https://www.fisheries.noaa.gov/inport/item/59927
+### ***Note: these data were cleaned in ArcGIS due to R and QGIS cannot open rasters from an ESRI .gdb
 
 #### Other vessels
 other_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Other1.tif", sep = "/"))
