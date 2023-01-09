@@ -127,11 +127,11 @@ seagrass_study_area <- seagrass_tpwd %>%
 
 # Export data
 ## Analysis geopackage
-st_write(seagrass_study_area, dsn = analysis_gpkg, layer = "seagrass", append = F)
+sf::st_write(seagrass_study_area, dsn = analysis_gpkg, layer = "seagrass", append = F)
 
 ## Seagrass geopackage
-st_write(seagrass_tpwd, dsn = seagrass_gpkg, layer = "seagrass_tpwd", append = F)
-st_write(seagrass_tpwd_christmas_west_bays, dsn = seagrass_gpkg, layer = "seagrass_tpwd_christmas_west_bays", append = F)
-st_write(seagrass_noaa_2012, dsn = seagrass_gpkg, layer = "seagrass_noaa2012", append = F)
-st_write(seagrass_noaa, dsn = seagrass_gpkg, layer = "seagrass_noaa", append = F)
-st_write(seagrass_tx_ncei, dsn = seagrass_gpkg, layer = "seagrass_tx_ncei", append = F)
+sf::st_write(seagrass_tpwd, dsn = seagrass_gpkg, layer = "seagrass_tpwd", append = F)
+sf::st_write(seagrass_tpwd_christmas_west_bays, dsn = seagrass_gpkg, layer = "seagrass_tpwd_christmas_west_bays", append = F)
+sf::st_write(seagrass_noaa_2012, dsn = seagrass_gpkg, layer = "seagrass_noaa2012", append = F)
+sf::st_write(seagrass_noaa, dsn = seagrass_gpkg, layer = "seagrass_noaa", append = F)
+sf::st_write(seagrass_tx_ncei, dsn = seagrass_gpkg, layer = "seagrass_tx_ncei", append = F)
