@@ -45,9 +45,9 @@ sf::st_layers(dsn = landing_points_dir,
 #####################################
 
 # Load coastal point data
-coast_points <- st_read(dsn = landing_points_dir, layer = "coast_point_costs")
+coast_points <- terra::st_read(dsn = landing_points_dir, layer = "coast_point_costs")
 
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- terra::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # View data
 coast_points
@@ -70,9 +70,9 @@ list(unique(coast1000$endID))
 
 #####################################
 
-g <- ggplot() + 
-  geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
-  geom_sf(data = coast100)
+g <- ggplot2::ggplot() + 
+  ggplot2::geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
+  ggplot2::geom_sf(data = coast100)
 g
 
 #####################################
@@ -106,13 +106,13 @@ landing_area_300463 <- coast100 %>%
 
 #####################################
 
-g <- ggplot() + 
-  geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
-  geom_sf(data = coast100) +
-  geom_sf(data = landing_area_303708, color = "red") +
-  geom_sf(data = landing_area_302357, color = "orange") +
-  geom_sf(data = landing_area_304846, color = "yellow") +
-  geom_sf(data = landing_area_300463, color = "darkred")
+g <- ggplot2::ggplot() + 
+  ggplot2::geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
+  ggplot2::geom_sf(data = coast100) +
+  ggplot2::geom_sf(data = landing_area_303708, color = "red") +
+  ggplot2::geom_sf(data = landing_area_302357, color = "orange") +
+  ggplot2::geom_sf(data = landing_area_304846, color = "yellow") +
+  ggplot2::geom_sf(data = landing_area_300463, color = "darkred")
 g
 
 #####################################
@@ -129,11 +129,11 @@ landing_areas <- landing_area_300463 %>%
 
 # Export data
 ## Least cost geopackage
-st_write(obj = landing_areas, dsn = least_cost_gpkg, "landing_areas", append = F)
+sf::st_write(obj = landing_areas, dsn = least_cost_gpkg, "landing_areas", append = F)
 
 ## Landing sites geopackage
-st_write(obj = landing_areas, dsn = landing_sites_gpkg, "landing_areas", append = F)
-st_write(obj = landing_area_300463, dsn = landing_sites_gpkg, "landing_area_300463", append = F)
-st_write(obj = landing_area_302357, dsn = landing_sites_gpkg, "landing_area_302357", append = F)
-st_write(obj = landing_area_303708, dsn = landing_sites_gpkg, "landing_area_303708", append = F)
-st_write(obj = landing_area_304846, dsn = landing_sites_gpkg, "landing_area_304846", append = F)
+sf::st_write(obj = landing_areas, dsn = landing_sites_gpkg, "landing_areas", append = F)
+sf::st_write(obj = landing_area_300463, dsn = landing_sites_gpkg, "landing_area_300463", append = F)
+sf::st_write(obj = landing_area_302357, dsn = landing_sites_gpkg, "landing_area_302357", append = F)
+sf::st_write(obj = landing_area_303708, dsn = landing_sites_gpkg, "landing_area_303708", append = F)
+sf::st_write(obj = landing_area_304846, dsn = landing_sites_gpkg, "landing_area_304846", append = F)

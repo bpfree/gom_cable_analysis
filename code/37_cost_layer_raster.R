@@ -44,7 +44,7 @@ sf::st_layers(dsn = data_dir,
 #####################################
 
 # Load data
-study_area <- st_read(dsn = data_dir, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = data_dir, layer = "gom_study_area_marine")
 
 ## Raster grid
 gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
@@ -54,7 +54,7 @@ constraints <- terra::rast(paste(least_cost_dir, "constraints_raster.grd", sep =
 
 ## National Security
 ### Special use Airspace
-special_use_airspace <- st_read(dsn = data_dir, layer = "special_use_airspace") %>%
+special_use_airspace <- sf::st_read(dsn = data_dir, layer = "special_use_airspace") %>%
   # add cost value of 0.5
   dplyr::mutate(value = 0.5) %>%
   # rasterize data
@@ -63,14 +63,14 @@ special_use_airspace <- st_read(dsn = data_dir, layer = "special_use_airspace") 
 
 ## Natural & Cultural Resources
 ### Fish Havens
-fish_haven <- st_read(dsn = data_dir, layer = "fish_havens") %>%
+fish_haven <- sf::st_read(dsn = data_dir, layer = "fish_havens") %>%
   # add cost value of 0.3
   dplyr::mutate(value = 0.3) %>%
   # rasterize data
   terra::rasterize(y = gom_raster,
                    field = "value")
 
-prd_species <- st_read(dsn = data_dir, layer = "prd_species") %>%
+prd_species <- sf::st_read(dsn = data_dir, layer = "prd_species") %>%
   # rasterize data
   terra::rasterize(y = gom_raster,
                    field = "value")
@@ -79,7 +79,7 @@ pelagic_birds <- terra::rast(paste(raster_dir, "pelagic_normalize.grd", sep = "/
 terra::ext(pelagic_birds) <- terra::ext(gom_raster) # give the pelagic birds the same extent as the GOM raster
 
 ### Potentially Sensitive Biological Features and Low Relief Features
-psbf_lrf <- st_read(dsn = data_dir, layer = "psbf_lrf") %>%
+psbf_lrf <- sf::st_read(dsn = data_dir, layer = "psbf_lrf") %>%
   # add cost value of 0.5
   dplyr::mutate(value = 0.5) %>%
   # rasterize data
@@ -87,7 +87,7 @@ psbf_lrf <- st_read(dsn = data_dir, layer = "psbf_lrf") %>%
                    field = "value")
 
 ### BOEM Potentially Sensitive Biological Features and Low Relief Features
-boem_psbf <- st_read(dsn = data_dir, layer = "boem_psbf") %>%
+boem_psbf <- sf::st_read(dsn = data_dir, layer = "boem_psbf") %>%
   # add cost value of 0.8
   dplyr::mutate(value = 0.8) %>%
   # rasterize data
@@ -95,7 +95,7 @@ boem_psbf <- st_read(dsn = data_dir, layer = "boem_psbf") %>%
                    field = "value")
 
 ### Existing Coral Habitat Areas of Particular Concern and Coral Amendment 9 Habitat Areas of Particular Concern
-coral_hapc <- st_read(dsn = data_dir, layer = "coral_hapc") %>%
+coral_hapc <- sf::st_read(dsn = data_dir, layer = "coral_hapc") %>%
   # add cost value of 0.8
   dplyr::mutate(value = 0.8) %>%
   # rasterize data
@@ -104,7 +104,7 @@ coral_hapc <- st_read(dsn = data_dir, layer = "coral_hapc") %>%
 
 ## Industry, Navigation & Transportation
 ### Federal Lightering Rendezvous Areas
-lightering_zones <- st_read(dsn = data_dir, layer = "lightering_zones") %>%
+lightering_zones <- sf::st_read(dsn = data_dir, layer = "lightering_zones") %>%
   # add cost value of 0.5
   dplyr::mutate(value = 0.5) %>%
   # rasterize data
@@ -112,7 +112,7 @@ lightering_zones <- st_read(dsn = data_dir, layer = "lightering_zones") %>%
                    field = "value")
 
 ### Areas Outside Carbon Capture Lease Blocks
-not_carbon_capture <- st_read(dsn = data_dir, layer = "not_carbon_capture_lease_blocks") %>%
+not_carbon_capture <- sf::st_read(dsn = data_dir, layer = "not_carbon_capture_lease_blocks") %>%
   # add cost value of 0.5
   dplyr::mutate(value = 0.5) %>%
   # rasterize data
@@ -120,7 +120,7 @@ not_carbon_capture <- st_read(dsn = data_dir, layer = "not_carbon_capture_lease_
                    field = "value")
 
 ### NEXRAD Sites (35 - 70km setback)
-nexrad70km <- st_read(dsn = data_dir, layer = "nexrad70km") %>%
+nexrad70km <- sf::st_read(dsn = data_dir, layer = "nexrad70km") %>%
   # add cost value of 0.5
   dplyr::mutate(value = 0.5) %>%
   # rasterize data
@@ -228,9 +228,8 @@ cost_raster <- c(special_use_airspace,
                  slope) %>%
   terra::app(sum, na.rm = T) %>%
   # remove land from cost layer
-  terra::crop(gom_raster) %>%
-  # mask to cost layer
-  terra::mask(gom_raster)
+  terra::crop(gom_raster,
+              mask = TRUE)
 
 ## Cost raster without constraints
 cost_rm_constraints <- c(cost_raster,
@@ -249,8 +248,8 @@ plot(cost_rm_constraints)
 #####################################
 
 ## Inspect new raster
-minmax(cost_rm_constraints)[1,] # 0.51
-minmax(cost_rm_constraints)[2,] # maximum value = 6.162601
+terra::minmax(cost_rm_constraints)[1,] # 0.51
+terra::minmax(cost_rm_constraints)[2,] # maximum value = 6.162601
 list(unique(cost_rm_constraints)) # list all unique values
 res(cost_rm_constraints) # 100 x 100
 hist(cost_rm_constraints) # show histogram of values (though mostly values near 1)
@@ -261,6 +260,6 @@ freq(cost_rm_constraints) # show frequency of values (though will round to 0 and
 
 # Export data
 ## Raster data
-writeRaster(cost_raster, filename = file.path(least_cost_dir, "cost_raster.grd"), overwrite = T)
+terra::writeRaster(cost_raster, filename = file.path(least_cost_dir, "cost_raster.grd"), overwrite = T)
 
-writeRaster(cost_rm_constraints, filename = file.path(least_cost_dir, "cost_rm_constraints.grd"), overwrite = T)
+terra::writeRaster(cost_rm_constraints, filename = file.path(least_cost_dir, "cost_rm_constraints.grd"), overwrite = T)

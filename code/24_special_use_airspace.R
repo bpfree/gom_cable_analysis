@@ -36,13 +36,13 @@ airspace_gpkg <- "data/b_intermediate_data/nexrad.gpkg"
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
 # Load special use airspace data (source: https://ais-faa.opendata.arcgis.com/datasets/dd0d1b726e504137ab3c41b21835d05b_0/)
 ## Metadata: https://www.arcgis.com/sharing/rest/content/items/dd0d1b726e504137ab3c41b21835d05b/info/metadata/metadata.xml?format=default&output=html
-airspace <- st_read(dsn = airspace_dir, layer = "Special_Use_Airspace") %>%
+airspace <- sf::st_read(dsn = airspace_dir, layer = "Special_Use_Airspace") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain only special use airspace areas in the study area
@@ -61,7 +61,7 @@ airspace <- st_read(dsn = airspace_dir, layer = "Special_Use_Airspace") %>%
 
 # Export data
 ## Analysis geopackage
-st_write(obj = airspace, dsn = analysis_gpkg, "special_use_airspace", append = F)
+sf::st_write(obj = airspace, dsn = analysis_gpkg, "special_use_airspace", append = F)
 
 ## NEXRAD geopackage
-st_write(obj = airspace, dsn = airspace_gpkg, "special_use_airspace", append = F)
+sf::st_write(obj = airspace, dsn = airspace_gpkg, "special_use_airspace", append = F)

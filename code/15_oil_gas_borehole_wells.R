@@ -33,7 +33,8 @@ analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 borehole_gpkg <- "data/b_intermediate_data/borehole.gpkg"
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+
 #####################################
 #####################################
 
@@ -92,7 +93,7 @@ borehole <- read.csv(paste(borehole_dir, "Borehole.csv", sep = "/")) %>%
 
 # Export data
 ## Analysis geopackage
-st_write(obj = borehole, dsn = analysis_gpkg, "borehole", append = F)
+sf::st_write(obj = borehole, dsn = analysis_gpkg, "borehole", append = F)
 
 ## Borehole geopackage
-st_write(obj = borehole, dsn = borehole_gpkg, "boreholes", append = F)
+sf::st_write(obj = borehole, dsn = borehole_gpkg, "boreholes", append = F)

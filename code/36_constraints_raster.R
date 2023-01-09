@@ -183,7 +183,7 @@ constraints[constraints == 0] <- 99
 
 # Export data
 ## Least cost geopackage
-st_write(obj = all_constraints, dsn = least_cost_gpkg, "all_constraints", append = F)
+sf::st_write(obj = all_constraints, dsn = least_cost_gpkg, "all_constraints", append = F)
 
 ## Raster data
-writeRaster(constraints, filename = file.path(least_cost_dir, "constraints_raster.grd"), overwrite = T)
+terra::writeRaster(constraints, filename = file.path(least_cost_dir, "constraints_raster.grd"), overwrite = T)

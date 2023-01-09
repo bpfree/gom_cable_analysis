@@ -40,7 +40,7 @@ sf::st_layers(dsn = oilgas_lease_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Load BOEM active oil and gas lease data (source: https://www.data.boem.gov/Main/Mapping.aspx#ascii)
 ## Geodatabase download link: https://www.data.boem.gov/Mapping/Files/ActiveLeasePolygons.gdb.zip
@@ -63,7 +63,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 ### LSE_STAT_EFF_DT should not be null (since status should be effective at time of interest)
 ### DSO, UNIT, PRIMRY, OPERNS, PROD, SOO, SOP are considered active
 
-oil_gas_lease_areas <- st_read(dsn = oilgas_lease_dir, layer = "al_20221003") %>%
+oil_gas_lease_areas <- sf::st_read(dsn = oilgas_lease_dir, layer = "al_20221003") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain only active oil and gas lease blocks in the study area
@@ -81,7 +81,7 @@ oil_gas_lease_areas <- st_read(dsn = oilgas_lease_dir, layer = "al_20221003") %>
 
 # Export data
 ## Analysis geopackage
-st_write(obj = oil_gas_lease_areas, dsn = analysis_gpkg, "oil_gas_lease_areas", append = F)
+sf::st_write(obj = oil_gas_lease_areas, dsn = analysis_gpkg, "oil_gas_lease_areas", append = F)
 
 ## Active oil and gas lease blocks geopackage
-st_write(obj = oil_gas_lease_areas, dsn = oilgas_lease_gpkg, "oil_gas_lease_areas", append = F)
+sf::st_write(obj = oil_gas_lease_areas, dsn = oilgas_lease_gpkg, "oil_gas_lease_areas", append = F)

@@ -45,10 +45,10 @@ sf::st_layers(dsn = analysis_gpkg,
 # Load wind farm data
 wind_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_wind_area_i")
 
-g <- ggplot() +
-  geom_sf(data = wind_area, color = "blue") +
+g <- ggplot2::ggplot() +
+  ggplot2::geom_sf(data = wind_area, color = "blue") +
   # Label wind areas
-  geom_sf_label(data=wind_area, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
+  ggplot2::geom_sf_label(data=wind_area, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
 g
 
 #####################################
@@ -71,9 +71,9 @@ wind_area_points <- wind_area %>%
 
 #####################################
 
-g <- ggplot() +
-  geom_sf(data = wind_area, color = "blue") +
-  geom_sf(data = wind_area_points, color = "red")
+g <- ggplot2::ggplot() +
+  ggplot2::geom_sf(data = wind_area, color = "blue") +
+  ggplot2::geom_sf(data = wind_area_points, color = "red")
 g
 
 #####################################
@@ -85,10 +85,10 @@ wind_starting_point <- wind_area_points %>%
 
 #####################################
 
-g <- ggplot() +
-  geom_sf(data = wind_area, color = "blue") +
-  geom_sf(data = wind_area_points, color = "red") +
-  geom_sf(data = wind_starting_point, color = "black")
+g <- ggplot2::ggplot() +
+  ggplot2::geom_sf(data = wind_area, color = "blue") +
+  ggplot2::geom_sf(data = wind_area_points, color = "red") +
+  ggplot2::geom_sf(data = wind_starting_point, color = "black")
 g
 
 #####################################
@@ -96,8 +96,8 @@ g
 
 # Export data
 ## Least cost geopackage
-st_write(obj = wind_starting_point, dsn = least_cost_gpkg, "starting_site", append = F)
+sf::st_write(obj = wind_starting_point, dsn = least_cost_gpkg, "starting_site", append = F)
 
 ## Landing sites geopackage
-st_write(obj = wind_starting_point, dsn = wind_start_gpkg, "starting_site", append = F)
-st_write(obj = wind_area_points, dsn = wind_start_gpkg, "wind_area_points", append = F)
+sf::st_write(obj = wind_starting_point, dsn = wind_start_gpkg, "starting_site", append = F)
+sf::st_write(obj = wind_area_points, dsn = wind_start_gpkg, "wind_area_points", append = F)

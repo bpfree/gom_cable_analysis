@@ -44,12 +44,12 @@ sf::st_layers(dsn = no_activity_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Load BOEM No Activity Zones data
 ## ***Note: These data yet to be made public. Mariana Steen (mariana.steen@boem.gov)
 ## For more information, can examine this document: https://www.boem.gov/sites/default/files/oil-and-gas-energy-program/Leasing/Regional-Leasing/Gulf-of-Mexico-Region/Topographic-Features-Stipulation-Map-Package.pdf
-no_activity_zones <- st_read(dsn = no_activity_dir, layer = "SDETABS_TOPO_ZN_SDE") %>%
+no_activity_zones <- sf::st_read(dsn = no_activity_dir, layer = "SDETABS_TOPO_ZN_SDE") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain only zones in the study area
@@ -73,7 +73,7 @@ no_activity_zones <- st_read(dsn = no_activity_dir, layer = "SDETABS_TOPO_ZN_SDE
 
 # Export data
 ## Analysis geopackage
-st_write(obj = no_activity_zones, dsn = analysis_gpkg, "boem_no_activity_zones", append = F)
+sf::st_write(obj = no_activity_zones, dsn = analysis_gpkg, "boem_no_activity_zones", append = F)
 
 ## No Activity Zones geopackage
-st_write(obj = no_activity_zones, dsn = no_activity_gpkg, "boem_no_activity_zones", append = F)
+sf::st_write(obj = no_activity_zones, dsn = no_activity_gpkg, "boem_no_activity_zones", append = F)

@@ -54,7 +54,7 @@ sf::st_layers(dsn = ndbc_kml,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 #####################################
@@ -73,9 +73,9 @@ ndbc_preparation <- function(sensor_data){
 clean_sensor <- function(sensor_data){
   sensor_layer <- sensor_data %>%
     # reproject the coordinate reference system
-    st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+    sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
     # obtain sensor data within study area
-    st_intersection(study_area) %>%
+    sf::st_intersection(study_area) %>%
     # create field called "layer" and fill with "environmental sensor" for summary
     dplyr::mutate(layer = "environmental sensor") %>%
     # select key fields
@@ -265,28 +265,28 @@ environmental_sensor <- ndbc_sensor %>%
 
 # Export data
 ## Analysis geopackage
-st_write(obj = environmental_sensor, dsn = analysis_gpkg, "environmental_sensor", append = F)
+sf::st_write(obj = environmental_sensor, dsn = analysis_gpkg, "environmental_sensor", append = F)
 
 ## Environmental sensor geopackage
-st_write(obj = environmental_sensor, dsn = environmental_sensors_gpkg, "environmental_sensor", append = F)
+sf::st_write(obj = environmental_sensor, dsn = environmental_sensors_gpkg, "environmental_sensor", append = F)
 
 ### NDBC sensor
-st_write(obj = ndbc_sensor, dsn = environmental_sensors_gpkg, "ndbc_sensor", append = F)
-st_write(obj = ndbc_international_partners, dsn = environmental_sensors_gpkg, "ndbc_international_partners", append = F)
-st_write(obj = ndbc_ioos_partners, dsn = environmental_sensors_gpkg, "ndbc_ioos_partners", append = F)
-st_write(obj = ndbc_marine_metar, dsn = environmental_sensors_gpkg, "ndbc_marine_metar", append = F)
-st_write(obj = ndbc_metero_ocean, dsn = environmental_sensors_gpkg, "ndbc_metero_ocean", append = F)
-st_write(obj = ndbc_nerrs, dsn = environmental_sensors_gpkg, "ndbc_nerrs", append = F)
-st_write(obj = ndbc_nos_coops, dsn = environmental_sensors_gpkg, "ndbc_nos_coops", append = F)
-st_write(obj = ndbc_ships, dsn = environmental_sensors_gpkg, "ndbc_ships", append = F)
-st_write(obj = ndbc_tao, dsn = environmental_sensors_gpkg, "ndbc_tao", append = F)
-st_write(obj = ndbc_tsunami, dsn = environmental_sensors_gpkg, "ndbc_tsunami", append = F)
+sf::st_write(obj = ndbc_sensor, dsn = environmental_sensors_gpkg, "ndbc_sensor", append = F)
+sf::st_write(obj = ndbc_international_partners, dsn = environmental_sensors_gpkg, "ndbc_international_partners", append = F)
+sf::st_write(obj = ndbc_ioos_partners, dsn = environmental_sensors_gpkg, "ndbc_ioos_partners", append = F)
+sf::st_write(obj = ndbc_marine_metar, dsn = environmental_sensors_gpkg, "ndbc_marine_metar", append = F)
+sf::st_write(obj = ndbc_metero_ocean, dsn = environmental_sensors_gpkg, "ndbc_metero_ocean", append = F)
+sf::st_write(obj = ndbc_nerrs, dsn = environmental_sensors_gpkg, "ndbc_nerrs", append = F)
+sf::st_write(obj = ndbc_nos_coops, dsn = environmental_sensors_gpkg, "ndbc_nos_coops", append = F)
+sf::st_write(obj = ndbc_ships, dsn = environmental_sensors_gpkg, "ndbc_ships", append = F)
+sf::st_write(obj = ndbc_tao, dsn = environmental_sensors_gpkg, "ndbc_tao", append = F)
+sf::st_write(obj = ndbc_tsunami, dsn = environmental_sensors_gpkg, "ndbc_tsunami", append = F)
 
 ### GCOOS Federal sensor
-st_write(obj = gcoos_fed_sensor, dsn = environmental_sensors_gpkg, "gcoos_federal_sensor", append = F)
+sf::st_write(obj = gcoos_fed_sensor, dsn = environmental_sensors_gpkg, "gcoos_federal_sensor", append = F)
 
 ### GCOOS Regional sensor
-st_write(obj = gcoos_regional_sensor, dsn = environmental_sensors_gpkg, "gcoos_regional_sensor", append = F)
+sf::st_write(obj = gcoos_regional_sensor, dsn = environmental_sensors_gpkg, "gcoos_regional_sensor", append = F)
 
 ### IOOS sensor
-st_write(obj = ioos_sensor, dsn = environmental_sensors_gpkg, "ioos_sensor", append = F)
+sf::st_write(obj = ioos_sensor, dsn = environmental_sensors_gpkg, "ioos_sensor", append = F)

@@ -98,7 +98,7 @@ nexrad_sites <- read.csv(paste(input_dir, "nexrad_sites.csv", sep = "/")) %>%
 #####################################
 
 ## Check units for determining cellsize of grid
-st_crs(nexrad_sites, parameters = TRUE)$units_gdal
+sf::st_crs(nexrad_sites, parameters = TRUE)$units_gdal
 
 #####################################
 
@@ -117,9 +117,9 @@ nexrad35_70km <- nexrad_sites %>%
 
 #####################################
 
-g <- ggplot() +
-  geom_sf(data = nexrad35km, color = "blue", fill= "NA") +
-  geom_sf(data = nexrad35_70km, color = "black", linetype = "dashed", fill = "NA")
+g <- ggplot2::ggplot() +
+  ggplot2::geom_sf(data = nexrad35km, color = "blue", fill= "NA") +
+  ggplot2::geom_sf(data = nexrad35_70km, color = "black", linetype = "dashed", fill = "NA")
 g
 
 #####################################
@@ -136,10 +136,10 @@ nexrad70km_ioi <- nexrad35_70km %>%
 
 #####################################
 
-g2 <- ggplot() +
-  geom_sf(data = study_area, color = "red", fill = NA) +
-  geom_sf(data = nexrad35km_ioi, color = "blue", fill= NA) +
-  geom_sf(data = nexrad70km_ioi, color = "black", linetype = "dashed", fill = NA)
+g2 <- ggplot2::ggplot() +
+  ggplot2::geom_sf(data = study_area, color = "red", fill = NA) +
+  ggplot2::geom_sf(data = nexrad35km_ioi, color = "blue", fill= NA) +
+  ggplot2::geom_sf(data = nexrad70km_ioi, color = "black", linetype = "dashed", fill = NA)
   
 g2
 
@@ -148,9 +148,9 @@ g2
 
 # Export data
 ## Analysis geopackage
-st_write(obj = nexrad35km_ioi, dsn = analysis_gpkg, "nexrad35km", append = F)
-st_write(obj = nexrad70km_ioi, dsn = analysis_gpkg, "nexrad70km", append = F)
+sf::st_write(obj = nexrad35km_ioi, dsn = analysis_gpkg, "nexrad35km", append = F)
+sf::st_write(obj = nexrad70km_ioi, dsn = analysis_gpkg, "nexrad70km", append = F)
 
 ## NEXRAD geopackage
-st_write(obj = nexrad35km_ioi, dsn = nexrad_gpkg, "nexrad35km", append = F)
-st_write(obj = nexrad70km_ioi, dsn = nexrad_gpkg, "nexrad70km", append = F)
+sf::st_write(obj = nexrad35km_ioi, dsn = nexrad_gpkg, "nexrad35km", append = F)
+sf::st_write(obj = nexrad70km_ioi, dsn = nexrad_gpkg, "nexrad70km", append = F)

@@ -38,7 +38,7 @@ prd_gpkg <- "data/b_intermediate_data/prd_species.gpkg"
 
 # Load data
 ## Study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 ## PRD scored data
 ### ***Note: score of 1 signifies no conflict occurs, 0 is unsuitable
@@ -62,7 +62,7 @@ prd_species <- sf::st_read(dsn = prd_dir, layer = "final_Scored_PRD_WP_Layer_cli
 
 # Export data
 ## Analysis geopackage
-st_write(obj = prd_species, dsn = analysis_gpkg, "prd_species", append = F)
+sf::st_write(obj = prd_species, dsn = analysis_gpkg, "prd_species", append = F)
 
 ## PRD Species geopackage
-st_write(obj = prd_species, dsn = prd_gpkg, "prd_species", append = F)
+sf::st_write(obj = prd_species, dsn = prd_gpkg, "prd_species", append = F)

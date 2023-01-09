@@ -39,7 +39,7 @@ sf::st_layers(dsn = pipelines_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
@@ -112,7 +112,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 #### RELQ- RELINQUISHED
 #### REM- REMOVED
 
-pipelines <- st_read(dsn = pipelines_dir, layer = "Pipelines") %>%
+pipelines <- sf::st_read(dsn = pipelines_dir, layer = "Pipelines") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # filter for gas and oil pipelines
@@ -148,7 +148,7 @@ pipelines <- st_read(dsn = pipelines_dir, layer = "Pipelines") %>%
 
 # Export data
 ## Analysis geopackage
-st_write(obj = pipelines, dsn = analysis_gpkg, "pipelines", append = F)
+sf::st_write(obj = pipelines, dsn = analysis_gpkg, "pipelines", append = F)
 
 ## Pipelines geopackage
-st_write(obj = pipelines, dsn = pipelines_gpkg, "pipelines", append = F)
+sf::st_write(obj = pipelines, dsn = pipelines_gpkg, "pipelines", append = F)

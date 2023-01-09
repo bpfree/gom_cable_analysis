@@ -44,7 +44,7 @@ sf::st_layers(dsn = lease_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Load raster grid
 gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
@@ -57,7 +57,7 @@ gom_raster <- raster::raster(paste(raster_dir, "gom_study_area_marine_100m_raste
 ### Metadata: https://www.data.boem.gov/Mapping/Files/blocks_meta.html
 lease_blocks <- sf::st_read(dsn = lease_dir, layer = "BlockPolygons") %>%
   # reproject the coordinate reference system
-  st_transform("EPSG:5070") # EPSG 5070 (https://epsg.io/5070)
+  sf::st_transform("EPSG:5070") # EPSG 5070 (https://epsg.io/5070)
 
 ## NREL Net Value -- 2015 (source: https://data.nrel.gov/system/files/67/170514_OSW%20cost%20analysis_output%20file%20%281%29.xlsx)
 ### Data page: https://data.nrel.gov/submissions/67, report: https://www.nrel.gov/docs/fy17osti/67675.pdf
@@ -86,7 +86,7 @@ nrel_net_value_lease_blocks <- lease_blocks %>%
               # use left join, FALSE = inner join
               left = TRUE) %>%
   # obtain sensor data within study area
-  st_intersection(study_area) %>%
+  sf::st_intersection(study_area) %>%
   # select fields of importance
   dplyr::select(Net.value) %>%
   # rename field
@@ -101,15 +101,16 @@ nrel_net_value_lease_blocks <- lease_blocks %>%
 
 # Convert data to a raster
 nrel_net_value_raster <- nrel_net_value_lease_blocks %>%
-  fasterize::fasterize(raster = gom_raster,
+  fasterize::fasterize(sf = .,
+                       raster = gom_raster,
                        field = "value")
 
 #####################################
 #####################################
 
-g <- ggplot() + 
-  geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
-  geom_sf(data = nrel_net_value_lease_blocks, color = "orange", fill = NA)
+g <- ggplot2::ggplot() + 
+  ggplot2::geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
+  ggplot2::geom_sf(data = nrel_net_value_lease_blocks, color = "orange", fill = NA)
 g
 
 #####################################
@@ -117,10 +118,10 @@ g
 
 # Export data
 ## Analysis geopackage
-st_write(obj = nrel_net_value_lease_blocks, dsn = analysis_gpkg, "nrel_net_value_lease_blocks", append = F)
+sf::st_write(obj = nrel_net_value_lease_blocks, dsn = analysis_gpkg, "nrel_net_value_lease_blocks", append = F)
 
 ## NREL Net Value geopackage
-st_write(obj = nrel_net_value_lease_blocks, dsn = osw_value_gpkg, "nrel_net_value_lease_blocks", append = F)
+sf::st_write(obj = nrel_net_value_lease_blocks, dsn = osw_value_gpkg, "nrel_net_value_lease_blocks", append = F)
 
 ## Intermediate data
-writeRaster(nrel_net_value_raster, filename = file.path(intermediate_dir, "nrel_net_value_raster.grd"), overwrite = T)
+terra::writeRaster(nrel_net_value_raster, filename = file.path(intermediate_dir, "nrel_net_value_raster.grd"), overwrite = T)

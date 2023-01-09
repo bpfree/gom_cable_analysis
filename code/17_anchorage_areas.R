@@ -33,7 +33,7 @@ anchorage_areas_gpkg <- "data/b_intermediate_data/anchorage_areas.gpkg"
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
@@ -45,11 +45,11 @@ sf::st_layers(dsn = anchorage_areas_dir,
 
 # Load anchorage area data (source: https://marinecadastre.gov/downloads/data/mc/Anchorage.zip)
 ## Metadata: https://www.fisheries.noaa.gov/inport/item/48849
-anchorage_areas <- st_read(dsn = anchorage_areas_dir, layer = "AnchorageAreas") %>%
+anchorage_areas <- sf::st_read(dsn = anchorage_areas_dir, layer = "AnchorageAreas") %>%
   # change multistring to multipolygon (for 5 features are multisurface: 654, 661, 672, 673, 721)
-  st_cast(to = "MULTIPOLYGON") %>%
+  sf::st_cast(to = "MULTIPOLYGON") %>%
   # make sure all geometries are valid
-  st_make_valid() %>%
+  sf::st_make_valid() %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain only anchorage areas in the study area
@@ -68,7 +68,7 @@ anchorage_areas <- st_read(dsn = anchorage_areas_dir, layer = "AnchorageAreas") 
 
 # Export data
 ## Analysis geopackage
-st_write(obj = anchorage_areas, dsn = analysis_gpkg, "anchorage_areas", append = F)
+sf::st_write(obj = anchorage_areas, dsn = analysis_gpkg, "anchorage_areas", append = F)
 
 ## Anchorage Areas geopackage
-st_write(obj = anchorage_areas, dsn = anchorage_areas_gpkg, "anchorage_areas", append = F)
+sf::st_write(obj = anchorage_areas, dsn = anchorage_areas_gpkg, "anchorage_areas", append = F)

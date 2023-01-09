@@ -36,7 +36,7 @@ artificial_reefs_gpkg <- "data/b_intermediate_data/gom_artificial_reefs.gpkg"
 #####################################
 
 ## Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
@@ -51,11 +51,11 @@ artificial_reefs <- read.csv(paste(data_dir, "TPWD_ArtReefSites_Jan21.csv", sep 
                # ***Note: Read Me for the data states data are in decimal degrees and Web Mercator (https://epsg.io/3857)
                crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
   # reproject the coordinate reference system
-  st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+  sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # create setback (buffer) of 304.8 meters (1000 feet)
-  st_buffer(dist = 304.8) %>%
+  sf::st_buffer(dist = 304.8) %>%
   # limit reefs to only those within study area
-  st_intersection(study_area) %>%
+  sf::st_intersection(study_area) %>%
   # create field "layer" and populate with description "artificial reefs"
   dplyr::mutate(layer = "artificial reefs") %>%
   # group all features by the "layer" and "value" fields to then have a single feature
@@ -70,7 +70,7 @@ artificial_reefs <- read.csv(paste(data_dir, "TPWD_ArtReefSites_Jan21.csv", sep 
 
 # Export data
 ## Analysis geopackage
-st_write(artificial_reefs, dsn = analysis_gpkg, layer = "artificial_reefs", append = F)
+sf::st_write(artificial_reefs, dsn = analysis_gpkg, layer = "artificial_reefs", append = F)
 
 ## Artificial reefs geopackage
-st_write(artificial_reefs, dsn = artificial_reefs_gpkg, layer = "artificial_reefs", append = F)
+sf::st_write(artificial_reefs, dsn = artificial_reefs_gpkg, layer = "artificial_reefs", append = F)

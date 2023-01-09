@@ -40,7 +40,7 @@ sf::st_layers(dsn = fish_haven_dir,
 #####################################
 
 ## Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
@@ -61,7 +61,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 #   8.) Click generate hyperlink to download the data
 
 # Load obstruction area data
-fish_haven <- st_read(dsn = fish_haven_dir, layer = "Coastal_Obstruction_area") %>%
+fish_haven <- sf::st_read(dsn = fish_haven_dir, layer = "Coastal_Obstruction_area") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # # select only fish haven data (if that is desired output -- uncomment lines to have the filter go into effect)
@@ -84,14 +84,14 @@ fish_haven <- st_read(dsn = fish_haven_dir, layer = "Coastal_Obstruction_area") 
   # summarise data to reduce features to a single observation
   dplyr::summarise()
 
-st_crs(fish_haven, parameters = TRUE)$units_gdal
+sf::st_crs(fish_haven, parameters = TRUE)$units_gdal
 
 #####################################
 #####################################
 
 # Export data
 ## Analysis geopackage
-st_write(obj = fish_haven, dsn = analysis_gpkg, "fish_havens", append = F)
+sf::st_write(obj = fish_haven, dsn = analysis_gpkg, "fish_havens", append = F)
 
 ## Fish haven geopackage
-st_write(obj = fish_haven, dsn = fish_haven_gpkg, "fish_havens", append = F)
+sf::st_write(obj = fish_haven, dsn = fish_haven_gpkg, "fish_havens", append = F)

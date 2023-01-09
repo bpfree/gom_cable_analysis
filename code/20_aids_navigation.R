@@ -40,13 +40,13 @@ sf::st_layers(dsn = navigation_aids_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
 # Load aids to navigation data (source: https://marinecadastre.gov/downloads/data/mc/AtoN.zip)
 ## Metadata: https://www.fisheries.noaa.gov/inport/item/56120
-aids_to_navigation <- st_read(dsn = navigation_aids_dir, layer = "AtoN") %>%
+aids_to_navigation <- sf::st_read(dsn = navigation_aids_dir, layer = "AtoN") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain only aids to navigation in the study area
@@ -67,7 +67,7 @@ aids_to_navigation <- st_read(dsn = navigation_aids_dir, layer = "AtoN") %>%
 
 # Export data
 ## Analysis geopackage
-st_write(obj = aids_to_navigation, dsn = analysis_gpkg, "aids_to_navigation", append = F)
+sf::st_write(obj = aids_to_navigation, dsn = analysis_gpkg, "aids_to_navigation", append = F)
 
 ## Aids to Navigation geopackage
-st_write(obj = aids_to_navigation, dsn = aids_navigation_gpkg, "aids_to_navigation", append = F)
+sf::st_write(obj = aids_to_navigation, dsn = aids_navigation_gpkg, "aids_to_navigation", append = F)

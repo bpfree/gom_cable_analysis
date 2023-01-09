@@ -36,7 +36,7 @@ coral_hapc_gpkg <- "data/b_intermediate_data/coral_hapc.gpkg"
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 #####################################
@@ -44,9 +44,9 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 clean_coral <- function(coral_data){
   coral_layer <- coral_data %>%
     # reproject the coordinate reference system
-    st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+    sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
     # obtain coral data within study area
-    st_intersection(study_area) %>%
+    sf::st_intersection(study_area) %>%
     # create field called "layer" and fill with "coral hapc" for summary
     dplyr::mutate(layer = "coral hapc") %>%
     # select key fields
@@ -64,22 +64,22 @@ clean_coral <- function(coral_data){
 ## Amendment 9 went into effect on November 16, 2020 (read more about amendment here: https://www.govinfo.gov/content/pkg/FR-2020-10-16/pdf/2020-21298.pdf)
 
 ### Coral HAPC with regulations
-coral_hapc_regs <- st_read(dsn = coral_hapc_dir, layer = "ExistingWithRegs") %>%
+coral_hapc_regs <- sf::st_read(dsn = coral_hapc_dir, layer = "ExistingWithRegs") %>%
   clean_coral()
 
 ### Coral HAPC without regulations
 #### ***Note: No areas fall within study area
-coral_hapc_noregs <- st_read(dsn = coral_hapc_dir, layer = "ExistingWithOutRegs") %>%
+coral_hapc_noregs <- sf::st_read(dsn = coral_hapc_dir, layer = "ExistingWithOutRegs") %>%
   clean_coral()
 
 ### Coral Amendment 9 HAPC with regulations
 #### ***Note: No areas fall within study area
-coral9_hapc_regs <- st_read(dsn = coral_hapc_dir, layer = "Coral9Regs") %>%
+coral9_hapc_regs <- sf::st_read(dsn = coral_hapc_dir, layer = "Coral9Regs") %>%
   clean_coral()
 
 ### Coral Amendment 9 HAPC without regulations
 #### ***Note: No areas fall within study area
-coral9_hapc_noregs <- st_read(dsn = coral_hapc_dir, layer = "Coral9NoRegs") %>%
+coral9_hapc_noregs <- sf::st_read(dsn = coral_hapc_dir, layer = "Coral9NoRegs") %>%
   clean_coral()
 
 #####################################
@@ -100,7 +100,7 @@ coral_hapc_combined <- coral_hapc_regs %>%
 
 # Export data
 ## Analysis geopackage
-st_write(obj = coral_hapc_combined, dsn = analysis_gpkg, "coral_hapc", append = F)
+sf::st_write(obj = coral_hapc_combined, dsn = analysis_gpkg, "coral_hapc", append = F)
 
 ## Coral HAPC geopackage
-st_write(obj = coral_hapc_combined, dsn = coral_hapc_gpkg, "coral_hapc", append = F)
+sf::st_write(obj = coral_hapc_combined, dsn = coral_hapc_gpkg, "coral_hapc", append = F)

@@ -37,20 +37,20 @@ biological_structures_features_gpkg <- "data/b_intermediate_data/biological_feat
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
 # Potentially sensitive biological features
 ## Flower Garden Banks
-psbf_lrf <- st_read(dsn = psbf_lrf_dir, layer = "NAZ_PSBF_LRF_withBuffers") %>%
+psbf_lrf <- sf::st_read(dsn = psbf_lrf_dir, layer = "NAZ_PSBF_LRF_withBuffers") %>%
   # reproject the coordinate reference system
-  st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+  sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # filter for only potentially sensitive biological features or low relief features
   dplyr::filter(Zone %in% c("PSBF",
                             "LRF")) %>%
   # obtain biological features data within study area
-  st_intersection(study_area) %>%
+  sf::st_intersection(study_area) %>%
   # create field called "layer" and fill with "biological features" for summary
   dplyr::mutate(layer = "biological features") %>%
   #  add a setback (buffer) distance of 304.8 meter (1000 feet) around potentially sensitive biological features or low relief features
@@ -62,14 +62,14 @@ psbf_lrf <- st_read(dsn = psbf_lrf_dir, layer = "NAZ_PSBF_LRF_withBuffers") %>%
   # summarise data to obtain single feature
   dplyr::summarise()
   
-st_crs(psbf_lrf, parameters = TRUE)$units_gdal
+sf::st_crs(psbf_lrf, parameters = TRUE)$units_gdal
 
 ## BOEM
-boem_psbf <- st_read(dsn = boem_psbf_dir, layer = "BOEM_PSBFS_SW_DW_Merged") %>%
+boem_psbf <- sf::st_read(dsn = boem_psbf_dir, layer = "BOEM_PSBFS_SW_DW_Merged") %>%
   # reproject the coordinate reference system
-  st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+  sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain biological feature data within study area
-  st_intersection(study_area) %>%
+  sf::st_intersection(study_area) %>%
   # create field called "layer" and fill with "biological features" for summary
   dplyr::mutate(layer = "biological features") %>%
   # filter to include only potentially sensitive biological features (use list(unique(boem_psbf$FEATURE_TY)) to see options)
@@ -84,15 +84,15 @@ boem_psbf <- st_read(dsn = boem_psbf_dir, layer = "BOEM_PSBFS_SW_DW_Merged") %>%
   # summarise data to obtain single feature
   dplyr::summarise()
 
-st_crs(boem_psbf, parameters = TRUE)$units_gdal
+sf::st_crs(boem_psbf, parameters = TRUE)$units_gdal
 
 #####################################
 #####################################
 
-g <- ggplot() + 
-  geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
-  geom_sf(data = boem_psbf, color = "orange") +
-  geom_sf(data = psbf_lrf, fill = NA, color = "red", linetype = "dashed")
+g <- ggplot2::ggplot() + 
+  ggplot2::geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
+  ggplot2::geom_sf(data = boem_psbf, color = "orange") +
+  ggplot2::geom_sf(data = psbf_lrf, fill = NA, color = "red", linetype = "dashed")
 g
 
 #####################################
@@ -100,9 +100,9 @@ g
 
 # Export data
 ## Analysis geopackage
-st_write(obj = psbf_lrf, dsn = analysis_gpkg, "psbf_lrf", append = F)
-st_write(obj = boem_psbf, dsn = analysis_gpkg, "boem_psbf", append = F)
+sf::st_write(obj = psbf_lrf, dsn = analysis_gpkg, "psbf_lrf", append = F)
+sf::st_write(obj = boem_psbf, dsn = analysis_gpkg, "boem_psbf", append = F)
 
 ## Potentially sensitive biology geopackage
-st_write(obj = psbf_lrf, dsn = biological_structures_features_gpkg, "psbf_lrf", append = F)
-st_write(obj = boem_psbf, dsn = biological_structures_features_gpkg, "boem_psbf", append = F)
+sf::st_write(obj = psbf_lrf, dsn = biological_structures_features_gpkg, "psbf_lrf", append = F)
+sf::st_write(obj = boem_psbf, dsn = biological_structures_features_gpkg, "boem_psbf", append = F)

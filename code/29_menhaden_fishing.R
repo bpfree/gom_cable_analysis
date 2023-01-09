@@ -38,7 +38,7 @@ menhaden_gpkg <- "data/b_intermediate_data/menhaden_fishing.gpkg"
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Load raster grid
 gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
@@ -368,12 +368,12 @@ menhaden_2000_2019 <- menhaden2000 %>%
 #####################################
 
 # Create grid around points
-st_crs(menhaden_2000_2019, parameters = TRUE)$units_gdal
+sf::st_crs(menhaden_2000_2019, parameters = TRUE)$units_gdal
 
-square_grid <- st_buffer(x = menhaden_2000_2019,
-                         # distance is 18.5 km = 18500 meters (1 minute = 18.5km)
-                         dist = 8000,
-                         endCapStyle = "SQUARE") %>%
+square_grid <- sf::st_buffer(x = menhaden_2000_2019,
+                             # distance is 18.5 km = 18500 meters (1 minute = 18.5km)
+                             dist = 8000,
+                             endCapStyle = "SQUARE") %>%
   # obtain menhaden fishing within study area
   rmapshaper::ms_clip(study_area) %>%
   # filter only areas of importance
@@ -384,9 +384,9 @@ square_grid <- st_buffer(x = menhaden_2000_2019,
 
 #####################################
 
-g <- ggplot() + 
-  geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
-  geom_sf(data = square_grid, color = "orange") +
+g <- ggplot2::ggplot() + 
+  ggplot2::geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
+  ggplot2::geom_sf(data = square_grid, color = "orange") +
   #geom_sf(data = menhaden_2000_2019, color = "red")
 g
 
@@ -431,21 +431,20 @@ smf_function <- function(raster){
 menhaden_normalize <- menhaden_raster %>%
   smf_function() %>%
   # have data get limited to study area dimensions
-  terra::crop(gom_raster) %>%
-  # have data masked to study area
-  terra::mask(gom_raster)
+  terra::crop(gom_raster,
+              mask = T)
 
 #####################################
 #####################################
 
 # Export data
 ## Analysis geopackage
-st_write(obj = menhaden_2000_2016, dsn = analysis_gpkg, "menhaden_fishing_2000_2016", append = F)
+sf::st_write(obj = menhaden_2000_2016, dsn = analysis_gpkg, "menhaden_fishing_2000_2016", append = F)
 
 ## Menhaden geopackage
-st_write(obj = menhaden_2000_2016, dsn = menhaden_gpkg, "menhaden_fishing_2000_2016", append = F)
-st_write(obj = menhaden_2017_2019, dsn = menhaden_gpkg, "menhaden_fishing_2017_2016", append = F)
-st_write(obj = menhaden_2000_2019, dsn = menhaden_gpkg, "menhaden_fishing_2000_2019", append = F)
+sf::st_write(obj = menhaden_2000_2016, dsn = menhaden_gpkg, "menhaden_fishing_2000_2016", append = F)
+sf::st_write(obj = menhaden_2017_2019, dsn = menhaden_gpkg, "menhaden_fishing_2017_2016", append = F)
+sf::st_write(obj = menhaden_2000_2019, dsn = menhaden_gpkg, "menhaden_fishing_2000_2019", append = F)
 
 ## Raster data
-writeRaster(menhaden_normalize, filename = file.path(raster_dir, "menhaden_2000_2019_normalize.grd"), overwrite = T)
+terra::writeRaster(menhaden_normalize, filename = file.path(raster_dir, "menhaden_2000_2019_normalize.grd"), overwrite = T)

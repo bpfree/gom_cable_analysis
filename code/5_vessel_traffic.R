@@ -36,7 +36,7 @@ intermediate_dir <- "data/b_intermediate_data"
 
 # Load data
 ## Study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 ## Raster grid
 gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
@@ -99,9 +99,9 @@ linear_function <- function(raster){
   # set values back to the newly projected raster
   vessel_normalize <- terra::setValues(raster_5070, normalize) %>%
     # crop to the study area (will be for the extent)
-    terra::crop(gom_raster) %>%
-    # mask to study area
-    terra::mask(study_area)
+    terra::crop(study_area,
+                # use study area as the mask
+                mask = T)
   
   # return the raster
   return(vessel_normalize)
@@ -137,10 +137,10 @@ other_normalized <- other_ais2019 %>%
 
 # Export data
 ## Raster data
-writeRaster(cargo_normalized, filename = file.path(raster_dir, "cargo_ais2019_normalized.grd"), overwrite = T)
-writeRaster(fishing_normalized, filename = file.path(raster_dir, "fishing_ais2019_normalized.grd"), overwrite = T)
-writeRaster(passenger_normalized, filename = file.path(raster_dir, "passenger_ais2019_normalized.grd"), overwrite = T)
-writeRaster(pleasure_normalized, filename = file.path(raster_dir, "pleasure_ais2019_normalized.grd"), overwrite = T)
-writeRaster(tanker_normalized, filename = file.path(raster_dir, "tanker_ais2019_normalized.grd"), overwrite = T)
-writeRaster(tugtow_normalized, filename = file.path(raster_dir, "tugtow_ais2019_normalized.grd"), overwrite = T)
-writeRaster(other_normalized, filename = file.path(raster_dir, "other_ais2019_normalized.grd"), overwrite = T)
+terra::writeRaster(cargo_normalized, filename = file.path(raster_dir, "cargo_ais2019_normalized.grd"), overwrite = T)
+terra::writeRaster(fishing_normalized, filename = file.path(raster_dir, "fishing_ais2019_normalized.grd"), overwrite = T)
+terra::writeRaster(passenger_normalized, filename = file.path(raster_dir, "passenger_ais2019_normalized.grd"), overwrite = T)
+terra::writeRaster(pleasure_normalized, filename = file.path(raster_dir, "pleasure_ais2019_normalized.grd"), overwrite = T)
+terra::writeRaster(tanker_normalized, filename = file.path(raster_dir, "tanker_ais2019_normalized.grd"), overwrite = T)
+terra::writeRaster(tugtow_normalized, filename = file.path(raster_dir, "tugtow_ais2019_normalized.grd"), overwrite = T)
+terra::writeRaster(other_normalized, filename = file.path(raster_dir, "other_ais2019_normalized.grd"), overwrite = T)

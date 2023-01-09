@@ -40,11 +40,11 @@ sf::st_layers(dsn = uxo_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Load unexploded ordnance point data (source: https://marinecadastre.gov/downloads/data/mc/UnexplodedOrdnance.zip)
 ## Metadata: https://www.fisheries.noaa.gov/inport/item/66208
-unexploded_ordnance_points <- st_read(dsn = uxo_dir, layer = "UnexplodedOrdnanceLocations") %>%
+unexploded_ordnance_points <- sf::st_read(dsn = uxo_dir, layer = "UnexplodedOrdnanceLocations") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain only unexploded ordnance sites in the study area
@@ -57,12 +57,12 @@ unexploded_ordnance_points <- st_read(dsn = uxo_dir, layer = "UnexplodedOrdnance
   dplyr::select(layer,
                 value)
 
-st_crs(unexploded_ordnance_points, parameters = TRUE)$units_gdal
+sf::st_crs(unexploded_ordnance_points, parameters = TRUE)$units_gdal
 
 # Load unexploded ordnance area data
 ## ***Note: Unexploded Ordnance Areas data (https://marinecadastre.gov/downloads/data/mc/UnexplodedOrdnanceArea.zip)
 ## has one fewer area than the location dataset (https://marinecadastre.gov/downloads/data/mc/UnexplodedOrdnance.zip)
-unexploded_ordnance_areas <- st_read(dsn = uxo_dir, layer = "UnexplodedOrdnanceAreas") %>%
+unexploded_ordnance_areas <- sf::st_read(dsn = uxo_dir, layer = "UnexplodedOrdnanceAreas") %>%
   # reproject the coordinate reference system to match study area data (EPSG:5070)
   sf::st_transform(5070) %>%
   # obtain only unexploded ordnance sites in the study area
@@ -77,9 +77,9 @@ unexploded_ordnance_areas <- st_read(dsn = uxo_dir, layer = "UnexplodedOrdnanceA
 
 # Inspect the point and polygon data for unexploded ordnances
 g <- ggplot() + 
-  geom_sf(data = unexploded_ordnance_areas, color = "red", fill = NA) +
-  geom_sf(data = unexploded_ordnance_points, color = "blue") +
-  geom_sf(data = study_area, color = "black", linetype = "dashed", fill = NA)
+  ggplot2::geom_sf(data = unexploded_ordnance_areas, color = "red", fill = NA) +
+  ggplot2::geom_sf(data = unexploded_ordnance_points, color = "blue") +
+  ggplot2::geom_sf(data = study_area, color = "black", linetype = "dashed", fill = NA)
 g
 
 #####################################
@@ -100,9 +100,9 @@ unexploded_ordnance <- unexploded_ordnance_points %>%
 
 # Export data
 ## Analysis geopackage
-st_write(obj = unexploded_ordnance, dsn = analysis_gpkg, "unexploded_ordnance", append = F)
+sf::st_write(obj = unexploded_ordnance, dsn = analysis_gpkg, "unexploded_ordnance", append = F)
 
 ## Unexploded ordnance geopackage
-st_write(obj = unexploded_ordnance, dsn = uxo_gpkg, "unexploded_ordnance", append = F)
-st_write(obj = unexploded_ordnance_points, dsn = uxo_gpkg, "unexploded_ordnance_point", append = F)
-st_write(obj = unexploded_ordnance_areas, dsn = uxo_gpkg, "unexploded_ordnance_areas", append = F)
+sf::st_write(obj = unexploded_ordnance, dsn = uxo_gpkg, "unexploded_ordnance", append = F)
+sf::st_write(obj = unexploded_ordnance_points, dsn = uxo_gpkg, "unexploded_ordnance_point", append = F)
+sf::st_write(obj = unexploded_ordnance_areas, dsn = uxo_gpkg, "unexploded_ordnance_areas", append = F)

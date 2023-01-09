@@ -70,7 +70,7 @@ smf_function_terra <- function(raster){
 
 # Load data
 ## Study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 ## Raster grid
 gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
@@ -165,11 +165,11 @@ freq(pelagic_normalize) # show frequency of values (though will round to 0 and 1
 
 # Export data
 ## Raster data
-writeRaster(pelagic_normalize, filename = file.path(raster_dir, "pelagic_normalize.grd"), overwrite = T)
-writeRaster(pelagic_bird_normalize, filename = file.path(raster_dir, "pelagic_bird_normalize.grd"), overwrite = T)
+terra::writeRaster(pelagic_normalize, filename = file.path(raster_dir, "pelagic_normalize.grd"), overwrite = T)
+terra::writeRaster(pelagic_bird_normalize, filename = file.path(raster_dir, "pelagic_bird_normalize.grd"), overwrite = T)
 
 ## Intermediate data
-writeRaster(pelagic_normalize, filename = file.path(intermediate_dir, "pelagic_normalize.grd"), overwrite = T)
-writeRaster(pelagic_bird5070, filename = file.path(intermediate_dir, "pelagic_bird5070.grd"), overwrite = T)
-writeRaster(pelagic_birds, filename = file.path(intermediate_dir, "pelagic_birds.grd"), overwrite = T)
-writeRaster(pelagic_bird_normalize, filename = file.path(intermediate_dir, "pelagic_bird_normalize.grd"), overwrite = T)
+terra::writeRaster(pelagic_normalize, filename = file.path(intermediate_dir, "pelagic_normalize.grd"), overwrite = T)
+terra::writeRaster(pelagic_bird5070, filename = file.path(intermediate_dir, "pelagic_bird5070.grd"), overwrite = T)
+terra::writeRaster(pelagic_birds, filename = file.path(intermediate_dir, "pelagic_birds.grd"), overwrite = T)
+terra::writeRaster(pelagic_bird_normalize, filename = file.path(intermediate_dir, "pelagic_bird_normalize.grd"), overwrite = T)

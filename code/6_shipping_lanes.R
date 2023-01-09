@@ -40,11 +40,11 @@ vessel_gpkg <- "data/b_intermediate_data/gom_vessel.gpkg"
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # Texas county data (source: https://gis-txdot.opendata.arcgis.com/datasets/TXDOT::texas-county-boundaries-detailed/explore?location=31.059220%2C-100.077018%2C6.58)
 ## Summary details: https://gis-txdot.opendata.arcgis.com/datasets/TXDOT::texas-county-boundaries-detailed/about
-texas_county <- st_read(dsn = texas_county_dir, layer = "County") %>%
+texas_county <- sf::st_read(dsn = texas_county_dir, layer = "County") %>%
   # match coordinate reference system as study area
   sf::st_transform("EPSG:5070") %>%
   # obtain only parts of counties that have coastlines in study area
@@ -124,15 +124,15 @@ st_crs(shipping_lanes, parameters = TRUE)$units_gdal
 #### Jefferson -- 245
 
 ### Load raw data
-brazoria_ship <- st_read(dsn = texas_county_ship, layer = "ship039l") %>%
+brazoria_ship <- sf::st_read(dsn = texas_county_ship, layer = "ship039l") %>%
   vessel_function()
-chambers_ship <- st_read(dsn = texas_county_ship, layer = "ship071l") %>%
+chambers_ship <- sf::st_read(dsn = texas_county_ship, layer = "ship071l") %>%
   vessel_function()
-galveston_ship <- st_read(dsn = texas_county_ship, layer = "ship167l") %>%
+galveston_ship <- sf::st_read(dsn = texas_county_ship, layer = "ship167l") %>%
   vessel_function()
-harris_ship <- st_read(dsn = texas_county_ship, layer = "ship201l") %>%
+harris_ship <- sf::st_read(dsn = texas_county_ship, layer = "ship201l") %>%
   vessel_function()
-jefferson_ship <- st_read(dsn = texas_county_ship, layer = "ship245l") %>%
+jefferson_ship <- sf::st_read(dsn = texas_county_ship, layer = "ship245l") %>%
   vessel_function()
 
 #####################################
@@ -172,25 +172,25 @@ shipping_study <- shipping500 %>%
   dplyr::mutate(name = "shipping lane") %>%
   dplyr::group_by(name) %>%
   dplyr::summarise() %>%
-  st_intersection(study_area)
+  sf::st_intersection(study_area)
 
 #####################################
 #####################################
 
 # Export data
 ## Analysis geopackage
-st_write(shipping_study, dsn = analysis_gpkg, layer = "shipping_lane", append = F)
+sf::st_write(shipping_study, dsn = analysis_gpkg, layer = "shipping_lane", append = F)
 
 ## Shipping lanes geopackage
-st_write(shipping_study, dsn = vessel_gpkg, layer = "shipping_lane", append = F)
+sf::st_write(shipping_study, dsn = vessel_gpkg, layer = "shipping_lane", append = F)
 
 ### Texas shipping lanes
-st_write(brazoria_ship, dsn = vessel_gpkg, layer = "brazoria_ship", append = F)
-st_write(chambers_ship, dsn = vessel_gpkg, layer = "chambers_ship", append = F)
-st_write(galveston_ship, dsn = vessel_gpkg, layer = "galveston_ship", append = F)
-st_write(harris_ship, dsn = vessel_gpkg, layer = "harris_ship", append = F)
-st_write(jefferson_ship, dsn = vessel_gpkg, layer = "jefferson_ship", append = F)
+sf::st_write(brazoria_ship, dsn = vessel_gpkg, layer = "brazoria_ship", append = F)
+sf::st_write(chambers_ship, dsn = vessel_gpkg, layer = "chambers_ship", append = F)
+sf::st_write(galveston_ship, dsn = vessel_gpkg, layer = "galveston_ship", append = F)
+sf::st_write(harris_ship, dsn = vessel_gpkg, layer = "harris_ship", append = F)
+sf::st_write(jefferson_ship, dsn = vessel_gpkg, layer = "jefferson_ship", append = F)
 
 ### Texas shipping combined
-st_write(texas_ship, dsn = vessel_gpkg, layer = "texas_ship_combined", append = F)
-st_write(shipping500, dsn = vessel_gpkg, layer = "texas_ship500_combined", append = F)
+sf::st_write(texas_ship, dsn = vessel_gpkg, layer = "texas_ship_combined", append = F)
+sf::st_write(shipping500, dsn = vessel_gpkg, layer = "texas_ship500_combined", append = F)

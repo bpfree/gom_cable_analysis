@@ -40,7 +40,7 @@ sf::st_layers(dsn = sediment_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
@@ -71,7 +71,7 @@ study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 ###   h.) Select "Download"
 ### ***NOTE: If entire dataset is desired, on layers page click the "Download Layer GDB" icon next to layer name
 
-significant_sediment <- st_read(dsn = sediment_dir, layer = "Gulf_of_Mexico_OCS_Blocks_with_Significant_Sediment_Resources") %>%
+significant_sediment <- sf::st_read(dsn = sediment_dir, layer = "Gulf_of_Mexico_OCS_Blocks_with_Significant_Sediment_Resources") %>%
   # change multipolygon Z to multipolygon
   sf::st_cast(to = "MULTIPOLYGON") %>%
   # make sure all geometries are valid
@@ -94,7 +94,7 @@ significant_sediment <- st_read(dsn = sediment_dir, layer = "Gulf_of_Mexico_OCS_
 
 # Export data
 ## Analysis geopackage
-st_write(obj = significant_sediment, dsn = analysis_gpkg, "boem_significant_sediments", append = F)
+sf::st_write(obj = significant_sediment, dsn = analysis_gpkg, "boem_significant_sediments", append = F)
 
 ## Significant Sediments geopackage
-st_write(obj = significant_sediment, dsn = sediment_gpkg, "boem_significant_sediments", append = F)
+sf::st_write(obj = significant_sediment, dsn = sediment_gpkg, "boem_significant_sediments", append = F)

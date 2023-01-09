@@ -87,12 +87,38 @@ new_value <- max - costs_barriers_extracted
 
 new_value[new_value <= 0] <- NA
 
+#####################################
+
 # create slope cost surface
-cs <- leastcostpath::create_cs(x = new_value,
+cs4 <- leastcostpath::create_cs(x = new_value,
+                               # neighbors = 4, 8, 16, 32, 48
+                               neighbours = 4)
+
+cs8 <- leastcostpath::create_cs(x = new_value,
                                # neighbors = 4, 8, 16, 32, 48
                                neighbours = 8)
 
+cs16 <- leastcostpath::create_cs(x = new_value,
+                                # neighbors = 4, 8, 16, 32, 48
+                                neighbours = 16)
+
+cs32 <- leastcostpath::create_cs(x = new_value,
+                                # neighbors = 4, 8, 16, 32, 48
+                                neighbours = 32)
+
+cs48 <- leastcostpath::create_cs(x = new_value,
+                                 # neighbors = 4, 8, 16, 32, 48
+                                 neighbours = 48)
+
+#####################################
+#####################################
+
 # create least cost path
+lcp <- leastcostpath::create_lcp(x = cs4,
+                                 origin = starting_points,
+                                 destintation = landing_points,
+                                 cost_distance = TRUE)
+
 ## Option 1
 ## 300463
 lcp300463 <- leastcostpath::create_lcp(x = cs,

@@ -41,7 +41,7 @@ sf::st_layers(dsn = boem_platform_dir,
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 #####################################
 
@@ -74,7 +74,7 @@ bsee_platforms <- read.csv(file = paste(bsee_platform_dir, "PlatStruc.csv", sep 
   dplyr::summarise()
 
 ## Check units for determining cellsize of grid
-st_crs(bsee_platforms, parameters = TRUE)$units_gdal
+sf::st_crs(bsee_platforms, parameters = TRUE)$units_gdal
 
 #####################################
 
@@ -107,7 +107,7 @@ st_crs(bsee_platforms, parameters = TRUE)$units_gdal
 
 # Export data
 ## Analysis geopackage
-st_write(obj = bsee_platforms, dsn = analysis_gpkg, "drilling_platforms", append = F)
+sf::st_write(obj = bsee_platforms, dsn = analysis_gpkg, "drilling_platforms", append = F)
 
 ## Drilling Platforms geopackage
-st_write(obj = bsee_platforms, dsn = platforms_gpkg, "drilling_platforms", append = F)
+sf::st_write(obj = bsee_platforms, dsn = platforms_gpkg, "drilling_platforms", append = F)

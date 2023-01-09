@@ -44,7 +44,7 @@ intermediate_dir <- "data/b_intermediate_data"
 #####################################
 
 # Load study area (to clip habitats to only that area)
-study_area <- st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine") %>%
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine") %>%
   # reproject into NAD83 to match with the bathymetry / topography data
   sf::st_transform("EPSG:4269") # EPSG 4269 (https://epsg.io/4269)
 
@@ -108,10 +108,10 @@ tx_bath_mask_5070 <- tx_bath_mask %>%
 #####################################
 
 ## check units and coordinate reference system
-st_crs(tx_bath_mask_5070, parameters = TRUE)$units_gdal # shows resolution is in meters
+sf::st_crs(tx_bath_mask_5070, parameters = TRUE)$units_gdal # shows resolution is in meters
 cat(crs(tx_bath_mask_5070))
-minmax(tx_bath_mask_5070)[1,]
-minmax(tx_bath_mask_5070)[2,]
+terra::minmax(tx_bath_mask_5070)[1,]
+terra::minmax(tx_bath_mask_5070)[2,]
 
 #####################################
 #####################################
@@ -130,17 +130,8 @@ gom_slope <- tx_bath_mask_5070 %>%
 
 st_crs(gom_slope, parameters = TRUE)$units_gdal # shows resolution is in meters
 cat(crs(gom_slope))
-minmax(gom_slope)[1,]
-minmax(gom_slope)[2,]
-
-# slope_5070 <- gom_slope %>%
-#   # reproject into coordinate reference system
-#   terra::project(y = crs,
-#                  res = 100) # 100 meter resolution
-
-# cat(crs(slope_5070))
-# minmax(slope_5070)[1,]
-# minmax(slope_5070)[2,]
+terra::minmax(gom_slope)[1,]
+terra::minmax(gom_slope)[2,]
 
 #####################################
 #####################################
@@ -279,20 +270,18 @@ bathymetry_normalize <- bathymetry %>%
 ## Analysis data
 terra::writeRaster(tx_bath_mask_5070, filename = file.path(raster_dir, "bathymetry.grd"), overwrite = T)
 terra::writeRaster(gom_slope, filename = file.path(raster_dir, "slope.grd"), overwrite = T)
-#writeRaster(slope_5070, filename = file.path(raster_dir, "slope.grd"), overwrite = T)
 
-# writeRaster(bathymetry_normalize, filename = file.path(raster_dir, "bathymetry_normalize.grd"), overwrite = T)
-# writeRaster(slope_normalize, filename = file.path(raster_dir, "slope_normalize.grd"), overwrite = T)
+# terra::writeRaster(bathymetry_normalize, filename = file.path(raster_dir, "bathymetry_normalize.grd"), overwrite = T)
+# terra::writeRaster(slope_normalize, filename = file.path(raster_dir, "slope_normalize.grd"), overwrite = T)
 
 ## Intermediate data
-writeRaster(tx_bath_mask, filename = file.path(intermediate_dir, "tx_bath_mask_4269.grd"), overwrite = T)
-writeRaster(tx_bath_mask_5070, filename = file.path(intermediate_dir, "tx_bath_mask_5070.grd"), overwrite = T)
+terra::writeRaster(tx_bath_mask, filename = file.path(intermediate_dir, "tx_bath_mask_4269.grd"), overwrite = T)
+terra::writeRaster(tx_bath_mask_5070, filename = file.path(intermediate_dir, "tx_bath_mask_5070.grd"), overwrite = T)
 
-writeRaster(gom_slope, filename = file.path(intermediate_dir, "slope.grd"), overwrite = T)
-#writeRaster(slope_5070, filename = file.path(intermediate_dir, "slope_5070.grd"), overwrite = T)
+terra::writeRaster(gom_slope, filename = file.path(intermediate_dir, "slope.grd"), overwrite = T)
 
-writeRaster(bathymetry_normalize, filename = file.path(intermediate_dir, "bathymetry_normalize.grd"), overwrite = T)
-writeRaster(slope_normalize, filename = file.path(intermediate_dir, "slope_normalize.grd"), overwrite = T)
+terra::writeRaster(bathymetry_normalize, filename = file.path(intermediate_dir, "bathymetry_normalize.grd"), overwrite = T)
+terra::writeRaster(slope_normalize, filename = file.path(intermediate_dir, "slope_normalize.grd"), overwrite = T)
 
 
 
