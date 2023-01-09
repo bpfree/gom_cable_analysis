@@ -97,9 +97,9 @@ shipping_lanes <- sf::st_read(dsn = ship_lanes_dir, layer = "shippinglanes") %>%
   # have only the shipping lane data that passes through study area
   sf::st_intersection(study_area) %>%
   # create setback (buffer) of 500 meters
-  st_buffer(dist = 500) %>%
+  sf::st_buffer(dist = 500) %>%
   # change to multipolygon from multistring (to match shipping lane data)
-  st_cast(to = "MULTIPOLYGON") %>%
+  sf::st_cast(to = "MULTIPOLYGON") %>%
   # create field called "layer" and designate as shipping lane
   dplyr::mutate(layer = "shipping lane") %>%
   # group by layer and value to have all features become one
