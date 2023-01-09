@@ -101,7 +101,7 @@ land_function <- function(land_data){
 ### ***Note: Data are also accessible for download on MarineCadastre (under "Active Renewable Energy Leases")
 boem_wind_areas <- sf::st_read(dsn = wind_area_dir, layer = "Wind_Planning_Area_Outlines_11_17_2022") %>%
   # reproject the coordinate reference system EPSG:5070
-  st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
+  sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # filter to wind areas only for Gulf of Mexico
   dplyr::filter(stringr::str_detect(ADDITIONAL_INFORMATION,
                                     "Gulf of Mexico")) %>%
@@ -111,9 +111,9 @@ boem_wind_areas <- sf::st_read(dsn = wind_area_dir, layer = "Wind_Planning_Area_
 
 # quick graphic of call areas
 g <- ggplot() +
-  geom_sf(data = boem_wind_areas, color = "blue") +
+  ggplot2::geom_sf(data = boem_wind_areas, color = "blue") +
   # Label wind areas
-  geom_sf_label(data=boem_wind_areas, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
+  ggplot2::geom_sf_label(data=boem_wind_areas, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
 g
 
 #####################################
@@ -125,9 +125,9 @@ wind_farm_i <- boem_wind_areas %>%
 
 #####################################
 g <- ggplot() +
-  geom_sf(data = wind_farm_i, color = "blue") +
+  ggplot2::geom_sf(data = wind_farm_i, color = "blue") +
   # Label wind areas
-  geom_sf_label(data=wind_farm_i, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
+  ggplot2::geom_sf_label(data=wind_farm_i, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
 g
 
 #####################################
@@ -147,30 +147,30 @@ aoi_points <- rbind(c("point",-94,28), # southeastern point
                 "lon" = "V2",
                 "lat" = "V3") %>%
   # convert to simple feature
-  st_as_sf(coords = c("lon", "lat"),
-           # set the coordinate reference system to WGS84
-           crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
+  sf::st_as_sf(coords = c("lon", "lat"),
+               # set the coordinate reference system to WGS84
+               crs = 4326) %>% # EPSG 4326 (https://epsg.io/4326)
   # reproject the coordinate reference system to match BOEM call areas
-  st_transform("EPSG:5070") # EPSG 5070 (https://epsg.io/5070)
+  sf::st_transform("EPSG:5070") # EPSG 5070 (https://epsg.io/5070)
 
 #####################################
 
 # Create polygon
 aoi_poly <- aoi_points %>%
   # group by the points field
-  group_by(point) %>%
+  dplyr::group_by(point) %>%
   # combine geometries without resolving borders to create multipoint feature
-  summarise(geometry = st_combine(geometry)) %>%
+  dplyr::summarise(geometry = st_combine(geometry)) %>%
   # convert back to sf
-  st_as_sf() %>%
+  sf::st_as_sf() %>%
   # convert to polygon simple feature
-  st_cast("POLYGON") %>%
+  sf::st_cast("POLYGON") %>%
   # convert back to sf
-  st_as_sf()
+  sf::st_as_sf()
 
 ## Check units for determining cellsize of grid
 ## Units will be in meters
-st_crs(aoi_poly, parameters = TRUE)$units_gdal
+sf::st_crs(aoi_poly, parameters = TRUE)$units_gdal
 
 #####################################
 
@@ -195,7 +195,7 @@ continents <- sf::st_read(dsn = land_dir, layer = "USGSEsriWCMC_GlobalIslandsv2_
 ##### Load big island land data
 big_islands <- sf::st_read(dsn = land_dir, layer = "USGSEsriWCMC_GlobalIslandsv2_BigIslands") %>%
   # make all features valid as an error may be generated otherwise
-  st_make_valid() %>%
+  sf::st_make_valid() %>%
   # use the land function to clean the data for later use
   land_function()
 
@@ -227,8 +227,8 @@ aoi_marine <- aoi_poly %>%
   dplyr::select(value)
   
 g <- ggplot() +
-  geom_sf(data = aoi_marine) +
-  geom_sf(data = wind_farm_i)
+  ggplot2::geom_sf(data = aoi_marine) +
+  ggplot2::geom_sf(data = wind_farm_i)
 g
 
 #####################################
@@ -263,20 +263,20 @@ g
 
 ##### Obtain land features in study area
 aoi_continental <- continents %>%
-  st_make_valid() %>%
-  st_intersection(aoi_poly)
+  sf::st_make_valid() %>%
+  sf::st_intersection(aoi_poly)
 
 aoi_big <- big_islands %>%
-  st_make_valid() %>%
-  st_intersection(aoi_poly)
+  sf::st_make_valid() %>%
+  sf::st_intersection(aoi_poly)
 
 aoi_small <- small_islands %>%
-  st_make_valid() %>%
-  st_intersection(aoi_poly)
+  sf::st_make_valid() %>%
+  sf::st_intersection(aoi_poly)
 
 aoi_very_small <- very_small_islands %>%
-  st_make_valid() %>%
-  st_intersection(aoi_poly)
+  sf::st_make_valid() %>%
+  sf::st_intersection(aoi_poly)
 
 #####################################
 
@@ -417,8 +417,8 @@ sf::st_write(aoi_marine, dsn = analysis_gpkg, layer = "gom_study_area_marine", a
 sf::st_write(wind_farm_i, dsn = analysis_gpkg, layer = "gom_wind_area_i", append = F)
 
 ## Raster
-writeRaster(rast_100m, filename = file.path(raster_dir, "gom_study_area_marine_100m_raster.grd"), overwrite = T)
-writeRaster(rast_test, filename = file.path(raster_dir, "test.grd"), overwrite = T)
+terra::writeRaster(rast_100m, filename = file.path(raster_dir, "gom_study_area_marine_100m_raster.grd"), overwrite = T)
+terra::writeRaster(rast_test, filename = file.path(raster_dir, "test.grd"), overwrite = T)
 # writeRaster(aoi_100m_raster, filename = file.path(raster_dir, "gom_study_area_marine_100m_raster.grd"), overwrite = T)
 
 ## Study area geopackage
