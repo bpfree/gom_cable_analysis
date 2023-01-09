@@ -31,3 +31,7 @@ data/a_raw_data/u_fouo_sd_geocables_June_2022_distribution
 ## Intermediate data
 data/b_intermediate_data/gom_physical_land.gpkg
 data/b_intermediate_data/gom_seagrass.gpkg
+
+## Old data
+data/old_runs/b_intermediate_data/gom_physical_land.gpkg
+data/old_runs/b_intermediate_data/gom_seagrass.gpkg
