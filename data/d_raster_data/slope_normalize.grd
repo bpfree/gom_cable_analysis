@@ -12,8 +12,8 @@ datatype=FLT4S
 nodatavalue=nan
 byteorder=little
 nbands=1
-minvalue=-3.40198377462769742e+38
-maxvalue=3.40217240103701138e+38
+minvalue=-3.40282164096842427e+38
+maxvalue=3.4004473821002208e+38
 categorical=FALSE
 [description]
 layername=slope

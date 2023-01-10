@@ -1,10 +1,10 @@
 [general]
 [georeference]
 nrows=1949
-ncols=1486
+ncols=1485
 xmin=48846.7344000004232
 ymin=548123.80449999962
-xmax=197446.734400000423
+xmax=197346.734400000423
 ymax=743023.80449999962
 projection=+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs
 [data]
