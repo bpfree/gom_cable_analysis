@@ -38,6 +38,9 @@ intermediate_dir <- "data/b_intermediate_data"
 ## Study area (to clip habitats to only that area)
 study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
+## Raster grid
+gom_raster <- terra::rast(paste(raster_dir, "gom_study_area_marine_100m_raster.grd", sep = "/"))
+
 #####################################
 
 ## Load AIS data (2019)
@@ -75,7 +78,7 @@ other_ais2019 <- terra::rast(paste(ais_tracks_dir, "AIS19_Other1.tif", sep = "/"
 
 # Create normalization functions
 ## Linear function
-linear_function <- function(raster, study_area){
+linear_function <- function(raster, gom_raster, study_area){
   # define projection (EPSG:5070)
   crs <- "EPSG:5070"
   
@@ -96,9 +99,9 @@ linear_function <- function(raster, study_area){
   # set values back to the newly projected raster
   vessel_normalize <- terra::setValues(raster_5070, normalize) %>%
     # crop to the study area (will be for the extent)
-    terra::crop(study_area,
-                # use study area as the mask
-                mask = T)
+    terra::crop(gom_raster) %>%
+    # mask to study area
+    terra::mask(study_area)
   
   # return the raster
   return(vessel_normalize)
@@ -109,25 +112,25 @@ linear_function <- function(raster, study_area){
 
 # Normalize vessel traffic
 cargo_normalized <- cargo_ais2019 %>%
-  linear_function(., study_area)
+  linear_function(., gom_raster, study_area)
 
 fishing_normalized <- fishing_ais2019 %>%
-  linear_function(., study_area)
+  linear_function(., gom_raster, study_area)
 
 passenger_normalized <- passenger_ais2019 %>%
-  linear_function(., study_area)
+  linear_function(., gom_raster, study_area)
 
 pleasure_normalized <- pleasure_ais2019 %>%
-  linear_function(., study_area)
+  linear_function(., gom_raster, study_area)
 
 tanker_normalized <- tanker_ais2019 %>%
-  linear_function(., study_area)
+  linear_function(., gom_raster, study_area)
 
 tugtow_normalized <- tugtow_ais2019 %>%
-  linear_function(., study_area)
+  linear_function(., gom_raster, study_area)
 
 other_normalized <- other_ais2019 %>%
-  linear_function(., study_area)
+  linear_function(., gom_raster, study_area)
 
 #####################################
 #####################################
