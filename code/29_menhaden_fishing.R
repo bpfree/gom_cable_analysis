@@ -387,7 +387,7 @@ square_grid <- sf::st_buffer(x = menhaden_2000_2019,
 g <- ggplot2::ggplot() + 
   ggplot2::geom_sf(data = study_area, fill = NA, color = "blue", linetype = "dashed") +
   ggplot2::geom_sf(data = square_grid, color = "orange") +
-  #geom_sf(data = menhaden_2000_2019, color = "red")
+  #ggplot2::geom_sf(data = menhaden_2000_2019, color = "red")
 g
 
 #####################################
@@ -439,12 +439,10 @@ menhaden_normalize <- menhaden_raster %>%
 
 # Export data
 ## Analysis geopackage
-sf::st_write(obj = menhaden_2000_2016, dsn = analysis_gpkg, "menhaden_fishing_2000_2016", append = F)
+sf::st_write(obj = menhaden_2000_2019, dsn = analysis_gpkg, "menhaden_fishing_2000_2016", append = F)
 
 ## Menhaden geopackage
-sf::st_write(obj = menhaden_2000_2016, dsn = menhaden_gpkg, "menhaden_fishing_2000_2016", append = F)
-sf::st_write(obj = menhaden_2017_2019, dsn = menhaden_gpkg, "menhaden_fishing_2017_2016", append = F)
-sf::st_write(obj = menhaden_2000_2019, dsn = menhaden_gpkg, "menhaden_fishing_2000_2019", append = F)
+sf::st_write(obj = menhaden_2000_2019, dsn = menhaden_gpkg, "menhaden_fishing_2000_2016", append = F)
 
 ## Raster data
 terra::writeRaster(menhaden_normalize, filename = file.path(raster_dir, "menhaden_2000_2019_normalize.grd"), overwrite = T)
