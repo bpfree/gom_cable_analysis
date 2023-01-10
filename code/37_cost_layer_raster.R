@@ -75,7 +75,10 @@ prd_species <- sf::st_read(dsn = data_dir, layer = "prd_species") %>%
   terra::rasterize(y = gom_raster,
                    field = "value")
 
-pelagic_birds <- terra::rast(paste(raster_dir, "pelagic_normalize.grd", sep = "/"))
+pelagic_birds <- terra::rast(paste(raster_dir, "pelagic_normalize.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
+hist(pelagic_birds)
 terra::ext(pelagic_birds) <- terra::ext(gom_raster) # give the pelagic birds the same extent as the GOM raster
 
 ### Potentially Sensitive Biological Features and Low Relief Features
@@ -153,47 +156,67 @@ pipeline <- sf::st_read(dsn = data_dir, layer = "pipelines") %>%
 
 ### AIS
 #### Cargo 2019
-ais_cargo <- terra::rast(paste(raster_dir, "cargo_ais2019_normalized.grd", sep = "/"))
+ais_cargo <- terra::rast(paste(raster_dir, "cargo_ais2019_normalized.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(ais_cargo) <- terra::ext(gom_raster) # give the AIS cargo the same extent as the GOM raster
 
 #### Fishing 2019
-ais_fishing <- terra::rast(paste(raster_dir, "fishing_ais2019_normalized.grd", sep = "/"))
+ais_fishing <- terra::rast(paste(raster_dir, "fishing_ais2019_normalized.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(ais_fishing) <- terra::ext(gom_raster) # give the AIS fishing the same extent as the GOM raster
 
 #### Passenger 2019
-ais_passenger <- terra::rast(paste(raster_dir, "passenger_ais2019_normalized.grd", sep = "/"))
+ais_passenger <- terra::rast(paste(raster_dir, "passenger_ais2019_normalized.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(ais_passenger) <- terra::ext(gom_raster) # give the AIS passenger the same extent as the GOM raster
 
 #### Pleasure 2019
-ais_pleasure <- terra::rast(paste(raster_dir, "pleasure_ais2019_normalized.grd", sep = "/"))
+ais_pleasure <- terra::rast(paste(raster_dir, "pleasure_ais2019_normalized.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(ais_pleasure) <- terra::ext(gom_raster) # give the AIS pleasure the same extent as the GOM raster
 
 #### Tanker 2019
-ais_tanker <- terra::rast(paste(raster_dir, "tanker_ais2019_normalized.grd", sep = "/"))
+ais_tanker <- terra::rast(paste(raster_dir, "tanker_ais2019_normalized.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(ais_tanker) <- terra::ext(gom_raster) # give the AIS tanker the same extent as the GOM raster
 
 #### Tugtow 2019
-ais_tugtow <- terra::rast(paste(raster_dir, "tugtow_ais2019_normalized.grd", sep = "/"))
+ais_tugtow <- terra::rast(paste(raster_dir, "tugtow_ais2019_normalized.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(ais_tugtow) <- terra::ext(gom_raster) # give the AIS tug-tow the same extent as the GOM raster
 
 #### Other 2019
-ais_other <- terra::rast(paste(raster_dir, "other_ais2019_normalized.grd", sep = "/"))
+ais_other <- terra::rast(paste(raster_dir, "other_ais2019_normalized.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(ais_other) <- terra::ext(gom_raster) # give the AIS other the same extent as the GOM raster
 
 ## Fisheries
 ### Menhaden
-menhaden <- terra::rast(paste(raster_dir, "menhaden_2000_2019_normalize.grd", sep = "/"))
+menhaden <- terra::rast(paste(raster_dir, "menhaden_2000_2019_normalize.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 
 ## Economics
 ### NREL - Net Value 2015
 
 ## Logistics
 ### Depth / Bathymetry
-bathymetry <- terra::rast(paste(raster_dir, "bathymetry_normalize.grd", sep = "/"))
+bathymetry <- terra::rast(paste(raster_dir, "bathymetry_normalize.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(bathymetry) <- terra::ext(gom_raster) # give the bathymetry the same extent as the GOM raster
 
 ### Slope
-slope <- terra::rast(paste(raster_dir, "slope_normalize.grd", sep = "/"))
+slope <- terra::rast(paste(raster_dir, "slope_normalize.grd", sep = "/")) %>%
+  # reclassify the values to have values only between 0 and 1
+  terra::classify(., cbind(terra::minmax(.)[1], -0.01, NA))
 terra::ext(slope) <- terra::ext(gom_raster) # give the slope the same extent as the GOM raster
 
 ##### resample? alignExtent?
@@ -215,12 +238,12 @@ cost_raster <- c(special_use_airspace,
                  navigation_aid,
                  shipping_lane,
                  pipeline,
-                 ais_cargo,
-                 ais_fishing,
-                 ais_passenger,
-                 ais_pleasure,
-                 ais_tanker,
-                 ais_tugtow,
+                 #ais_cargo,
+                 #ais_fishing,
+                 #ais_passenger,
+                 #ais_pleasure,
+                 #ais_tanker,
+                 #ais_tugtow,
                  #ais_other,
                  nexrad70km,
                  menhaden,
