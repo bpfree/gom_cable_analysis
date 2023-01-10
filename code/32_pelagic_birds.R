@@ -92,7 +92,9 @@ pelagic_birds <- terra::rast(paste(intermediate_dir, "pelagic_bird5070.grd", sep
                  origin = c(0,0),
                  method = "bilinear") %>%
   # crop to the study area (will be for the extent)
-  terra::crop(gom_raster)
+  terra::crop(gom_raster) %>%
+  # mask by study area
+  terra::mask(study_area)
 
 #####################################
 
@@ -166,7 +168,7 @@ freq(pelagic_normalize) # show frequency of values (though will round to 0 and 1
 # Export data
 ## Raster data
 terra::writeRaster(pelagic_normalize, filename = file.path(raster_dir, "pelagic_normalize.grd"), overwrite = T)
-terra::writeRaster(pelagic_bird_normalize, filename = file.path(raster_dir, "pelagic_bird_normalize.grd"), overwrite = T)
+#terra::writeRaster(pelagic_bird_normalize, filename = file.path(raster_dir, "pelagic_bird_normalize.grd"), overwrite = T)
 
 ## Intermediate data
 terra::writeRaster(pelagic_normalize, filename = file.path(intermediate_dir, "pelagic_normalize.grd"), overwrite = T)
