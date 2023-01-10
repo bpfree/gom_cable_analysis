@@ -61,8 +61,8 @@ lightering_zones <- sf::st_read(dsn = lightering_zone_dir, layer = "LighteringZo
 
 #####################################
 
-g <- ggplot() +
-  geom_sf(data = lightering_zones)
+g <- ggplot2::ggplot() +
+  ggplot2::geom_sf(data = lightering_zones)
 g
 
 #####################################
