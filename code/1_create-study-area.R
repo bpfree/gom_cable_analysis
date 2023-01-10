@@ -321,8 +321,8 @@ rast_temp <- terra::rast(aoi_marine,
 
 
 #### Create raster filed with the data from the study area
-rast_test <- terra::rasterize(x = aoi_marine,
-                              y = test,
+rast_100m <- terra::rasterize(x = aoi_marine,
+                              y = rast_temp,
                               field = "value")
 
 ##### ***Note: Alternative option if using raster() function; fasterize does not appear compatiable with terra()
@@ -418,7 +418,6 @@ sf::st_write(wind_farm_i, dsn = analysis_gpkg, layer = "gom_wind_area_i", append
 
 ## Raster
 terra::writeRaster(rast_100m, filename = file.path(raster_dir, "gom_study_area_marine_100m_raster.grd"), overwrite = T)
-terra::writeRaster(rast_test, filename = file.path(raster_dir, "test.grd"), overwrite = T)
 # writeRaster(aoi_100m_raster, filename = file.path(raster_dir, "gom_study_area_marine_100m_raster.grd"), overwrite = T)
 
 ## Study area geopackage
