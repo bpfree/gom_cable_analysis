@@ -76,7 +76,7 @@ unexploded_ordnance_areas <- sf::st_read(dsn = uxo_dir, layer = "UnexplodedOrdna
 #####################################
 
 # Inspect the point and polygon data for unexploded ordnances
-g <- ggplot() + 
+g <- ggplot2::ggplot() + 
   ggplot2::geom_sf(data = unexploded_ordnance_areas, color = "red", fill = NA) +
   ggplot2::geom_sf(data = unexploded_ordnance_points, color = "blue") +
   ggplot2::geom_sf(data = study_area, color = "black", linetype = "dashed", fill = NA)
