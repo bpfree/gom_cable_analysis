@@ -45,9 +45,9 @@ sf::st_layers(dsn = landing_points_dir,
 #####################################
 
 # Load coastal point data
-coast_points <- terra::st_read(dsn = landing_points_dir, layer = "coast_point_costs")
+coast_points <- sf::st_read(dsn = landing_points_dir, layer = "coast_point_costs")
 
-study_area <- terra::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
+study_area <- sf::st_read(dsn = analysis_gpkg, layer = "gom_study_area_marine")
 
 # View data
 coast_points
@@ -66,7 +66,7 @@ coast100 <- coast_points %>%
   rmapshaper::ms_clip(study_area)
 
 coast100
-list(unique(coast1000$endID))
+list(unique(coast100$endID))
 
 #####################################
 
@@ -79,7 +79,7 @@ g
 #####################################
 
 # Subset 4 landing option locations
-## This will use endID location [list(unique(coast50$endID)) --> 303708, 302357, 304846, 300463]
+## This will use endID location [list(unique(coast100$endID)) --> 303708, 302357, 304846, 300463]
 landing_area_303708 <- coast100 %>%
   # filter by endID "303708"
   dplyr::filter(endID == 303708) %>%
