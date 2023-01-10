@@ -63,8 +63,6 @@ smf_function_terra <- function(raster){
   return(pelagic_svalues)
 }
 
-
-
 #####################################
 #####################################
 
@@ -96,6 +94,12 @@ pelagic_birds <- terra::rast(paste(intermediate_dir, "pelagic_bird5070.grd", sep
   # mask by study area
   terra::mask(study_area)
 
+# Inspect 
+terra::minmax(pelagic_birds)[1,] # minimum value = 0.01101571
+terra::minmax(pelagic_birds)[2,] # maximum value = 0.3893387
+res(pelagic_birds) # 100 x 100
+hist(pelagic_birds) # show histogram of values (barely any between 0 and 0.15 or close to 0.4)
+
 #####################################
 
 # Create normalized pelagic data
@@ -106,7 +110,7 @@ pelagic_normalize <- pelagic_birds %>%
 terra::minmax(pelagic_normalize)[2,] # maximum value = 1
 terra::minmax(pelagic_normalize)[1,] # minimum value = 0
 res(pelagic_normalize) # 100 x 100
-hist(pelagic_normalize) # show histogram of values (though mostly values near 1)
+hist(pelagic_normalize) # show histogram of values (most are 0.3 to 1)
 freq(pelagic_normalize) # show frequency of values (though will round to 0 and 1)
 
 #####################################
