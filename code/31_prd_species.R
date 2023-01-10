@@ -46,7 +46,7 @@ prd_species <- sf::st_read(dsn = prd_dir, layer = "final_Scored_PRD_WP_Layer_cli
   # reproject the coordinate reference system
   sf::st_transform("EPSG:5070") %>% # EPSG 5070 (https://epsg.io/5070)
   # obtain species data within study area
-  st_intersection(study_area) %>%
+  sf::st_intersection(study_area) %>%
   # keep "product" and "value" fields
   dplyr::select(PRODUCT,
                 value) %>%
