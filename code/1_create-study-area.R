@@ -124,7 +124,7 @@ wind_farm_i <- boem_wind_areas %>%
   dplyr::filter(PROTRACTION_NUMBER == "NH15-10")
 
 #####################################
-g <- ggplot() +
+g <- ggplot2::ggplot() +
   ggplot2::geom_sf(data = wind_farm_i, color = "blue") +
   # Label wind areas
   ggplot2::geom_sf_label(data=wind_farm_i, mapping=aes(label=PROTRACTION_NUMBER), show.legend = F, size=2.5)
