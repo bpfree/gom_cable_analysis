@@ -1,27 +1,19 @@
 [general]
-creator=R package 'raster'
-created=2022-11-29 17:03:51
+[georeference]
+nrows=1949
+ncols=1486
+xmin=48846.7344000004232
+ymin=548123.80449999962
+xmax=197446.734400000423
+ymax=743023.80449999962
+projection=+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs
 [data]
 datatype=FLT4S
+nodatavalue=nan
 byteorder=little
 nbands=1
-bandorder=BIL
+minvalue=-1.61590494796147355e+38
+maxvalue=6.74893376609708649e+37
 categorical=FALSE
-minvalue=0
-maxvalue=1
-nodatavalue=-3.4e+38
-[legend]
-legendtype=
-values=
-color=
 [description]
 layername=AIS19_Other1
-[georeference]
-nrows=1954
-ncols=1485
-xmin=48846.7344000004
-ymin=548123.8045
-xmax=197346.7344
-ymax=743523.8045
-projection=+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs
-wkt=PROJCRS["NAD83 / Conus Albers",    BASEGEOGCRS["NAD83",        DATUM["North American Datum 1983",            ELLIPSOID["GRS 1980",6378137,298.257222101,                LENGTHUNIT["metre",1]]],        PRIMEM["Greenwich",0,            ANGLEUNIT["degree",0.0174532925199433]],        ID["EPSG",4269]],    CONVERSION["Conus Albers",        METHOD["Albers Equal Area",            ID["EPSG",9822]],        PARAMETER["Latitude of false origin",23,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8821]],        PARAMETER["Longitude of false origin",-96,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8822]],        PARAMETER["Latitude of 1st standard parallel",29.5,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8823]],        PARAMETER["Latitude of 2nd standard parallel",45.5,            ANGLEUNIT["degree",0.0174532925199433],            ID["EPSG",8824]],        PARAMETER["Easting at false origin",0,            LENGTHUNIT["metre",1],            ID["EPSG",8826]],        PARAMETER["Northing at false origin",0,            LENGTHUNIT["metre",1],            ID["EPSG",8827]]],    CS[Cartesian,2],        AXIS["easting (X)",east,            ORDER[1],            LENGTHUNIT["metre",1]],        AXIS["northing (Y)",north,            ORDER[2],            LENGTHUNIT["metre",1]],    USAGE[        SCOPE["Data analysis and small scale data presentation for contiguous lower 48 states."],        AREA["United States (USA) - CONUS onshore - Alabama; Arizona; Arkansas; California; Colorado; Connecticut; Delaware; Florida; Georgia; Idaho; Illinois; Indiana; Iowa; Kansas; Kentucky; Louisiana; Maine; Maryland; Massachusetts; Michigan; Minnesota; Mississippi; Missouri; Montana; Nebraska; Nevada; New Hampshire; New Jersey; New Mexico; New York; North Carolina; North Dakota; Ohio; Oklahoma; Oregon; Pennsylvania; Rhode Island; South Carolina; South Dakota; Tennessee; Texas; Utah; Vermont; Virginia; Washington; West Virginia; Wisconsin; Wyoming."],        BBOX[24.41,-124.79,49.38,-66.91]],    ID["EPSG",5070]]
