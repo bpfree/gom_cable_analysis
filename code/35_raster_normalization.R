@@ -51,14 +51,18 @@ slope <- terra::rast(paste(raster_dir, "slope.grd", sep = "/")) %>%
   terra::classify(cbind(terra::minmax(.)[1,], -0.001, NA))
 
 ## Inspect data
-NAvalue(bathymetry)
+terra::minmax(bathymetry)[1,]
+terra::minmax(bathymetry)[2,]
+terra::NAflag(bathymetry)
 frequency(bathymetry)
 hist(bathymetry)
 ncol(bathymetry)
 nrow(bathymetry)
 ncell(bathymetry)
 
-NAvalue(slope)
+terra::NAflag(slope)
+terra::minmax(slope)[1,]
+terra::minmax(slope)[2,]
 freq(slope)
 hist(slope)
 ncol(slope)
@@ -133,9 +137,8 @@ smf_function <- function(raster){
 bathymetry_normalize <- bathymetry %>%
   linear_function() %>%
   # have data get limited to study area dimensions
-  terra::crop(gom_raster) %>%
-  # mask to the study area (show data within the extent)
-  terra::mask(study_area)
+  terra::crop(study_area,
+              mask = T)
 
 # Inspect
 terra::minmax(bathymetry_normalize)[1,] # minimum value = 1
@@ -164,13 +167,12 @@ ncell(bathymetry_normalize)
 slope_normalize <- slope %>%
   smf_function() %>%
   # have data get limited to study area dimensions
-  terra::crop(gom_raster) %>%
-  # mask to the study area (show data within the extent)
-  terra::mask(study_area)
+  terra::crop(study_area,
+              mask= T)
 
 ## Make sure maximum value is 1
-terra::minmax(slope_normalize)[1,] # minimum value = 
-terra::minmax(slope_normalize)[2,] # maximum value = 0.9961739
+terra::minmax(slope_normalize)[1,] # minimum value = 0
+terra::minmax(slope_normalize)[2,] # maximum value = 1
 list(unique(slope_normalize)) # list all unique values
 res(slope_normalize) # 100 x 100
 ncol(slope_normalize)
