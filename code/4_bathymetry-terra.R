@@ -183,28 +183,28 @@ linear_function <- function(raster){
 # 
 # ## Create s-shape membership function
 # ### Adapted from https://www.mathworks.com/help/fuzzy/smf.html
-# smf_function <- function(raster){
-#   # calculate minimum value
-#   min <- terra::minmax(raster)[1,]
-#   
-#   # calculate maximum value
-#   max <- terra::minmax(raster)[2,]
-#   
-#   # calculate s-scores (more desired values get score of 0 while less desired will increase till 1)
-#   s_value <- ifelse(raster[] == min, 0, # if value is equal to minimum, score as 0
-#                     # if value is larger than minimum but lower than mid-value, calculate based on reduction equation
-#                     ifelse(raster[] > min & raster[] < (min + max) / 2, 2*((raster[] - min) / (max - min))**2,
-#                            # if value is larger than mid-value but lower than maximum, calculate based on equation
-#                            ifelse(raster[] >= (min + max) / 2 & raster[] < max, 1 - 2*((raster[] - max) / (max - min))**2,
-#                                   # if value is equal to maximum, score as 1; otherwise give NA
-#                                   ifelse(raster[] == max, 1, NA))))
-#   
-#   # set values back to the original raster
-#   slope_svalues <- terra::setValues(raster, s_value)
-#   
-#   # return the raster
-#   return(slope_svalues)
-# }
+smf_function <- function(raster){
+  # calculate minimum value
+  min <- terra::minmax(raster)[1,]
+
+  # calculate maximum value
+  max <- terra::minmax(raster)[2,]
+
+  # calculate s-scores (more desired values get score of 0 while less desired will increase till 1)
+  s_value <- ifelse(raster[] == min, 0, # if value is equal to minimum, score as 0
+                    # if value is larger than minimum but lower than mid-value, calculate based on reduction equation
+                    ifelse(raster[] > min & raster[] < (min + max) / 2, 2*((raster[] - min) / (max - min))**2,
+                           # if value is larger than mid-value but lower than maximum, calculate based on equation
+                           ifelse(raster[] >= (min + max) / 2 & raster[] < max, 1 - 2*((raster[] - max) / (max - min))**2,
+                                  # if value is equal to maximum, score as 1; otherwise give NA
+                                  ifelse(raster[] == max, 1, NA))))
+
+  # set values back to the original raster
+  slope_svalues <- terra::setValues(raster, s_value)
+
+  # return the raster
+  return(slope_svalues)
+}
 # 
 # #####################################
 # #####################################
@@ -215,18 +215,18 @@ bathymetry <- tx_bath_mask_5070
 bathymetry_normalize <- bathymetry %>%
   linear_function() %>%
   # have data get limited to study area dimensions
-  terra::crop(study_area_raster,
-              mask = TRUE)
-# 
-# # Inspect 
-# maxValue(bathymetry_normalize) # maximum value = 1
-# res(bathymetry_normalize) # 100 x 100
-# hist(bathymetry_normalize) # show histogram of values (values mostly between 0.0 and 0.4)
-# freq(bathymetry_normalize) # show frequency of values (though will round to 0 and 1)
-# ncol(bathymetry_normalize)
-# nrow(bathymetry_normalize)
-# ncell(bathymetry_normalize)
-# 
+  terra::crop(study_area_raster)
+
+# # Inspect
+terra::minmax(bathymetry_normalize)[1,] # minimum value = 0
+terra::minmax(bathymetry_normalize)[2,] # maximum value = 1
+res(bathymetry_normalize) # 100 x 100
+hist(bathymetry_normalize) # show histogram of values (values mostly between 0.0 and 0.4)
+freq(bathymetry_normalize) # show frequency of values (though will round to 0 and 1)
+ncol(bathymetry_normalize)
+nrow(bathymetry_normalize)
+ncell(bathymetry_normalize)
+
 # #####################################
 # 
 # # temp_r = raster(matrix(sample(2:1000, 10000, replace = TRUE), 100, 100))
@@ -241,22 +241,22 @@ bathymetry_normalize <- bathymetry %>%
 # # max(temp_new, na.rm = T)
 # 
 # # Generate new s-shape values
-# slope <- slope_5070
-# 
-# slope_normalize <- slope %>%
-#   smf_function() %>%
-#   # have data get limited to study area dimensions
-#   terra::crop(study_area_raster,
-#               mask = TRUE)
-# 
+slope <- gom_slope
+
+slope_normalize <- slope %>%
+  smf_function() %>%
+  # have data get limited to study area dimensions
+  terra::crop(study_area_raster)
+
 # ## Make sure maximum value is 1
-# minmax(slope_normalize)[2,] # maximum value = 1
-# list(unique(slope_normalize)) # list all unique values
-# res(slope_normalize) # 100 x 100
-# ncol(slope_normalize)
-# nrow(slope_normalize)
-# ncell(slope_normalize)
-# 
+terra::minmax(slope_normalize)[1,] # minimum value = 0
+terra::minmax(slope_normalize)[2,] # maximum value = 1
+list(unique(slope_normalize)) # list all unique values
+res(slope_normalize) # 100 x 100
+ncol(slope_normalize)
+nrow(slope_normalize)
+ncell(slope_normalize)
+
 # #####################################
 # 
 # ## Inspect new raster
