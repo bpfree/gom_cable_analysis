@@ -34,7 +34,7 @@ analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 platforms_gpkg <- "data/b_intermediate_data/drilling_platforms.gpkg"
 
 # View layer names within geodatabase
-sf::st_layers(dsn = boem_platform_dir,
+sf::st_layers(dsn = bsee_platform_dir,
               do_count = TRUE)
 
 #####################################
