@@ -238,12 +238,12 @@ cost_raster <- c(special_use_airspace,
                  navigation_aid,
                  shipping_lane,
                  pipeline,
-                 #ais_cargo,
-                 #ais_fishing,
-                 #ais_passenger,
-                 #ais_pleasure,
-                 #ais_tanker,
-                 #ais_tugtow,
+                 ais_cargo,
+                 ais_fishing,
+                 ais_passenger,
+                 ais_pleasure,
+                 ais_tanker,
+                 ais_tugtow,
                  #ais_other,
                  nexrad70km,
                  menhaden,
@@ -271,8 +271,8 @@ plot(cost_rm_constraints)
 #####################################
 
 ## Inspect new raster
-terra::minmax(cost_rm_constraints)[1,] # 0.51
-terra::minmax(cost_rm_constraints)[2,] # maximum value = 6.162601
+terra::minmax(cost_rm_constraints)[1,] # 0.01
+terra::minmax(cost_rm_constraints)[2,] # maximum value = 6.242341
 list(unique(cost_rm_constraints)) # list all unique values
 res(cost_rm_constraints) # 100 x 100
 hist(cost_rm_constraints) # show histogram of values (though mostly values near 1)
