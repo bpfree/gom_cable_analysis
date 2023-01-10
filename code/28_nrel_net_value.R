@@ -101,9 +101,9 @@ nrel_net_value_lease_blocks <- lease_blocks %>%
 
 # Convert data to a raster
 nrel_net_value_raster <- nrel_net_value_lease_blocks %>%
-  fasterize::fasterize(sf = .,
-                       raster = gom_raster,
-                       field = "value")
+  terra::rasterize(x = .,
+                   y = gom_raster,
+                   field = "value")
 
 #####################################
 #####################################
